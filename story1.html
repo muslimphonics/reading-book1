@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Story 1 – Sam's cap</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+
+margin:0;
+padding:25px;
+
+font-family:Arial,sans-serif;
+
+background:#7ec8ff;
+
+}
+
+/* TOP */
+
+.top-bar{
+
+max-width:1100px;
+
+margin:auto;
+
+margin-bottom:25px;
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+}
+
+.back-button{
+
+background:#fffdf8;
+
+padding:14px 20px;
+
+border-radius:20px;
+
+text-decoration:none;
+
+font-size:28px;
+
+box-shadow:0 6px 18px rgba(0,0,0,0.12);
+
+}
+
+.story-title{
+
+font-size:38px;
+
+font-weight:bold;
+
+color:white;
+
+}
+
+/* STORY */
+
+.story-box{
+
+max-width:1100px;
+
+margin:auto;
+
+background:#fffdf8;
+
+border-radius:35px;
+
+padding:40px;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.12);
+
+}
+
+.story{
+
+font-size:42px;
+
+line-height:2.2;
+
+font-weight:bold;
+
+color:#173f7a;
+
+}
+
+.sentence{
+
+display:block;
+
+margin-bottom:12px;
+
+}
+
+.word{
+
+cursor:pointer;
+
+padding:5px 8px;
+
+border-radius:15px;
+
+transition:0.2s;
+
+display:inline-block;
+
+}
+
+.word:hover{
+
+background:#e8f7df;
+
+}
+
+/* HELP + AUDIO */
+
+.help-icon{
+
+width:42px;
+
+height:42px;
+
+border:none;
+
+border-radius:50%;
+
+background:#eef4ff;
+
+font-size:20px;
+
+cursor:pointer;
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+margin-left:10px;
+
+vertical-align:middle;
+
+transition:0.2s;
+
+}
+
+.help-icon:hover{
+
+transform:scale(1.08);
+
+background:#dfefff;
+
+}
+
+.help-text{
+
+display:none;
+
+margin-top:12px;
+
+margin-left:10px;
+
+padding:14px;
+
+border-radius:18px;
+
+background:#f8f8f8;
+
+font-size:24px;
+
+color:#5c6f8f;
+
+line-height:1.5;
+
+max-width:700px;
+
+}
+
+/* POPUP */
+
+.popup{
+
+position:fixed;
+
+left:50%;
+
+bottom:15px;
+
+transform:translateX(-50%);
+
+width:95%;
+
+max-width:700px;
+
+background:white;
+
+border-radius:30px;
+
+padding:20px;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
+
+display:none;
+
+z-index:999;
+
+}
+
+.word-title-popup{
+
+text-align:center;
+
+font-size:75px;
+
+font-weight:bold;
+
+margin-bottom:20px;
+
+line-height:1;
+
+color:#173f7a;
+
+}
+
+.blocks{
+
+display:flex;
+
+gap:12px;
+
+}
+
+.block{
+
+flex:1;
+
+border-radius:25px;
+
+padding:18px;
+
+text-align:center;
+
+}
+
+.left{
+background:#dfefff;
+}
+
+.right{
+background:#e8f7df;
+}
+
+.text{
+
+font-size:34px;
+
+font-weight:bold;
+
+margin-bottom:18px;
+
+white-space:nowrap;
+
+color:#173f7a;
+
+}
+
+button{
+
+border:none;
+
+background:white;
+
+border-radius:20px;
+
+padding:12px 18px;
+
+cursor:pointer;
+
+font-size:32px;
+
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+
+}
+
+.translation{
+
+margin-top:18px;
+
+background:#fff8e8;
+
+border-radius:20px;
+
+padding:15px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+.translation-word{
+
+font-size:28px;
+
+font-weight:bold;
+
+color:#173f7a;
+
+}
+
+.image{
+
+font-size:45px;
+
+}
+
+.close{
+
+position:absolute;
+
+top:10px;
+
+right:15px;
+
+font-size:28px;
+
+cursor:pointer;
+
+}
+
+/* ACTIVITIES BUTTON */
+
+.activities-section{
+
+text-align:center;
+
+margin-top:45px;
+
+}
+
+.activities-button{
+
+display:inline-block;
+
+background:#173f7a;
+
+color:white;
+
+text-decoration:none;
+
+font-size:34px;
+
+font-weight:bold;
+
+padding:22px 55px;
+
+border-radius:30px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+transition:0.2s;
+
+}
+
+.activities-button:hover{
+
+transform:scale(1.05);
+
+background:#21539c;
+
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.story{
+
+font-size:28px;
+
+line-height:2;
+
+}
+
+.story-title{
+
+font-size:28px;
+
+}
+
+.word-title-popup{
+
+font-size:55px;
+
+}
+
+.text{
+
+font-size:24px;
+
+}
+
+button{
+
+font-size:24px;
+
+}
+
+.translation-word{
+
+font-size:22px;
+
+}
+
+.image{
+
+font-size:35px;
+
+}
+
+.help-text{
+
+font-size:20px;
+
+}
+
+.activities-button{
+
+font-size:26px;
+
+padding:18px 38px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top-bar">
+
+<a href="index.html" class="back-button">
+⬅
+</a>
+
+<div class="story-title">
+Story 1 – Sam’s cap
+</div>
+
+</div>
+
+<div class="story-box">
+
+<div class="story">
+
+<div class="sentence">
+
+<span class="word"
+onclick="openWord('Sam','Sam','👦')">
+Sam
+</span>
+
+<span class="word"
+onclick="saySimpleWord('has')">
+has
+</span>
+
+<span class="word"
+onclick="saySimpleWord('a')">
+a
+</span>
+
+<span class="word"
+onclick="openWord('cap','casquette','🧢')">
+cap.
+</span>
+
+<button class="help-icon"
+onclick="playSentence('1.mp3')">
+🔊
+</button>
+
+<button class="help-icon"
+onclick="toggleHelp('help1')">
+💡
+</button>
+
+<div class="help-text" id="help1">
+Sam a une casquette.
+</div>
+
+</div>
+
+<div class="sentence">
+
+<span class="word"
+onclick="saySimpleWord('The')">
+The
+</span>
+
+<span class="word"
+onclick="openWord('cap','casquette','🧢')">
+cap
+</span>
+
+<span class="word"
+onclick="saySimpleWord('is')">
+is
+</span>
+
+<span class="word"
+onclick="openWord('red','rouge','🟥')">
+red.
+</span>
+
+<button class="help-icon"
+onclick="playSentence('2.mp3')">
+🔊
+</button>
+
+<button class="help-icon"
+onclick="toggleHelp('help2')">
+💡
+</button>
+
+<div class="help-text" id="help2">
+La casquette est rouge.
+</div>
+
+</div>
+
+<div class="sentence">
+
+<span class="word"
+onclick="openWord('Sam','Sam','👦')">
+Sam
+</span>
+
+<span class="word"
+onclick="saySimpleWord('has')">
+has
+</span>
+
+<span class="word"
+onclick="saySimpleWord('a')">
+a
+</span>
+
+<span class="word"
+onclick="openWord('bag','sac','🎒')">
+bag.
+</span>
+
+<button class="help-icon"
+onclick="playSentence('3.mp3')">
+🔊
+</button>
+
+<button class="help-icon"
+onclick="toggleHelp('help3')">
+💡
+</button>
+
+<div class="help-text" id="help3">
+Sam a un sac.
+</div>
+
+</div>
+
+<div class="sentence">
+
+<span class="word"
+onclick="saySimpleWord('The')">
+The
+</span>
+
+<span class="word"
+onclick="openWord('bag','sac','🎒')">
+bag
+</span>
+
+<span class="word"
+onclick="saySimpleWord('is')">
+is
+</span>
+
+<span class="word"
+onclick="openWord('red','rouge','🟥')">
+red
+</span>
+
+<span class="word"
+onclick="saySimpleWord('too')">
+too.
+</span>
+
+<button class="help-icon"
+onclick="playSentence('4.mp3')">
+🔊
+</button>
+
+<button class="help-icon"
+onclick="toggleHelp('help4')">
+💡
+</button>
+
+<div class="help-text" id="help4">
+Le sac est rouge aussi.
+</div>
+
+</div>
+
+<div class="sentence">
+
+<span class="word"
+onclick="openWord('Sam','Sam','👦')">
+Sam
+</span>
+
+<span class="word"
+onclick="saySimpleWord('runs')">
+runs
+</span>
+
+<span class="word"
+onclick="saySimpleWord('to')">
+to
+</span>
+
+<span class="word"
+onclick="openWord('Dad','Papa','👨')">
+Dad.
+</span>
+
+<button class="help-icon"
+onclick="playSentence('5.mp3')">
+🔊
+</button>
+
+<button class="help-icon"
+onclick="toggleHelp('help5')">
+💡
+</button>
+
+<div class="help-text" id="help5">
+Sam court vers Papa.
+</div>
+
+</div>
+
+<div class="sentence">
+
+<span class="word"
+onclick="openWord('Dad','Papa','👨')">
+Dad
+</span>
+
+<span class="word"
+onclick="saySimpleWord('has')">
+has
+</span>
+
+<span class="word"
+onclick="saySimpleWord('a')">
+a
+</span>
+
+<span class="word"
+onclick="openWord('cap','casquette','🧢')">
+cap.
+</span>
+
+<button class="help-icon"
+onclick="playSentence('6.mp3')">
+🔊
+</button>
+
+<button class="help-icon"
+onclick="toggleHelp('help6')">
+💡
+</button>
+
+<div class="help-text" id="help6">
+Papa a une casquette.
+</div>
+
+</div>
+
+<div class="sentence">
+
+<span class="word"
+onclick="openWord('Sam','Sam','👦')">
+Sam
+</span>
+
+<span class="word"
+onclick="saySimpleWord('is')">
+is
+</span>
+
+<span class="word"
+onclick="openWord('glad','content','😊')">
+glad.
+</span>
+
+<button class="help-icon"
+onclick="playSentence('7.mp3')">
+🔊
+</button>
+
+<button class="help-icon"
+onclick="toggleHelp('help7')">
+💡
+</button>
+
+<div class="help-text" id="help7">
+Sam est content.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ACTIVITIES BUTTON -->
+
+<div class="activities-section">
+
+<a href="story1-activities.html" class="activities-button">
+🎯 Activities
+</a>
+
+</div>
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+<div class="close" onclick="closePopup()">
+✖
+</div>
+
+<div class="word-title-popup" id="popup-word">
+</div>
+
+<div class="blocks">
+
+<div class="block left">
+
+<div class="text">
+Word
+</div>
+
+<button onclick="sayWord()">
+🔊
+</button>
+
+</div>
+
+<div class="block right">
+
+<div class="translation-word" id="popup-translation">
+</div>
+
+<div class="image" id="popup-emoji">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let selectedVoice = null;
+
+function loadVoice(){
+
+const voices = window.speechSynthesis.getVoices();
+
+selectedVoice = voices.find(v =>
+v.lang.includes("en-US")
+);
+
+if(!selectedVoice){
+
+selectedVoice = voices.find(v =>
+v.lang.includes("en")
+);
+
+}
+
+}
+
+speechSynthesis.onvoiceschanged = loadVoice;
+
+loadVoice();
+
+function toggleHelp(id){
+
+const element = document.getElementById(id);
+
+if(element.style.display === "block"){
+
+element.style.display = "none";
+
+}else{
+
+element.style.display = "block";
+
+}
+
+}
+
+function saySimpleWord(word){
+
+window.speechSynthesis.cancel();
+
+const speech = new SpeechSynthesisUtterance(word);
+
+speech.lang = "en-US";
+
+speech.rate = 0.7;
+
+speech.voice = selectedVoice;
+
+window.speechSynthesis.speak(speech);
+
+}
+
+function playSentence(file){
+
+const audio = new Audio("./story1/" + file);
+
+audio.play();
+
+}
+
+function openWord(word, translation, emoji){
+
+document.getElementById("popup").style.display = "block";
+
+document.getElementById("popup-word").innerHTML = word;
+
+document.getElementById("popup-translation").innerHTML =
+"🇫🇷 " + translation;
+
+document.getElementById("popup-emoji").innerHTML = emoji;
+
+window.currentWord = word;
+
+}
+
+function closePopup(){
+
+document.getElementById("popup").style.display = "none";
+
+}
+
+function sayWord(){
+
+window.speechSynthesis.cancel();
+
+const speech = new SpeechSynthesisUtterance(window.currentWord);
+
+speech.lang = "en-US";
+
+speech.rate = 0.7;
+
+speech.voice = selectedVoice;
+
+window.speechSynthesis.speak(speech);
+
+}
+
+</script>
+
+</body>
+
+</html>

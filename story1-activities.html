@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Story 1 Activities</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+padding:25px;
+font-family:Arial,sans-serif;
+background:#7ec8ff;
+}
+
+/* TOP */
+
+.top-bar{
+max-width:1100px;
+margin:auto;
+margin-bottom:25px;
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.back-button{
+background:#fffdf8;
+padding:14px 20px;
+border-radius:20px;
+text-decoration:none;
+font-size:28px;
+box-shadow:0 6px 18px rgba(0,0,0,0.12);
+}
+
+.title{
+font-size:38px;
+font-weight:bold;
+color:white;
+}
+
+/* MAIN BOX */
+
+.activity-box{
+max-width:1100px;
+margin:auto;
+margin-bottom:35px;
+background:#fffdf8;
+border-radius:35px;
+padding:40px;
+box-shadow:0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* TITLES */
+
+.activity-title{
+font-size:42px;
+font-weight:bold;
+color:#173f7a;
+margin-bottom:45px;
+text-align:center;
+}
+
+/* CARDS */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:28px;
+}
+
+/* CARD */
+
+.card{
+background:white;
+border-radius:30px;
+padding:25px;
+text-align:center;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* IMAGES */
+
+.card img,
+.image-box img{
+width:220px;
+height:220px;
+object-fit:contain;
+}
+
+/* MATCH ROW */
+
+.match-row{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:30px;
+padding:25px 0;
+border-bottom:2px dashed #dfefff;
+flex-wrap:wrap;
+}
+
+.image-box{
+flex:1;
+text-align:center;
+}
+
+.words{
+flex:1;
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+justify-content:center;
+}
+
+/* BUTTONS */
+
+.word-button,
+.check-button,
+.choice-button{
+border:none;
+background:#173f7a;
+color:white;
+font-size:28px;
+font-weight:bold;
+padding:16px 26px;
+border-radius:20px;
+cursor:pointer;
+transition:0.2s;
+}
+
+.word-button:hover,
+.check-button:hover,
+.choice-button:hover{
+transform:scale(1.05);
+background:#21539c;
+}
+
+/* INPUT */
+
+.type-label{
+font-size:24px;
+font-weight:bold;
+color:#173f7a;
+margin-bottom:14px;
+}
+
+.word-input{
+width:100%;
+max-width:220px;
+padding:16px;
+border-radius:18px;
+border:3px solid #dfefff;
+font-size:24px;
+text-align:center;
+font-weight:bold;
+outline:none;
+}
+
+/* FEEDBACK */
+
+.correct{
+background:#38b94a !important;
+}
+
+.wrong{
+background:#ff4d4d !important;
+}
+
+/* CORRECTION */
+
+.correction{
+
+margin-top:14px;
+
+font-size:22px;
+
+font-weight:bold;
+
+color:#ff4d4d;
+
+}
+
+/* TEXT GAME */
+
+.text-story{
+font-size:38px;
+line-height:1.6;
+font-weight:bold;
+text-align:center;
+color:#173f7a;
+}
+
+.find-word{
+cursor:pointer;
+padding:6px 10px;
+border-radius:14px;
+transition:0.2s;
+display:inline-block;
+}
+
+.find-word:hover{
+background:#e8f7df;
+}
+
+/* RECORDING STATUS */
+
+.recording-status{
+display:none;
+margin-top:25px;
+margin-bottom:40px;
+text-align:center;
+font-size:34px;
+font-weight:bold;
+color:#ff3b3b;
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+0%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.08);
+}
+100%{
+transform:scale(1);
+}
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.title{
+font-size:28px;
+}
+
+.activity-title{
+font-size:30px;
+}
+
+.word-button,
+.check-button,
+.choice-button{
+font-size:22px;
+padding:14px 18px;
+}
+
+.card img,
+.image-box img{
+width:150px;
+height:150px;
+}
+
+.text-story{
+font-size:28px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- TOP -->
+
+<div class="top-bar">
+
+<a href="story1.html" class="back-button">
+⬅
+</a>
+
+<div class="title">
+Story 1 Activities
+</div>
+
+</div>
+
+<!-- ACTIVITY 1 -->
+
+<div class="activity-box">
+
+<div class="activity-title">
+🎯 Activity 1 — Look at the picture. Mark the correct word.
+</div>
+
+<div class="match-row">
+
+<div class="image-box">
+<img src="../Assets/images/cap.png">
+</div>
+
+<div class="words">
+
+<button class="word-button"
+onclick="checkAnswer(this,false)">
+bag
+</button>
+
+<button class="word-button"
+onclick="checkAnswer(this,true)">
+cap
+</button>
+
+<button class="word-button"
+onclick="checkAnswer(this,false)">
+Dad
+</button>
+
+</div>
+
+</div>
+
+<div class="match-row">
+
+<div class="image-box">
+<img src="../Assets/images/bag.png">
+</div>
+
+<div class="words">
+
+<button class="word-button"
+onclick="checkAnswer(this,true)">
+bag
+</button>
+
+<button class="word-button"
+onclick="checkAnswer(this,false)">
+cap
+</button>
+
+<button class="word-button"
+onclick="checkAnswer(this,false)">
+Sam
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ACTIVITY 2 -->
+
+<div class="activity-box">
+
+<div class="activity-title">
+🎯 Activity 2 — Type the word
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<img src="../Assets/images/cap.png">
+
+<div class="type-label">
+Type the word:
+</div>
+
+<input
+type="text"
+autocomplete="off"
+autocorrect="off"
+autocapitalize="off"
+spellcheck="false"
+id="cap-input"
+class="word-input">
+
+<br><br>
+
+<button class="check-button"
+onclick="checkTyping('cap-input','cap',this)">
+Check
+</button>
+
+</div>
+
+<div class="card">
+
+<img src="../Assets/images/bag.png">
+
+<div class="type-label">
+Type the word:
+</div>
+
+<input
+type="text"
+autocomplete="off"
+autocorrect="off"
+autocapitalize="off"
+spellcheck="false"
+id="bag-input"
+class="word-input">
+
+<br><br>
+
+<button class="check-button"
+onclick="checkTyping('bag-input','bag',this)">
+Check
+</button>
+
+</div>
+
+<div class="card">
+
+<img src="../Assets/images/dad.png">
+
+<div class="type-label">
+Type the word:
+</div>
+
+<input
+type="text"
+autocomplete="off"
+autocorrect="off"
+autocapitalize="off"
+spellcheck="false"
+id="dad-input"
+class="word-input">
+
+<br><br>
+
+<button class="check-button"
+onclick="checkTyping('dad-input','dad',this)">
+Check
+</button>
+
+</div>
+
+<div class="card">
+
+<img src="../Assets/images/story1-boy.png">
+
+<div class="type-label">
+Type the word:
+</div>
+
+<input
+type="text"
+autocomplete="off"
+autocorrect="off"
+autocapitalize="off"
+spellcheck="false"
+id="sam-input"
+class="word-input">
+
+<br><br>
+
+<button class="check-button"
+onclick="checkTyping('sam-input','sam',this)">
+Check
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ACTIVITY 3 -->
+
+<div class="activity-box">
+
+<div class="activity-title">
+🎯 Activity 3 — Choose the correct sentence
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<img src="../Assets/images/cap.png">
+
+<br><br>
+
+<button class="choice-button"
+onclick="checkAnswer(this,true)">
+The cap is red.
+</button>
+
+<br><br>
+
+<button class="choice-button"
+onclick="checkAnswer(this,false)">
+The bag is red.
+</button>
+
+<br><br>
+
+<button class="choice-button"
+onclick="checkAnswer(this,false)">
+The cat is red.
+</button>
+
+</div>
+
+<div class="card">
+
+<img src="../Assets/images/bag.png">
+
+<br><br>
+
+<button class="choice-button"
+onclick="checkAnswer(this,false)">
+Sam has a cap.
+</button>
+
+<br><br>
+
+<button class="choice-button"
+onclick="checkAnswer(this,true)">
+Sam has a bag.
+</button>
+
+<br><br>
+
+<button class="choice-button"
+onclick="checkAnswer(this,false)">
+Dad has a red bag.
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ACTIVITY 4 -->
+
+<div class="activity-box">
+
+<div class="activity-title">
+🎯 Activity 4 — Translation
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<div style="
+font-size:34px;
+font-weight:bold;
+color:#173f7a;
+line-height:1.5;">
+
+Le sac est rouge.
+
+</div>
+
+<br>
+
+<input
+type="text"
+id="translate1"
+class="word-input"
+placeholder="Write in English">
+
+<br><br>
+
+<button class="check-button"
+onclick="checkFlexibleAnswer(
+'translate1',
+['The bag is red.','the bag is red','the bag is red.'],
+this)">
+Check
+</button>
+
+</div>
+
+<div class="card">
+
+<div style="
+font-size:34px;
+font-weight:bold;
+color:#173f7a;
+line-height:1.5;">
+
+Papa a un sac.
+
+</div>
+
+<br>
+
+<input
+type="text"
+id="translate2"
+class="word-input"
+placeholder="Write in English">
+
+<br><br>
+
+<button class="check-button"
+onclick="checkFlexibleAnswer(
+'translate2',
+['Dad has a bag.','dad has a bag.','dad has a bag'],
+this)">
+Check
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ACTIVITY 5 -->
+
+<div class="activity-box">
+
+<div class="activity-title">
+🎯 Activity 5 — Find the word in the text
+</div>
+
+<div style="
+text-align:center;
+margin-bottom:35px;">
+
+<div style="
+font-size:22px;
+font-weight:600;
+color:#5c6f8f;
+letter-spacing:0.5px;
+text-transform:uppercase;
+margin-bottom:25px;">
+
+Look at the picture. Find it in the text.
+
+</div>
+
+<div style="
+width:340px;
+height:340px;
+margin:auto;
+border-radius:50%;
+background:#eef4ff;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+margin-bottom:35px;">
+
+<img src="../Assets/images/cap.png"
+style="
+width:300px;
+height:300px;
+object-fit:contain;">
+
+</div>
+
+</div>
+
+<div class="text-story">
+
+<span class="find-word"
+onclick="findWord(this,false)">
+Sam
+</span>
+
+<span class="find-word"
+onclick="findWord(this,false)">
+has
+</span>
+
+<span class="find-word"
+onclick="findWord(this,false)">
+a
+</span>
+
+<span class="find-word"
+onclick="findWord(this,true)">
+cap.
+</span>
+
+<br>
+
+<span class="find-word"
+onclick="findWord(this,false)">
+The
+</span>
+
+<span class="find-word"
+onclick="findWord(this,true)">
+cap
+</span>
+
+<span class="find-word"
+onclick="findWord(this,false)">
+is
+</span>
+
+<span class="find-word"
+onclick="findWord(this,false)">
+red.
+</span>
+
+<br>
+
+<span class="find-word"
+onclick="findWord(this,false)">
+Sam
+</span>
+
+<span class="find-word"
+onclick="findWord(this,false)">
+has
+</span>
+
+<span class="find-word"
+onclick="findWord(this,false)">
+a
+</span>
+
+<span class="find-word"
+onclick="findWord(this,false)">
+bag.
+</span>
+
+<br>
+
+<span class="find-word"
+onclick="findWord(this,false)">
+Dad
+</span>
+
+<span class="find-word"
+onclick="findWord(this,false)">
+has
+</span>
+
+<span class="find-word"
+onclick="findWord(this,false)">
+a
+</span>
+
+<span class="find-word"
+onclick="findWord(this,true)">
+cap.
+</span>
+
+</div>
+
+</div>
+
+<!-- ACTIVITY 6 -->
+
+<div class="activity-box">
+
+<div class="activity-title">
+🎤 Activity 6 — Read and Listen to Yourself
+</div>
+
+<div style="
+text-align:center;
+font-size:20px;
+font-weight:600;
+color:#5c6f8f;
+line-height:1.6;
+margin-bottom:30px;">
+
+Read the story aloud.<br>
+Record your voice and listen to yourself.
+
+</div>
+
+<div style="
+max-width:700px;
+margin:auto;
+background:#eef4ff;
+padding:30px;
+border-radius:35px;
+margin-bottom:30px;">
+
+<div class="text-story"
+style="
+font-size:32px;
+line-height:1.5;
+text-align:center;">
+
+Sam has a cap.<br>
+
+The cap is red.<br>
+
+Sam has a bag.<br>
+
+The bag is red too.<br>
+
+Sam runs to Dad.<br>
+
+Dad has a cap.<br>
+
+Sam is glad.
+
+</div>
+
+</div>
+
+<div style="
+display:flex;
+justify-content:center;
+gap:16px;
+flex-wrap:wrap;
+margin-bottom:20px;">
+
+<button class="choice-button"
+onclick="startRecording()">
+🎙 Record
+</button>
+
+<button class="choice-button"
+onclick="stopRecording()">
+⏹ Stop
+</button>
+
+<button class="choice-button"
+onclick="playRecording()">
+🔊 Play & Listen
+</button>
+
+</div>
+
+<div id="recordingStatus"
+class="recording-status">
+
+🔴 Recording...
+
+</div>
+
+<div style="
+text-align:center;
+font-size:24px;
+font-weight:bold;
+color:#173f7a;
+margin-top:20px;
+margin-bottom:20px;">
+
+How was your reading?
+
+</div>
+
+<div style="
+display:flex;
+justify-content:center;
+gap:18px;
+flex-wrap:wrap;">
+
+<button class="choice-button"
+style="
+font-size:34px;
+padding:14px 22px;
+background:#ff6b6b;"
+onclick="rateReading(this,'Keep practicing! 🌱')">
+
+⭐
+
+</button>
+
+<button class="choice-button"
+style="
+font-size:34px;
+padding:14px 22px;
+background:#ffd966;"
+onclick="rateReading(this,'Good reading! 🌟')">
+
+⭐⭐
+
+</button>
+
+<button class="choice-button"
+style="
+font-size:34px;
+padding:14px 22px;
+background:#38b94a;"
+onclick="rateReading(this,'Excellent reading! 🏆')">
+
+⭐⭐⭐
+
+</button>
+
+</div>
+
+<div id="readingFeedback"
+style="
+margin-top:25px;
+text-align:center;
+font-size:26px;
+font-weight:bold;
+color:#173f7a;">
+</div>
+
+</div>
+
+<!-- BOTTOM BUTTONS -->
+
+<div style="
+text-align:center;
+margin-top:45px;
+margin-bottom:60px;">
+
+<button class="choice-button"
+onclick="location.reload()">
+
+🔄 Restart Activities
+
+</button>
+
+<br><br>
+
+<a href="index.html"
+style="text-decoration:none;">
+
+<button class="choice-button">
+
+📚 Back to Summary
+
+</button>
+
+</a>
+
+</div>
+
+<script>
+
+function playGood(){
+
+const audio =
+new Audio("../Assets/word-audio/goodanswer.mp3");
+
+audio.play();
+
+}
+
+function playBad(){
+
+const audio =
+new Audio("../Assets/word-audio/badanswer.mp3");
+
+audio.play();
+
+}
+
+function checkAnswer(button,isCorrect){
+
+button.classList.remove("correct");
+button.classList.remove("wrong");
+
+if(isCorrect){
+
+button.classList.add("correct");
+
+playGood();
+
+}else{
+
+button.classList.add("wrong");
+
+playBad();
+
+}
+
+}
+
+function showCorrection(input,message){
+
+let oldCorrection =
+input.parentElement.querySelector(".correction");
+
+if(oldCorrection){
+
+oldCorrection.remove();
+
+}
+
+const correction =
+document.createElement("div");
+
+correction.className = "correction";
+
+correction.innerHTML = message;
+
+input.parentElement.appendChild(correction);
+
+}
+
+function checkTyping(inputId,correctWord,button){
+
+const input =
+document.getElementById(inputId);
+
+const value =
+input.value.toLowerCase().trim();
+
+button.classList.remove("correct");
+button.classList.remove("wrong");
+
+let oldCorrection =
+input.parentElement.querySelector(".correction");
+
+if(oldCorrection){
+
+oldCorrection.remove();
+
+}
+
+if(value === correctWord){
+
+input.style.border =
+"3px solid #38b94a";
+
+button.classList.add("correct");
+
+playGood();
+
+}else{
+
+input.style.border =
+"3px solid #ff4d4d";
+
+button.classList.add("wrong");
+
+showCorrection(
+input,
+"Correct answer: " + correctWord
+);
+
+playBad();
+
+}
+
+}
+
+function normalizeText(text){
+
+return text
+.toLowerCase()
+.replace(/[.,!?]/g,"")
+.trim();
+
+}
+
+function checkFlexibleAnswer(inputId,answers,button){
+
+const input =
+document.getElementById(inputId);
+
+const value =
+normalizeText(input.value);
+
+const normalizedAnswers =
+answers.map(a => normalizeText(a));
+
+button.classList.remove("correct");
+button.classList.remove("wrong");
+
+let oldCorrection =
+input.parentElement.querySelector(".correction");
+
+if(oldCorrection){
+
+oldCorrection.remove();
+
+}
+
+if(normalizedAnswers.includes(value)){
+
+input.style.border =
+"3px solid #38b94a";
+
+button.classList.add("correct");
+
+playGood();
+
+}else{
+
+input.style.border =
+"3px solid #ff4d4d";
+
+button.classList.add("wrong");
+
+showCorrection(
+input,
+"Correct answer: " + answers[0]
+);
+
+playBad();
+
+}
+
+}
+
+function findWord(word,isCorrect){
+
+if(isCorrect){
+
+word.style.background =
+"#38b94a";
+
+word.style.color =
+"white";
+
+playGood();
+
+}else{
+
+word.style.background =
+"#ff4d4d";
+
+word.style.color =
+"white";
+
+playBad();
+
+}
+
+}
+
+let mediaRecorder;
+
+let audioChunks = [];
+
+let recordedAudio;
+
+async function startRecording(){
+
+document.getElementById(
+"recordingStatus"
+).style.display = "block";
+
+const stream =
+await navigator.mediaDevices.getUserMedia({
+audio:true
+});
+
+mediaRecorder =
+new MediaRecorder(stream);
+
+audioChunks = [];
+
+mediaRecorder.ondataavailable = event => {
+
+audioChunks.push(event.data);
+
+};
+
+mediaRecorder.onstop = () => {
+
+const audioBlob =
+new Blob(audioChunks,{
+type:'audio/mp3'
+});
+
+recordedAudio =
+URL.createObjectURL(audioBlob);
+
+};
+
+mediaRecorder.start();
+
+}
+
+function stopRecording(){
+
+mediaRecorder.stop();
+
+document.getElementById(
+"recordingStatus"
+).style.display = "none";
+
+}
+
+function playRecording(){
+
+if(recordedAudio){
+
+const audio =
+new Audio(recordedAudio);
+
+audio.play();
+
+}
+
+}
+
+function rateReading(button,message){
+
+const buttons =
+button.parentElement.querySelectorAll("button");
+
+buttons.forEach(btn => {
+
+btn.classList.remove("correct");
+
+});
+
+button.classList.add("correct");
+
+const audio =
+new Audio("../Assets/word-audio/star.mp3");
+
+audio.play();
+
+document.getElementById(
+"readingFeedback"
+).innerHTML = message;
+
+}
+
+</script>
+
+</body>
+
+</html>
