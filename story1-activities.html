@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Story 1 Activities</title>
+<title>Story 1 – Sam's cap</title>
 
 <style>
 
@@ -15,254 +15,254 @@ box-sizing:border-box;
 }
 
 body{
+
 margin:0;
 padding:25px;
+
 font-family:Arial,sans-serif;
+
 background:#7ec8ff;
+
 }
 
 /* TOP */
 
 .top-bar{
+
 max-width:1100px;
+
 margin:auto;
+
 margin-bottom:25px;
+
 display:flex;
+
 align-items:center;
+
 gap:18px;
+
 }
 
 .back-button{
+
 background:#fffdf8;
+
 padding:14px 20px;
+
 border-radius:20px;
+
 text-decoration:none;
+
 font-size:28px;
+
 box-shadow:0 6px 18px rgba(0,0,0,0.12);
+
 }
 
-.title{
+.story-title{
+
 font-size:38px;
+
 font-weight:bold;
+
 color:white;
+
 }
 
-/* MAIN BOX */
+/* STORY */
 
-.activity-box{
+.story-box{
+
 max-width:1100px;
+
 margin:auto;
-margin-bottom:35px;
+
 background:#fffdf8;
+
 border-radius:35px;
+
 padding:40px;
+
 box-shadow:0 10px 30px rgba(0,0,0,0.12);
+
 }
 
-/* TITLES */
+.story{
 
-.activity-title{
 font-size:42px;
+
+line-height:2.2;
+
 font-weight:bold;
+
 color:#173f7a;
-margin-bottom:45px;
-text-align:center;
+
 }
 
-/* CARDS */
+.sentence{
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:28px;
+display:block;
+
+margin-bottom:12px;
+
 }
 
-/* CARD */
+.word{
 
-.card{
-background:white;
-border-radius:30px;
-padding:25px;
-text-align:center;
-box-shadow:0 6px 18px rgba(0,0,0,0.08);
-}
-
-/* IMAGES */
-
-.card img,
-.image-box img{
-width:220px;
-height:220px;
-object-fit:contain;
-}
-
-/* MATCH ROW */
-
-.match-row{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:30px;
-padding:25px 0;
-border-bottom:2px dashed #dfefff;
-flex-wrap:wrap;
-}
-
-.image-box{
-flex:1;
-text-align:center;
-}
-
-.words{
-flex:1;
-display:flex;
-flex-wrap:wrap;
-gap:15px;
-justify-content:center;
-}
-
-/* BUTTONS */
-
-.word-button,
-.check-button,
-.choice-button{
-border:none;
-background:#173f7a;
-color:white;
-font-size:28px;
-font-weight:bold;
-padding:16px 26px;
-border-radius:20px;
 cursor:pointer;
+
+padding:5px 8px;
+
+border-radius:15px;
+
 transition:0.2s;
-}
 
-.word-button:hover,
-.check-button:hover,
-.choice-button:hover{
-transform:scale(1.05);
-background:#21539c;
-}
-
-/* INPUT */
-
-.type-label{
-font-size:24px;
-font-weight:bold;
-color:#173f7a;
-margin-bottom:14px;
-}
-
-.word-input{
-width:100%;
-max-width:220px;
-padding:16px;
-border-radius:18px;
-border:3px solid #dfefff;
-font-size:24px;
-text-align:center;
-font-weight:bold;
-outline:none;
-}
-
-/* FEEDBACK */
-
-.correct{
-background:#38b94a !important;
-}
-
-.wrong{
-background:#ff4d4d !important;
-}
-
-/* CORRECTION */
-
-.correction{
-
-margin-top:14px;
-
-font-size:22px;
-
-font-weight:bold;
-
-color:#ff4d4d;
-
-}
-
-/* TEXT GAME */
-
-.text-story{
-font-size:38px;
-line-height:1.6;
-font-weight:bold;
-text-align:center;
-color:#173f7a;
-}
-
-.find-word{
-cursor:pointer;
-padding:6px 10px;
-border-radius:14px;
-transition:0.2s;
 display:inline-block;
+
 }
 
-.find-word:hover{
+.word:hover{
+
 background:#e8f7df;
+
 }
 
-/* RECORDING STATUS */
+/* HELP + AUDIO */
 
-.recording-status{
-display:none;
-margin-top:25px;
-margin-bottom:40px;
-text-align:center;
-font-size:34px;
-font-weight:bold;
-color:#ff3b3b;
-animation:pulse 1s infinite;
+.help-icon{
+
+width:42px;
+
+height:42px;
+
+border:none;
+
+border-radius:50%;
+
+background:#eef4ff;
+
+font-size:20px;
+
+cursor:pointer;
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+margin-left:10px;
+
+vertical-align:middle;
+
+transition:0.2s;
+
 }
 
-@keyframes pulse{
-0%{
-transform:scale(1);
-}
-50%{
+.help-icon:hover{
+
 transform:scale(1.08);
+
+background:#dfefff;
+
 }
-100%{
-transform:scale(1);
+
+.help-text{
+
+display:none;
+
+margin-top:12px;
+
+margin-left:10px;
+
+padding:14px;
+
+border-radius:18px;
+
+background:#f8f8f8;
+
+font-size:24px;
+
+color:#5c6f8f;
+
+line-height:1.5;
+
+max-width:700px;
+
 }
+
+/* ACTIVITIES BUTTON */
+
+.activities-section{
+
+text-align:center;
+
+margin-top:45px;
+
+}
+
+.activities-button{
+
+display:inline-block;
+
+background:#173f7a;
+
+color:white;
+
+text-decoration:none;
+
+font-size:34px;
+
+font-weight:bold;
+
+padding:22px 55px;
+
+border-radius:30px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+transition:0.2s;
+
+}
+
+.activities-button:hover{
+
+transform:scale(1.05);
+
+background:#21539c;
+
 }
 
 /* MOBILE */
 
 @media(max-width:700px){
 
-.title{
+.story{
+
 font-size:28px;
+
+line-height:2;
+
 }
 
-.activity-title{
-font-size:30px;
-}
+.story-title{
 
-.word-button,
-.check-button,
-.choice-button{
-font-size:22px;
-padding:14px 18px;
-}
-
-.card img,
-.image-box img{
-width:150px;
-height:150px;
-}
-
-.text-story{
 font-size:28px;
+
+}
+
+.help-text{
+
+font-size:20px;
+
+}
+
+.activities-button{
+
+font-size:26px;
+
+padding:18px 38px;
+
 }
 
 }
@@ -273,946 +273,373 @@ font-size:28px;
 
 <body>
 
-<!-- TOP -->
-
 <div class="top-bar">
 
-<a href="story1.html" class="back-button">
+<a href="index.html" class="back-button">
 ⬅
 </a>
 
-<div class="title">
-Story 1 Activities
+<div class="story-title">
+Story 1 – Sam’s cap
 </div>
 
 </div>
 
-<!-- ACTIVITY 1 -->
+<div class="story-box">
 
-<div class="activity-box">
+<div class="story">
 
-<div class="activity-title">
-🎯 Activity 1 — Look at the picture. Mark the correct word.
-</div>
+<div class="sentence">
 
-<div class="match-row">
-
-<div class="image-box">
-<img src="Assets/images/cap.png">
-</div>
-
-<div class="words">
-
-<button class="word-button"
-onclick="checkAnswer(this,false)">
-bag
-</button>
-
-<button class="word-button"
-onclick="checkAnswer(this,true)">
-cap
-</button>
-
-<button class="word-button"
-onclick="checkAnswer(this,false)">
-Dad
-</button>
-
-</div>
-
-</div>
-
-<div class="match-row">
-
-<div class="image-box">
-<img src="Assets/images/bag.png">
-</div>
-
-<div class="words">
-
-<button class="word-button"
-onclick="checkAnswer(this,true)">
-bag
-</button>
-
-<button class="word-button"
-onclick="checkAnswer(this,false)">
-cap
-</button>
-
-<button class="word-button"
-onclick="checkAnswer(this,false)">
-Sam
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- ACTIVITY 2 -->
-
-<div class="activity-box">
-
-<div class="activity-title">
-🎯 Activity 2 — Type the word
-</div>
-
-<div class="cards">
-
-<div class="card">
-
-<img src="Assets/images/cap.png">
-
-<div class="type-label">
-Type the word:
-</div>
-
-<input
-type="text"
-autocomplete="off"
-autocorrect="off"
-autocapitalize="off"
-spellcheck="false"
-id="cap-input"
-class="word-input">
-
-<br><br>
-
-<button class="check-button"
-onclick="checkTyping('cap-input','cap',this)">
-Check
-</button>
-
-</div>
-
-<div class="card">
-
-<img src="Assets/images/bag.png">
-
-<div class="type-label">
-Type the word:
-</div>
-
-<input
-type="text"
-autocomplete="off"
-autocorrect="off"
-autocapitalize="off"
-spellcheck="false"
-id="bag-input"
-class="word-input">
-
-<br><br>
-
-<button class="check-button"
-onclick="checkTyping('bag-input','bag',this)">
-Check
-</button>
-
-</div>
-
-<div class="card">
-
-<img src="Assets/images/dad.png">
-
-<div class="type-label">
-Type the word:
-</div>
-
-<input
-type="text"
-autocomplete="off"
-autocorrect="off"
-autocapitalize="off"
-spellcheck="false"
-id="dad-input"
-class="word-input">
-
-<br><br>
-
-<button class="check-button"
-onclick="checkTyping('dad-input','dad',this)">
-Check
-</button>
-
-</div>
-
-<div class="card">
-
-<img src="Assets/images/story1-boy.png">
-
-<div class="type-label">
-Type the word:
-</div>
-
-<input
-type="text"
-autocomplete="off"
-autocorrect="off"
-autocapitalize="off"
-spellcheck="false"
-id="sam-input"
-class="word-input">
-
-<br><br>
-
-<button class="check-button"
-onclick="checkTyping('sam-input','sam',this)">
-Check
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- ACTIVITY 3 -->
-
-<div class="activity-box">
-
-<div class="activity-title">
-🎯 Activity 3 — Choose the correct sentence
-</div>
-
-<div class="cards">
-
-<div class="card">
-
-<img src="Assets/images/cap.png">
-
-<br><br>
-
-<button class="choice-button"
-onclick="checkAnswer(this,true)">
-The cap is red.
-</button>
-
-<br><br>
-
-<button class="choice-button"
-onclick="checkAnswer(this,false)">
-The bag is red.
-</button>
-
-<br><br>
-
-<button class="choice-button"
-onclick="checkAnswer(this,false)">
-The cat is red.
-</button>
-
-</div>
-
-<div class="card">
-
-<img src="Assets/images/bag.png">
-
-<br><br>
-
-<button class="choice-button"
-onclick="checkAnswer(this,false)">
-Sam has a cap.
-</button>
-
-<br><br>
-
-<button class="choice-button"
-onclick="checkAnswer(this,true)">
-Sam has a bag.
-</button>
-
-<br><br>
-
-<button class="choice-button"
-onclick="checkAnswer(this,false)">
-Dad has a red bag.
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- ACTIVITY 4 -->
-
-<div class="activity-box">
-
-<div class="activity-title">
-🎯 Activity 4 — Translation
-</div>
-
-<div class="cards">
-
-<div class="card">
-
-<div style="
-font-size:34px;
-font-weight:bold;
-color:#173f7a;
-line-height:1.5;">
-
-Le sac est rouge.
-
-</div>
-
-<br>
-
-<input
-type="text"
-id="translate1"
-class="word-input"
-placeholder="Write in English">
-
-<br><br>
-
-<button class="check-button"
-onclick="checkFlexibleAnswer(
-'translate1',
-['The bag is red.','the bag is red','the bag is red.'],
-this)">
-Check
-</button>
-
-</div>
-
-<div class="card">
-
-<div style="
-font-size:34px;
-font-weight:bold;
-color:#173f7a;
-line-height:1.5;">
-
-Papa a un sac.
-
-</div>
-
-<br>
-
-<input
-type="text"
-id="translate2"
-class="word-input"
-placeholder="Write in English">
-
-<br><br>
-
-<button class="check-button"
-onclick="checkFlexibleAnswer(
-'translate2',
-['Dad has a bag.','dad has a bag.','dad has a bag'],
-this)">
-Check
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- ACTIVITY 5 -->
-
-<div class="activity-box">
-
-<div class="activity-title">
-🎯 Activity 5 — Find the word in the text
-</div>
-
-<div style="
-text-align:center;
-margin-bottom:35px;">
-
-<div style="
-font-size:22px;
-font-weight:600;
-color:#5c6f8f;
-letter-spacing:0.5px;
-text-transform:uppercase;
-margin-bottom:25px;">
-
-Look at the picture. Find it in the text.
-
-</div>
-
-<div style="
-width:340px;
-height:340px;
-margin:auto;
-border-radius:50%;
-background:#eef4ff;
-display:flex;
-align-items:center;
-justify-content:center;
-box-shadow:0 6px 18px rgba(0,0,0,0.08);
-margin-bottom:35px;">
-
-<img src="Assets/images/cap.png"
-style="
-width:300px;
-height:300px;
-object-fit:contain;">
-
-</div>
-
-</div>
-
-<div class="text-story">
-
-<span class="find-word"
-onclick="findWord(this,false)">
+<span class="word"
+onclick="saySimpleWord('Sam')">
 Sam
 </span>
 
-<span class="find-word"
-onclick="findWord(this,false)">
+<span class="word"
+onclick="saySimpleWord('has')">
 has
 </span>
 
-<span class="find-word"
-onclick="findWord(this,false)">
+<span class="word"
+onclick="saySimpleWord('a')">
 a
 </span>
 
-<span class="find-word"
-onclick="findWord(this,true)">
+<span class="word"
+onclick="saySimpleWord('cap')">
 cap.
 </span>
 
-<br>
+<button class="help-icon"
+onclick="playSentence('1.mp3')">
+🔊
+</button>
 
-<span class="find-word"
-onclick="findWord(this,false)">
+<button class="help-icon"
+onclick="toggleHelp('help1')">
+💡
+</button>
+
+<div class="help-text" id="help1">
+Sam a une casquette.
+</div>
+
+</div>
+
+<div class="sentence">
+
+<span class="word"
+onclick="saySimpleWord('The')">
 The
 </span>
 
-<span class="find-word"
-onclick="findWord(this,true)">
+<span class="word"
+onclick="saySimpleWord('cap')">
 cap
 </span>
 
-<span class="find-word"
-onclick="findWord(this,false)">
+<span class="word"
+onclick="saySimpleWord('is')">
 is
 </span>
 
-<span class="find-word"
-onclick="findWord(this,false)">
+<span class="word"
+onclick="saySimpleWord('red')">
 red.
 </span>
 
-<br>
+<button class="help-icon"
+onclick="playSentence('2.mp3')">
+🔊
+</button>
 
-<span class="find-word"
-onclick="findWord(this,false)">
+<button class="help-icon"
+onclick="toggleHelp('help2')">
+💡
+</button>
+
+<div class="help-text" id="help2">
+La casquette est rouge.
+</div>
+
+</div>
+
+<div class="sentence">
+
+<span class="word"
+onclick="saySimpleWord('Sam')">
 Sam
 </span>
 
-<span class="find-word"
-onclick="findWord(this,false)">
+<span class="word"
+onclick="saySimpleWord('has')">
 has
 </span>
 
-<span class="find-word"
-onclick="findWord(this,false)">
+<span class="word"
+onclick="saySimpleWord('a')">
 a
 </span>
 
-<span class="find-word"
-onclick="findWord(this,false)">
+<span class="word"
+onclick="saySimpleWord('bag')">
 bag.
 </span>
 
-<br>
+<button class="help-icon"
+onclick="playSentence('3.mp3')">
+🔊
+</button>
 
-<span class="find-word"
-onclick="findWord(this,false)">
+<button class="help-icon"
+onclick="toggleHelp('help3')">
+💡
+</button>
+
+<div class="help-text" id="help3">
+Sam a un sac.
+</div>
+
+</div>
+
+<div class="sentence">
+
+<span class="word"
+onclick="saySimpleWord('The')">
+The
+</span>
+
+<span class="word"
+onclick="saySimpleWord('bag')">
+bag
+</span>
+
+<span class="word"
+onclick="saySimpleWord('is')">
+is
+</span>
+
+<span class="word"
+onclick="saySimpleWord('red')">
+red
+</span>
+
+<span class="word"
+onclick="saySimpleWord('too')">
+too.
+</span>
+
+<button class="help-icon"
+onclick="playSentence('4.mp3')">
+🔊
+</button>
+
+<button class="help-icon"
+onclick="toggleHelp('help4')">
+💡
+</button>
+
+<div class="help-text" id="help4">
+Le sac est rouge aussi.
+</div>
+
+</div>
+
+<div class="sentence">
+
+<span class="word"
+onclick="saySimpleWord('Sam')">
+Sam
+</span>
+
+<span class="word"
+onclick="saySimpleWord('runs')">
+runs
+</span>
+
+<span class="word"
+onclick="saySimpleWord('to')">
+to
+</span>
+
+<span class="word"
+onclick="saySimpleWord('Dad')">
+Dad.
+</span>
+
+<button class="help-icon"
+onclick="playSentence('5.mp3')">
+🔊
+</button>
+
+<button class="help-icon"
+onclick="toggleHelp('help5')">
+💡
+</button>
+
+<div class="help-text" id="help5">
+Sam court vers Papa.
+</div>
+
+</div>
+
+<div class="sentence">
+
+<span class="word"
+onclick="saySimpleWord('Dad')">
 Dad
 </span>
 
-<span class="find-word"
-onclick="findWord(this,false)">
+<span class="word"
+onclick="saySimpleWord('has')">
 has
 </span>
 
-<span class="find-word"
-onclick="findWord(this,false)">
+<span class="word"
+onclick="saySimpleWord('a')">
 a
 </span>
 
-<span class="find-word"
-onclick="findWord(this,true)">
+<span class="word"
+onclick="saySimpleWord('cap')">
 cap.
 </span>
 
-</div>
-
-</div>
-
-<!-- ACTIVITY 6 -->
-
-<div class="activity-box">
-
-<div class="activity-title">
-🎤 Activity 6 — Read and Listen to Yourself
-</div>
-
-<div style="
-text-align:center;
-font-size:20px;
-font-weight:600;
-color:#5c6f8f;
-line-height:1.6;
-margin-bottom:30px;">
-
-Read the story aloud.<br>
-Record your voice and listen to yourself.
-
-</div>
-
-<div style="
-max-width:700px;
-margin:auto;
-background:#eef4ff;
-padding:30px;
-border-radius:35px;
-margin-bottom:30px;">
-
-<div class="text-story"
-style="
-font-size:32px;
-line-height:1.5;
-text-align:center;">
-
-Sam has a cap.<br>
-
-The cap is red.<br>
-
-Sam has a bag.<br>
-
-The bag is red too.<br>
-
-Sam runs to Dad.<br>
-
-Dad has a cap.<br>
-
-Sam is glad.
-
-</div>
-
-</div>
-
-<div style="
-display:flex;
-justify-content:center;
-gap:16px;
-flex-wrap:wrap;
-margin-bottom:20px;">
-
-<button class="choice-button"
-onclick="startRecording()">
-🎙 Record
+<button class="help-icon"
+onclick="playSentence('6.mp3')">
+🔊
 </button>
 
-<button class="choice-button"
-onclick="stopRecording()">
-⏹ Stop
+<button class="help-icon"
+onclick="toggleHelp('help6')">
+💡
 </button>
 
-<button class="choice-button"
-onclick="playRecording()">
-🔊 Play & Listen
-</button>
-
-</div>
-
-<div id="recordingStatus"
-class="recording-status">
-
-🔴 Recording...
-
-</div>
-
-<div style="
-text-align:center;
-font-size:24px;
-font-weight:bold;
-color:#173f7a;
-margin-top:20px;
-margin-bottom:20px;">
-
-How was your reading?
-
-</div>
-
-<div style="
-display:flex;
-justify-content:center;
-gap:18px;
-flex-wrap:wrap;">
-
-<button class="choice-button"
-style="
-font-size:34px;
-padding:14px 22px;
-background:#ff6b6b;"
-onclick="rateReading(this,'Keep practicing! 🌱')">
-
-⭐
-
-</button>
-
-<button class="choice-button"
-style="
-font-size:34px;
-padding:14px 22px;
-background:#ffd966;"
-onclick="rateReading(this,'Good reading! 🌟')">
-
-⭐⭐
-
-</button>
-
-<button class="choice-button"
-style="
-font-size:34px;
-padding:14px 22px;
-background:#38b94a;"
-onclick="rateReading(this,'Excellent reading! 🏆')">
-
-⭐⭐⭐
-
-</button>
-
-</div>
-
-<div id="readingFeedback"
-style="
-margin-top:25px;
-text-align:center;
-font-size:26px;
-font-weight:bold;
-color:#173f7a;">
+<div class="help-text" id="help6">
+Papa a une casquette.
 </div>
 
 </div>
 
-<!-- BOTTOM BUTTONS -->
+<div class="sentence">
 
-<div style="
-text-align:center;
-margin-top:45px;
-margin-bottom:60px;">
+<span class="word"
+onclick="saySimpleWord('Sam')">
+Sam
+</span>
 
-<button class="choice-button"
-onclick="location.reload()">
+<span class="word"
+onclick="saySimpleWord('is')">
+is
+</span>
 
-🔄 Restart Activities
+<span class="word"
+onclick="saySimpleWord('glad')">
+glad.
+</span>
 
+<button class="help-icon"
+onclick="playSentence('7.mp3')">
+🔊
 </button>
 
-<br><br>
-
-<a href="index.html"
-style="text-decoration:none;">
-
-<button class="choice-button">
-
-📚 Back to Summary
-
+<button class="help-icon"
+onclick="toggleHelp('help7')">
+💡
 </button>
 
+<div class="help-text" id="help7">
+Sam est content.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ACTIVITIES BUTTON -->
+
+<div class="activities-section">
+
+<a href="story1-activities.html" class="activities-button">
+🎯 Activities
 </a>
 
 </div>
 
 <script>
 
-function playGood(){
+let selectedVoice = null;
 
-const audio =
-new Audio("Assets/word-audio/goodanswer.mp3");
+function loadVoice(){
 
-audio.play();
+const voices = window.speechSynthesis.getVoices();
 
-}
-
-function playBad(){
-
-const audio =
-new Audio("Assets/word-audio/badanswer.mp3");
-
-audio.play();
-
-}
-
-function checkAnswer(button,isCorrect){
-
-button.classList.remove("correct");
-button.classList.remove("wrong");
-
-if(isCorrect){
-
-button.classList.add("correct");
-
-playGood();
-
-}else{
-
-button.classList.add("wrong");
-
-playBad();
-
-}
-
-}
-
-function showCorrection(input,message){
-
-let oldCorrection =
-input.parentElement.querySelector(".correction");
-
-if(oldCorrection){
-
-oldCorrection.remove();
-
-}
-
-const correction =
-document.createElement("div");
-
-correction.className = "correction";
-
-correction.innerHTML = message;
-
-input.parentElement.appendChild(correction);
-
-}
-
-function checkTyping(inputId,correctWord,button){
-
-const input =
-document.getElementById(inputId);
-
-const value =
-input.value.toLowerCase().trim();
-
-button.classList.remove("correct");
-button.classList.remove("wrong");
-
-let oldCorrection =
-input.parentElement.querySelector(".correction");
-
-if(oldCorrection){
-
-oldCorrection.remove();
-
-}
-
-if(value === correctWord){
-
-input.style.border =
-"3px solid #38b94a";
-
-button.classList.add("correct");
-
-playGood();
-
-}else{
-
-input.style.border =
-"3px solid #ff4d4d";
-
-button.classList.add("wrong");
-
-showCorrection(
-input,
-"Correct answer: " + correctWord
+selectedVoice = voices.find(v =>
+v.lang.includes("en-GB")
 );
 
-playBad();
+if(!selectedVoice){
 
-}
-
-}
-
-function normalizeText(text){
-
-return text
-.toLowerCase()
-.replace(/[.,!?]/g,"")
-.trim();
-
-}
-
-function checkFlexibleAnswer(inputId,answers,button){
-
-const input =
-document.getElementById(inputId);
-
-const value =
-normalizeText(input.value);
-
-const normalizedAnswers =
-answers.map(a => normalizeText(a));
-
-button.classList.remove("correct");
-button.classList.remove("wrong");
-
-let oldCorrection =
-input.parentElement.querySelector(".correction");
-
-if(oldCorrection){
-
-oldCorrection.remove();
-
-}
-
-if(normalizedAnswers.includes(value)){
-
-input.style.border =
-"3px solid #38b94a";
-
-button.classList.add("correct");
-
-playGood();
-
-}else{
-
-input.style.border =
-"3px solid #ff4d4d";
-
-button.classList.add("wrong");
-
-showCorrection(
-input,
-"Correct answer: " + answers[0]
+selectedVoice = voices.find(v =>
+v.lang.includes("en")
 );
 
-playBad();
-
 }
 
 }
 
-function findWord(word,isCorrect){
+speechSynthesis.onvoiceschanged = loadVoice;
 
-if(isCorrect){
+loadVoice();
 
-word.style.background =
-"#38b94a";
+/* HELP */
 
-word.style.color =
-"white";
+function toggleHelp(id){
 
-playGood();
+const element = document.getElementById(id);
+
+if(element.style.display === "block"){
+
+element.style.display = "none";
 
 }else{
 
-word.style.background =
-"#ff4d4d";
-
-word.style.color =
-"white";
-
-playBad();
+element.style.display = "block";
 
 }
 
 }
 
-let mediaRecorder;
+/* WORD AUDIO */
 
-let audioChunks = [];
+function saySimpleWord(word){
 
-let recordedAudio;
+window.speechSynthesis.cancel();
 
-async function startRecording(){
+const speech =
+new SpeechSynthesisUtterance(word);
 
-document.getElementById(
-"recordingStatus"
-).style.display = "block";
+speech.lang = "en-GB";
 
-const stream =
-await navigator.mediaDevices.getUserMedia({
-audio:true
-});
+speech.rate = 0.7;
 
-mediaRecorder =
-new MediaRecorder(stream);
+speech.voice = selectedVoice;
 
-audioChunks = [];
-
-mediaRecorder.ondataavailable = event => {
-
-audioChunks.push(event.data);
-
-};
-
-mediaRecorder.onstop = () => {
-
-const audioBlob =
-new Blob(audioChunks,{
-type:'audio/mp3'
-});
-
-recordedAudio =
-URL.createObjectURL(audioBlob);
-
-};
-
-mediaRecorder.start();
+window.speechSynthesis.speak(speech);
 
 }
 
-function stopRecording(){
+/* SENTENCE AUDIO */
 
-mediaRecorder.stop();
-
-document.getElementById(
-"recordingStatus"
-).style.display = "none";
-
-}
-
-function playRecording(){
-
-if(recordedAudio){
+function playSentence(file){
 
 const audio =
-new Audio(recordedAudio);
+new Audio("./story1/" + file);
 
 audio.play();
-
-}
-
-}
-
-function rateReading(button,message){
-
-const buttons =
-button.parentElement.querySelectorAll("button");
-
-buttons.forEach(btn => {
-
-btn.classList.remove("correct");
-
-});
-
-button.classList.add("correct");
-
-const audio =
-new Audio("Assets/word-audio/star.mp3");
-
-audio.play();
-
-document.getElementById(
-"readingFeedback"
-).innerHTML = message;
 
 }
 
