@@ -191,160 +191,6 @@ max-width:700px;
 
 }
 
-/* POPUP */
-
-.popup{
-
-position:fixed;
-
-left:50%;
-
-bottom:15px;
-
-transform:translateX(-50%);
-
-width:95%;
-
-max-width:700px;
-
-background:white;
-
-border-radius:30px;
-
-padding:20px;
-
-box-shadow:0 10px 30px rgba(0,0,0,0.25);
-
-display:none;
-
-z-index:999;
-
-}
-
-.word-title-popup{
-
-text-align:center;
-
-font-size:75px;
-
-font-weight:bold;
-
-margin-bottom:20px;
-
-line-height:1;
-
-color:#173f7a;
-
-}
-
-.blocks{
-
-display:flex;
-
-gap:12px;
-
-}
-
-.block{
-
-flex:1;
-
-border-radius:25px;
-
-padding:18px;
-
-text-align:center;
-
-}
-
-.left{
-background:#dfefff;
-}
-
-.right{
-background:#e8f7df;
-}
-
-.text{
-
-font-size:34px;
-
-font-weight:bold;
-
-margin-bottom:18px;
-
-white-space:nowrap;
-
-color:#173f7a;
-
-}
-
-button{
-
-border:none;
-
-background:white;
-
-border-radius:20px;
-
-padding:12px 18px;
-
-cursor:pointer;
-
-font-size:32px;
-
-box-shadow:0 4px 10px rgba(0,0,0,0.08);
-
-}
-
-.translation{
-
-margin-top:18px;
-
-background:#fff8e8;
-
-border-radius:20px;
-
-padding:15px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-}
-
-.translation-word{
-
-font-size:28px;
-
-font-weight:bold;
-
-color:#173f7a;
-
-}
-
-.image{
-
-font-size:45px;
-
-}
-
-.close{
-
-position:absolute;
-
-top:10px;
-
-right:15px;
-
-font-size:28px;
-
-cursor:pointer;
-
-}
-
 /* ACTIVITIES BUTTON */
 
 .activities-section{
@@ -405,36 +251,6 @@ font-size:28px;
 
 }
 
-.word-title-popup{
-
-font-size:55px;
-
-}
-
-.text{
-
-font-size:24px;
-
-}
-
-button{
-
-font-size:24px;
-
-}
-
-.translation-word{
-
-font-size:22px;
-
-}
-
-.image{
-
-font-size:35px;
-
-}
-
 .help-text{
 
 font-size:20px;
@@ -476,7 +292,7 @@ Story 1 – Sam’s cap
 <div class="sentence">
 
 <span class="word"
-onclick="openWord('Sam','Sam','👦')">
+onclick="saySimpleWord('Sam')">
 Sam
 </span>
 
@@ -491,7 +307,7 @@ a
 </span>
 
 <span class="word"
-onclick="openWord('cap','casquette','🧢')">
+onclick="saySimpleWord('cap')">
 cap.
 </span>
 
@@ -519,7 +335,7 @@ The
 </span>
 
 <span class="word"
-onclick="openWord('cap','casquette','🧢')">
+onclick="saySimpleWord('cap')">
 cap
 </span>
 
@@ -529,7 +345,7 @@ is
 </span>
 
 <span class="word"
-onclick="openWord('red','rouge','🟥')">
+onclick="saySimpleWord('red')">
 red.
 </span>
 
@@ -552,7 +368,7 @@ La casquette est rouge.
 <div class="sentence">
 
 <span class="word"
-onclick="openWord('Sam','Sam','👦')">
+onclick="saySimpleWord('Sam')">
 Sam
 </span>
 
@@ -567,7 +383,7 @@ a
 </span>
 
 <span class="word"
-onclick="openWord('bag','sac','🎒')">
+onclick="saySimpleWord('bag')">
 bag.
 </span>
 
@@ -595,7 +411,7 @@ The
 </span>
 
 <span class="word"
-onclick="openWord('bag','sac','🎒')">
+onclick="saySimpleWord('bag')">
 bag
 </span>
 
@@ -605,7 +421,7 @@ is
 </span>
 
 <span class="word"
-onclick="openWord('red','rouge','🟥')">
+onclick="saySimpleWord('red')">
 red
 </span>
 
@@ -633,7 +449,7 @@ Le sac est rouge aussi.
 <div class="sentence">
 
 <span class="word"
-onclick="openWord('Sam','Sam','👦')">
+onclick="saySimpleWord('Sam')">
 Sam
 </span>
 
@@ -648,7 +464,7 @@ to
 </span>
 
 <span class="word"
-onclick="openWord('Dad','Papa','👨')">
+onclick="saySimpleWord('Dad')">
 Dad.
 </span>
 
@@ -671,7 +487,7 @@ Sam court vers Papa.
 <div class="sentence">
 
 <span class="word"
-onclick="openWord('Dad','Papa','👨')">
+onclick="saySimpleWord('Dad')">
 Dad
 </span>
 
@@ -686,7 +502,7 @@ a
 </span>
 
 <span class="word"
-onclick="openWord('cap','casquette','🧢')">
+onclick="saySimpleWord('cap')">
 cap.
 </span>
 
@@ -709,7 +525,7 @@ Papa a une casquette.
 <div class="sentence">
 
 <span class="word"
-onclick="openWord('Sam','Sam','👦')">
+onclick="saySimpleWord('Sam')">
 Sam
 </span>
 
@@ -719,7 +535,7 @@ is
 </span>
 
 <span class="word"
-onclick="openWord('glad','content','😊')">
+onclick="saySimpleWord('glad')">
 glad.
 </span>
 
@@ -753,45 +569,6 @@ Sam est content.
 
 </div>
 
-<!-- POPUP -->
-
-<div class="popup" id="popup">
-
-<div class="close" onclick="closePopup()">
-✖
-</div>
-
-<div class="word-title-popup" id="popup-word">
-</div>
-
-<div class="blocks">
-
-<div class="block left">
-
-<div class="text">
-Word
-</div>
-
-<button onclick="sayWord()">
-🔊
-</button>
-
-</div>
-
-<div class="block right">
-
-<div class="translation-word" id="popup-translation">
-</div>
-
-<div class="image" id="popup-emoji">
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 <script>
 
 let selectedVoice = null;
@@ -801,7 +578,7 @@ function loadVoice(){
 const voices = window.speechSynthesis.getVoices();
 
 selectedVoice = voices.find(v =>
-v.lang.includes("en-US")
+v.lang.includes("en-GB")
 );
 
 if(!selectedVoice){
@@ -817,6 +594,8 @@ v.lang.includes("en")
 speechSynthesis.onvoiceschanged = loadVoice;
 
 loadVoice();
+
+/* HELP */
 
 function toggleHelp(id){
 
@@ -834,13 +613,16 @@ element.style.display = "block";
 
 }
 
+/* WORD AUDIO */
+
 function saySimpleWord(word){
 
 window.speechSynthesis.cancel();
 
-const speech = new SpeechSynthesisUtterance(word);
+const speech =
+new SpeechSynthesisUtterance(word);
 
-speech.lang = "en-US";
+speech.lang = "en-GB";
 
 speech.rate = 0.7;
 
@@ -849,49 +631,15 @@ speech.voice = selectedVoice;
 window.speechSynthesis.speak(speech);
 
 }
+
+/* SENTENCE AUDIO */
 
 function playSentence(file){
 
-const audio = new Audio("./story1/" + file);
+const audio =
+new Audio("./story1/" + file);
 
 audio.play();
-
-}
-
-function openWord(word, translation, emoji){
-
-document.getElementById("popup").style.display = "block";
-
-document.getElementById("popup-word").innerHTML = word;
-
-document.getElementById("popup-translation").innerHTML =
-"🇫🇷 " + translation;
-
-document.getElementById("popup-emoji").innerHTML = emoji;
-
-window.currentWord = word;
-
-}
-
-function closePopup(){
-
-document.getElementById("popup").style.display = "none";
-
-}
-
-function sayWord(){
-
-window.speechSynthesis.cancel();
-
-const speech = new SpeechSynthesisUtterance(window.currentWord);
-
-speech.lang = "en-US";
-
-speech.rate = 0.7;
-
-speech.voice = selectedVoice;
-
-window.speechSynthesis.speak(speech);
 
 }
 
