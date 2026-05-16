@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no" class="notranslate">
 <head>
 <meta charset="UTF-8">
 <meta name="google" content="notranslate">
 <meta name="google" value="notranslate">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Story 2 Activities</title>
 <style>
 *{ box-sizing:border-box; }
@@ -16,7 +16,7 @@ body{ margin:0; padding:25px; font-family:Arial,sans-serif; background:#7ec8ff; 
 .activity-title{ font-size:42px; font-weight:bold; color:#173f7a; margin-bottom:45px; text-align:center; }
 .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:28px; }
 .card{ background:white; border-radius:30px; padding:25px; text-align:center; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
-.card img,.image-box img{ width:220px; height:220px; object-fit:contain; }
+.card img,.image-box img{ width:260px; height:260px; object-fit:contain; }
 .match-row{ display:flex; align-items:center; justify-content:space-between; gap:30px; padding:25px 0; border-bottom:2px dashed #dfefff; flex-wrap:wrap; }
 .image-box{ flex:1; text-align:center; }
 .words{ flex:1; display:flex; flex-wrap:wrap; gap:15px; justify-content:center; }
@@ -88,27 +88,33 @@ body{ margin:0; padding:25px; font-family:Arial,sans-serif; background:#7ec8ff; 
 .think-separator{ border:none; border-top:2px dashed #dfefff; margin:30px 0; }
 
 @media(max-width:700px){
-body{ padding:14px; }
-.activity-box{ padding:20px; border-radius:24px; margin-bottom:22px; }
-.title{ font-size:24px; }
-.activity-title{ font-size:24px; margin-bottom:28px; line-height:1.4; }
-.word-button,.check-button,.choice-button{ font-size:18px; padding:12px 14px; border-radius:16px; }
-.card{ padding:18px; border-radius:22px; }
-.card img,.image-box img{ width:120px; height:120px; }
+body{ padding:10px; }
+.activity-box{ padding:18px 14px; border-radius:24px; margin-bottom:18px; }
+.title{ font-size:22px; }
+.activity-title{ font-size:22px; margin-bottom:22px; line-height:1.4; }
+.cards{ grid-template-columns:1fr; gap:16px; }
+.word-button,.check-button,.choice-button{ font-size:18px; padding:14px 12px; border-radius:16px; width:100%; }
+.card{ padding:16px; border-radius:22px; }
+.card img,.image-box img{ width:140px; height:140px; }
 .type-label{ font-size:18px; }
-.word-input{ font-size:18px; padding:12px; max-width:170px; }
-.text-story{ font-size:22px; line-height:1.5; }
-.find-word{ padding:3px 5px; }
-.recording-status{ font-size:24px; }
-.tf-sentence{ font-size:20px; }
-.tf-btn{ font-size:18px; padding:10px 16px; }
-.think-question{ font-size:20px; }
-.think-btn{ font-size:18px; padding:12px 16px; }
-.letter-tile,.answer-slot{ width:42px; height:42px; font-size:20px; }
+.word-input{ font-size:18px; padding:12px; max-width:100%; width:100%; }
+.text-story{ font-size:20px; line-height:1.6; }
+.find-word{ padding:5px 7px; }
+.recording-status{ font-size:22px; }
+.tf-sentence{ font-size:18px; }
+.tf-btn{ font-size:17px; padding:12px 16px; }
+.tf-row{ flex-direction:column; align-items:flex-start; gap:10px; }
+.think-question{ font-size:19px; }
+.think-btn{ font-size:17px; padding:12px 14px; }
+.letter-tile,.answer-slot{ width:46px; height:46px; font-size:22px; }
+.letters-area,.answer-area{ gap:8px; padding:8px; }
+.match-row{ flex-direction:column; align-items:center; gap:16px; }
+.image-box{ width:100%; }
+.words{ width:100%; justify-content:center; }
 }
 </style>
 </head>
-<body translate="no">
+<body translate="no" class="notranslate">
 
 <div class="top-bar">
   <a href="story2.html" class="back-button">&#x2B05;</a>
@@ -170,10 +176,10 @@ body{ padding:14px; }
 
     <div class="card">
       <img src="Assets/images/adam-cat.png">
-      <div class="type-label">Type the word:</div>
-      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="adam-input" class="word-input">
+      <div class="type-label">Type the verb: <em>to ___</em></div>
+      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="adam-input" class="word-input" placeholder="to …">
       <br><br>
-      <button class="check-button" onclick="checkTyping('adam-input','adam',this)">Check</button>
+      <button class="check-button" onclick="checkTypingVerb('adam-input','pat',this)">Check</button>
     </div>
 
     <div class="card">
@@ -195,22 +201,22 @@ body{ padding:14px; }
     <div class="scramble-card">
       <div class="letters-area" id="letters-cat"></div>
       <div class="answer-area" id="answer-cat"></div>
-      <button class="scramble-check" onclick="checkScramble('cat','le chat')">Check</button>
+      <button class="scramble-check" onclick="checkScramble('cat')">Check</button>
       <div class="scramble-result" id="result-cat"></div>
     </div>
 
     <div class="scramble-card">
       <div class="letters-area" id="letters-sad"></div>
       <div class="answer-area" id="answer-sad"></div>
-      <button class="scramble-check" onclick="checkScramble('sad','triste')">Check</button>
+      <button class="scramble-check" onclick="checkScramble('sad')">Check</button>
       <div class="scramble-result" id="result-sad"></div>
     </div>
 
     <div class="scramble-card">
-      <div class="letters-area" id="letters-pats"></div>
-      <div class="answer-area" id="answer-pats"></div>
-      <button class="scramble-check" onclick="checkScramble('pats','caresse')">Check</button>
-      <div class="scramble-result" id="result-pats"></div>
+      <div class="letters-area" id="letters-pat"></div>
+      <div class="answer-area" id="answer-pat"></div>
+      <button class="scramble-check" onclick="checkScramble('pat')">Check</button>
+      <div class="scramble-result" id="result-pat"></div>
     </div>
 
   </div>
@@ -280,13 +286,13 @@ body{ padding:14px; }
     </div>
 
     <div class="card">
-      <img src="Assets/images/adam-cat.png">
+      <img src="Assets/images/cat-glad.png">
       <br><br>
-      <button class="choice-button" onclick="checkAnswer(this,false)">Adam has a cat.</button>
+      <button class="choice-button" onclick="checkAnswer(this,false)">The cat is sad.</button>
       <br><br>
-      <button class="choice-button" onclick="checkAnswer(this,true)">Adam pats the cat.</button>
+      <button class="choice-button" onclick="checkAnswer(this,true)">The cat is glad.</button>
       <br><br>
-      <button class="choice-button" onclick="checkAnswer(this,false)">Dad pats the cat.</button>
+      <button class="choice-button" onclick="checkAnswer(this,false)">Adam pats the cat.</button>
     </div>
 
   </div>
@@ -340,8 +346,8 @@ body{ padding:14px; }
     <div style="font-size:22px;font-weight:600;color:#5c6f8f;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:25px;">
       Look at the picture. Find it in the text.
     </div>
-    <div style="width:min(75vw,340px);height:min(75vw,340px);margin:auto;border-radius:50%;background:#eef4ff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.08);margin-bottom:35px;">
-      <img src="Assets/images/cat.png" style="width:min(60vw,300px);height:min(60vw,300px);object-fit:contain;">
+    <div style="width:min(80vw,360px);height:min(80vw,360px);margin:auto;border-radius:50%;background:#eef4ff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.08);margin-bottom:35px;">
+      <img src="Assets/images/cat.png" style="width:75%;height:75%;object-fit:contain;">
     </div>
   </div>
 
@@ -434,33 +440,6 @@ body{ padding:14px; }
     </div>
   </div>
 
-  <hr class="think-separator">
-
-  <!-- Q3 -->
-  <div class="think-question-block">
-    <div class="think-q-row">
-      <div class="think-question">How does Adam feel about his cat?</div>
-      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
-    </div>
-    <div class="think-question-fr">Comment Adam se sent-il par rapport &#xE0; son chat&#xA0;?</div>
-
-    <div class="think-option">
-      <button class="think-btn" onclick="checkThink(this,false)">A. He is sad.</button>
-      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
-      <div class="think-option-fr">Il est triste.</div>
-    </div>
-    <div class="think-option">
-      <button class="think-btn" onclick="checkThink(this,true)">B. He is glad.</button>
-      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
-      <div class="think-option-fr">Il est content.</div>
-    </div>
-    <div class="think-option">
-      <button class="think-btn" onclick="checkThink(this,false)">C. He is angry.</button>
-      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
-      <div class="think-option-fr">Il est en col&#xE8;re.</div>
-    </div>
-  </div>
-
 </div>
 
 <!-- ACTIVITY 9 — Read and Listen -->
@@ -526,6 +505,26 @@ function checkAnswer(button, isCorrect){
   button.classList.remove("correct","wrong");
   if(isCorrect){ button.classList.add("correct"); playGood(); }
   else         { button.classList.add("wrong");   playBad();  }
+}
+
+/* TYPING — verb version: accepts "pat" or "to pat" */
+function checkTypingVerb(inputId, correctWord, button){
+  const input = document.getElementById(inputId);
+  const raw = input.value.toLowerCase().trim();
+  const value = raw.startsWith("to ") ? raw.slice(3) : raw;
+  button.classList.remove("correct","wrong");
+  let old = input.parentElement.querySelector(".correction");
+  if(old) old.remove();
+  if(value === correctWord){
+    input.style.border = "3px solid #38b94a";
+    button.classList.add("correct");
+    playGood();
+  } else {
+    input.style.border = "3px solid #ff4d4d";
+    button.classList.add("wrong");
+    showCorrection(input, "Correct answer: to " + correctWord);
+    playBad();
+  }
 }
 
 /* TYPING */
@@ -624,9 +623,9 @@ function toggleTr(bulb){
 
 /* ===== DRAG & DROP UNSCRAMBLE ===== */
 const WORDS = {
-  cat:  { letters:['c','a','t'],     shuffled:['t','c','a'],     frWord:'le chat'  },
-  sad:  { letters:['s','a','d'],     shuffled:['a','d','s'],     frWord:'triste'   },
-  pats: { letters:['p','a','t','s'], shuffled:['s','t','a','p'], frWord:'caresse'  }
+  cat: { letters:['c','a','t'], shuffled:['t','c','a'], frWord:'le chat',  feedback:'&#x1F408; Bravo\u00a0! Tu as trouv\u00e9 le mot <strong>le chat</strong>\u00a0!' },
+  sad: { letters:['s','a','d'], shuffled:['a','d','s'], frWord:'triste',   feedback:'&#x1F614; Bravo\u00a0! Tu as trouv\u00e9 le mot <strong>triste</strong>\u00a0!' },
+  pat: { letters:['p','a','t'], shuffled:['t','p','a'], frWord:'to pat',   feedback:'&#x1F44B; Bravo\u00a0! Tu as trouv\u00e9 le verbe <strong>to pat</strong> (caresser)\u00a0!' }
 };
 
 let ghost = null;
@@ -792,7 +791,7 @@ document.addEventListener("touchend", e => {
 });
 
 /* Check */
-function checkScramble(word, frWord){
+function checkScramble(word){
   const data = WORDS[word];
   const resultEl = document.getElementById("result-"+word);
   let answer = "";
@@ -801,7 +800,7 @@ function checkScramble(word, frWord){
     answer += (slot.dataset.letter || "");
   }
   if(answer === word){
-    resultEl.innerHTML = "Bravo\u00a0! Tu as trouv\u00e9 le mot <strong>" + frWord + "</strong>\u00a0!";
+    resultEl.innerHTML = data.feedback;
     resultEl.style.color = "#38b94a";
     playGood();
   } else if(answer.length < data.letters.length){
@@ -858,7 +857,7 @@ function rateReading(button, message){
 /* INIT */
 initScramble("cat");
 initScramble("sad");
-initScramble("pats");
+initScramble("pat");
 
 </script>
 </body>
