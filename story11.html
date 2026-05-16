@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="google" content="notranslate">
+<meta name="google" value="notranslate">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Story 11 – A pig in the mud</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+
+margin:0;
+padding:25px;
+
+font-family:Arial,sans-serif;
+
+background:#7ec8ff;
+
+}
+
+/* TOP */
+
+.top-bar{
+
+max-width:1100px;
+
+margin:auto;
+
+margin-bottom:25px;
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+}
+
+.back-button{
+
+background:#fffdf8;
+
+padding:14px 20px;
+
+border-radius:20px;
+
+text-decoration:none;
+
+font-size:28px;
+
+box-shadow:0 6px 18px rgba(0,0,0,0.12);
+
+}
+
+.story-title{
+
+font-size:38px;
+
+font-weight:bold;
+
+color:white;
+
+}
+
+/* STORY */
+
+.story-box{
+
+max-width:1100px;
+
+margin:auto;
+
+background:#fffdf8;
+
+border-radius:35px;
+
+padding:40px;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.12);
+
+}
+
+.story{
+
+font-size:42px;
+
+line-height:2.2;
+
+font-weight:bold;
+
+color:#173f7a;
+
+}
+
+.sentence{
+
+display:block;
+
+margin-bottom:12px;
+
+}
+
+.word{
+
+cursor:pointer;
+
+padding:5px 8px;
+
+border-radius:15px;
+
+transition:0.2s;
+
+display:inline-block;
+
+}
+
+.word:hover{
+
+background:#e8f7df;
+
+}
+
+/* HELP + AUDIO */
+
+.help-icon{
+
+width:42px;
+
+height:42px;
+
+border:none;
+
+border-radius:50%;
+
+background:#eef4ff;
+
+font-size:20px;
+
+cursor:pointer;
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+margin-left:10px;
+
+vertical-align:middle;
+
+transition:0.2s;
+
+}
+
+.help-icon:hover{
+
+transform:scale(1.08);
+
+background:#dfefff;
+
+}
+
+.help-text{
+
+display:none;
+
+margin-top:12px;
+
+margin-left:10px;
+
+padding:14px;
+
+border-radius:18px;
+
+background:#f8f8f8;
+
+font-size:24px;
+
+color:#5c6f8f;
+
+line-height:1.5;
+
+max-width:700px;
+
+}
+
+/* ACTIVITIES BUTTON */
+
+.activities-section{
+
+text-align:center;
+
+margin-top:45px;
+
+margin-bottom:60px;
+
+}
+
+.activities-button{
+
+display:inline-block;
+
+background:#173f7a;
+
+color:white;
+
+text-decoration:none;
+
+font-size:34px;
+
+font-weight:bold;
+
+padding:22px 55px;
+
+border-radius:30px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+transition:0.2s;
+
+}
+
+.activities-button:hover{
+
+transform:scale(1.05);
+
+background:#21539c;
+
+}
+
+/* SUMMARY BUTTON */
+
+.summary-button{
+
+display:inline-block;
+
+background:#173f7a;
+
+color:white;
+
+text-decoration:none;
+
+font-size:34px;
+
+font-weight:bold;
+
+padding:22px 55px;
+
+border-radius:30px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+transition:0.2s;
+
+margin-top:20px;
+
+}
+
+.summary-button:hover{
+
+transform:scale(1.05);
+
+background:#21539c;
+
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.story-box{
+
+padding:22px;
+
+border-radius:25px;
+
+}
+
+.story{
+
+font-size:20px;
+
+line-height:1.5;
+
+}
+
+.sentence{
+
+margin-bottom:18px;
+
+}
+
+.word{
+
+padding:2px 4px;
+
+}
+
+.help-icon{
+
+width:28px;
+
+height:28px;
+
+font-size:14px;
+
+margin-left:5px;
+
+}
+
+.help-text{
+
+font-size:18px;
+
+padding:12px;
+
+}
+
+.story-title{
+
+font-size:20px;
+
+}
+
+.activities-button,
+.summary-button{
+
+font-size:22px;
+
+padding:14px 24px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body translate="no">
+
+<div class="top-bar">
+
+<a href="index.html" class="back-button">
+⬅
+</a>
+
+<div class="story-title">
+Story 11 – A pig in the mud
+</div>
+
+</div>
+
+<div class="story-box">
+
+<div class="story">
+
+<!-- SENTENCE 1 -->
+
+<div class="sentence">
+
+<span class="word"
+onclick="saySimpleWord('The')">
+The
+</span>
+
+<span class="word"
+onclick="saySimpleWord('pig')">
+pig
+</span>
+
+<span class="word"
+onclick="saySimpleWord('is')">
+is
+</span>
+
+<span class="word"
+onclick="saySimpleWord('pink')">
+pink
+</span>.
+
+<button class="help-icon"
+onclick="playSentence('1.mp3')">
+🔊
+</button>
+
+<button class="help-icon"
+onclick="toggleHelp('help1')">
+💡
+</button>
+
+<div class="help-text" id="help1">
+Le cochon est rose.
+</div>
+
+</div>
+
+<!-- SENTENCE 2 -->
+
+<div class="sentence">
+
+<span class="word"
+onclick="saySimpleWord('The')">
+The
+</span>
+
+<span class="word"
+onclick="saySimpleWord('pig')">
+pig
+</span>
+
+<span class="word"
+onclick="saySimpleWord('is')">
+is
+</span>
+
+<span class="word"
+onclick="saySimpleWord('big')">
+big
+</span>.
+
+<button class="help-icon"
+onclick="playSentence('2.mp3')">
+🔊
+</button>
+
+<button class="help-icon"
+onclick="toggleHelp('help2')">
+💡
+</button>
+
+<div class="help-text" id="help2">
+Le cochon est gros.
+</div>
+
+</div>
+
+<!-- SENTENCE 3 -->
+
+<div class="sentence">
+
+<span class="word"
+onclick="saySimpleWord('The')">
+The
+</span>
+
+<span class="word"
+onclick="saySimpleWord('pig')">
+pig
+</span>
+
+<span class="word"
+onclick="saySimpleWord('wants')">
+wants
+</span>
+
+<span class="word"
+onclick="saySimpleWord('to')">
+to
+</span>
+
+<span class="word"
+onclick="saySimpleWord('dig')">
+dig
+</span>.
+
+<button class="help-icon"
+onclick="playSentence('3.mp3')">
+🔊
+</button>
+
+<button class="help-icon"
+onclick="toggleHelp('help3')">
+💡
+</button>
+
+<div class="help-text" id="help3">
+Le cochon veut creuser.
+</div>
+
+</div>
+
+<!-- SENTENCE 4 -->
+
+<div class="sentence">
+
+<span class="word"
+onclick="saySimpleWord('The')">
+The
+</span>
+
+<span class="word"
+onclick="saySimpleWord('pig')">
+pig
+</span>
+
+<span class="word"
+onclick="saySimpleWord('rolls')">
+rolls
+</span>.
+
+<button class="help-icon"
+onclick="playSentence('4.mp3')">
+🔊
+</button>
+
+<button class="help-icon"
+onclick="toggleHelp('help4')">
+💡
+</button>
+
+<div class="help-text" id="help4">
+Le cochon se roule.
+</div>
+
+</div>
+
+<!-- SENTENCE 5 -->
+
+<div class="sentence">
+
+<span class="word"
+onclick="saySimpleWord('The')">
+The
+</span>
+
+<span class="word"
+onclick="saySimpleWord('pig')">
+pig
+</span>
+
+<span class="word"
+onclick="saySimpleWord('digs')">
+digs
+</span>
+
+<span class="word"
+onclick="saySimpleWord('in')">
+in
+</span>
+
+<span class="word"
+onclick="saySimpleWord('the')">
+the
+</span>
+
+<span class="word"
+onclick="saySimpleWord('mud')">
+mud
+</span>.
+
+<button class="help-icon"
+onclick="playSentence('5.mp3')">
+🔊
+</button>
+
+<button class="help-icon"
+onclick="toggleHelp('help5')">
+💡
+</button>
+
+<div class="help-text" id="help5">
+Le cochon creuse dans la boue.
+</div>
+
+</div>
+
+<!-- SENTENCE 6 -->
+
+<div class="sentence">
+
+<span class="word"
+onclick="saySimpleWord('He')">
+He
+</span>
+
+<span class="word"
+onclick="saySimpleWord('did')">
+did
+</span>
+
+<span class="word"
+onclick="saySimpleWord('it')">
+it
+</span>.
+
+<button class="help-icon"
+onclick="playSentence('6.mp3')">
+🔊
+</button>
+
+<button class="help-icon"
+onclick="toggleHelp('help6')">
+💡
+</button>
+
+<div class="help-text" id="help6">
+Il l'a fait !
+</div>
+
+</div>
+
+<!-- SENTENCE 7 -->
+
+<div class="sentence">
+
+<span class="word"
+onclick="saySimpleWord('The')">
+The
+</span>
+
+<span class="word"
+onclick="saySimpleWord('pig')">
+pig
+</span>
+
+<span class="word"
+onclick="saySimpleWord('is')">
+is
+</span>
+
+<span class="word"
+onclick="saySimpleWord('not')">
+not
+</span>
+
+<span class="word"
+onclick="saySimpleWord('pink')">
+pink
+</span>
+
+<span class="word"
+onclick="saySimpleWord('now')">
+now
+</span>.
+
+<button class="help-icon"
+onclick="playSentence('7.mp3')">
+🔊
+</button>
+
+<button class="help-icon"
+onclick="toggleHelp('help7')">
+💡
+</button>
+
+<div class="help-text" id="help7">
+Le cochon n'est plus rose maintenant.
+</div>
+
+</div>
+
+<!-- SENTENCE 8 -->
+
+<div class="sentence">
+
+<span class="word"
+onclick="saySimpleWord('The')">
+The
+</span>
+
+<span class="word"
+onclick="saySimpleWord('pig')">
+pig
+</span>
+
+<span class="word"
+onclick="saySimpleWord('is')">
+is
+</span>
+
+<span class="word"
+onclick="saySimpleWord('happy')">
+happy
+</span>.
+
+<button class="help-icon"
+onclick="playSentence('8.mp3')">
+🔊
+</button>
+
+<button class="help-icon"
+onclick="toggleHelp('help8')">
+💡
+</button>
+
+<div class="help-text" id="help8">
+Le cochon est heureux.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ACTIVITIES BUTTON + SUMMARY BUTTON -->
+
+<div class="activities-section">
+
+<a href="story11-activities.html" class="activities-button">
+🎯 Activities
+</a>
+
+<br>
+
+<a href="index.html" class="summary-button">
+📚 Back to Summary
+</a>
+
+</div>
+
+<script>
+
+let selectedVoice = null;
+
+function loadVoice(){
+
+const voices = window.speechSynthesis.getVoices();
+
+selectedVoice = voices.find(v =>
+v.lang.includes("en-GB")
+);
+
+if(!selectedVoice){
+
+selectedVoice = voices.find(v =>
+v.lang.includes("en")
+);
+
+}
+
+}
+
+speechSynthesis.onvoiceschanged = loadVoice;
+
+loadVoice();
+
+/* HELP */
+
+function toggleHelp(id){
+
+const element = document.getElementById(id);
+
+if(element.style.display === "block"){
+
+element.style.display = "none";
+
+}else{
+
+element.style.display = "block";
+
+}
+
+}
+
+/* WORD AUDIO */
+
+function saySimpleWord(word){
+
+window.speechSynthesis.cancel();
+
+const speech =
+new SpeechSynthesisUtterance(word);
+
+speech.lang = "en-GB";
+
+speech.rate = 0.7;
+
+speech.voice = selectedVoice;
+
+window.speechSynthesis.speak(speech);
+
+}
+
+/* SENTENCE AUDIO */
+
+function playSentence(file){
+
+const audio =
+new Audio("./story11/" + file);
+
+audio.play();
+
+}
+
+</script>
+
+</body>
+
+</html>
