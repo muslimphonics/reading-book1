@@ -640,8 +640,8 @@ Look at the picture. Find it in the text.
 </div>
 
 <div style="
-width:340px;
-height:340px;
+width:min(75vw,340px);
+height:min(75vw,340px);
 margin:auto;
 border-radius:50%;
 background:#eef4ff;
@@ -653,8 +653,8 @@ margin-bottom:35px;">
 
 <img src="Assets/images/cap.png"
 style="
-width:300px;
-height:300px;
+width:min(60vw,300px);
+height:min(60vw,300px);
 object-fit:contain;">
 
 </div>
@@ -1213,6 +1213,72 @@ audio.play();
 document.getElementById(
 "readingFeedback"
 ).innerHTML = message;
+
+}
+  /* MOBILE FIX */
+
+@media(max-width:700px){
+
+.story-box{
+
+padding:22px;
+
+border-radius:25px;
+
+}
+
+.story{
+
+font-size:24px;
+
+line-height:1.7;
+
+}
+
+.sentence{
+
+margin-bottom:22px;
+
+}
+
+.word{
+
+padding:2px 4px;
+
+}
+
+.help-icon{
+
+width:34px;
+height:34px;
+
+font-size:16px;
+
+margin-left:6px;
+
+}
+
+.help-text{
+
+font-size:18px;
+
+padding:12px;
+
+}
+
+.story-title{
+
+font-size:24px;
+
+}
+
+.activities-button{
+
+font-size:24px;
+
+padding:16px 30px;
+
+}
 
 }
 
