@@ -201,6 +201,8 @@ text-align:center;
 
 margin-top:45px;
 
+margin-bottom:60px;
+
 }
 
 .activities-button{
@@ -228,6 +230,42 @@ transition:0.2s;
 }
 
 .activities-button:hover{
+
+transform:scale(1.05);
+
+background:#21539c;
+
+}
+
+/* SUMMARY BUTTON */
+
+.summary-button{
+
+display:inline-block;
+
+background:#173f7a;
+
+color:white;
+
+text-decoration:none;
+
+font-size:34px;
+
+font-weight:bold;
+
+padding:22px 55px;
+
+border-radius:30px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+transition:0.2s;
+
+margin-top:20px;
+
+}
+
+.summary-button:hover{
 
 transform:scale(1.05);
 
@@ -293,7 +331,8 @@ font-size:20px;
 
 }
 
-.activities-button{
+.activities-button,
+.summary-button{
 
 font-size:22px;
 
@@ -649,12 +688,18 @@ Papa caresse le chat.
 
 </div>
 
-<!-- ACTIVITIES BUTTON -->
+<!-- ACTIVITIES BUTTON + SUMMARY BUTTON -->
 
 <div class="activities-section">
 
 <a href="story2-activities.html" class="activities-button">
 🎯 Activities
+</a>
+
+<br>
+
+<a href="index.html" class="summary-button">
+📚 Back to Summary
 </a>
 
 </div>
