@@ -1,1261 +1,522 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="google" content="notranslate">
 <meta name="google" value="notranslate">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Story 1 Activities</title>
-
 <style>
-
-*{
-box-sizing:border-box;
-}
-
-body{
-margin:0;
-padding:25px;
-font-family:Arial,sans-serif;
-background:#7ec8ff;
-}
-
-/* TOP */
-
-.top-bar{
-max-width:1100px;
-margin:auto;
-margin-bottom:25px;
-display:flex;
-align-items:center;
-gap:18px;
-}
-
-.back-button{
-background:#fffdf8;
-padding:14px 20px;
-border-radius:20px;
-text-decoration:none;
-font-size:28px;
-box-shadow:0 6px 18px rgba(0,0,0,0.12);
-}
-
-.title{
-font-size:38px;
-font-weight:bold;
-color:white;
-}
-
-/* MAIN BOX */
-
-.activity-box{
-max-width:1100px;
-margin:auto;
-margin-bottom:35px;
-background:#fffdf8;
-border-radius:35px;
-padding:40px;
-box-shadow:0 10px 30px rgba(0,0,0,0.12);
-}
-
-/* TITLES */
-
-.activity-title{
-font-size:42px;
-font-weight:bold;
-color:#173f7a;
-margin-bottom:45px;
-text-align:center;
-}
-
-/* CARDS */
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:28px;
-}
-
-/* CARD */
-
-.card{
-background:white;
-border-radius:30px;
-padding:25px;
-text-align:center;
-box-shadow:0 6px 18px rgba(0,0,0,0.08);
-}
-
-/* IMAGES */
-
-.card img,
-.image-box img{
-width:220px;
-height:220px;
-object-fit:contain;
-}
-
-/* MATCH ROW */
-
-.match-row{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:30px;
-padding:25px 0;
-border-bottom:2px dashed #dfefff;
-flex-wrap:wrap;
-}
-
-.image-box{
-flex:1;
-text-align:center;
-}
-
-.words{
-flex:1;
-display:flex;
-flex-wrap:wrap;
-gap:15px;
-justify-content:center;
-}
-
-/* BUTTONS */
-
-.word-button,
-.check-button,
-.choice-button{
-border:none;
-background:#173f7a;
-color:white;
-font-size:28px;
-font-weight:bold;
-padding:16px 26px;
-border-radius:20px;
-cursor:pointer;
-transition:0.2s;
-}
-
-.word-button:hover,
-.check-button:hover,
-.choice-button:hover{
-transform:scale(1.05);
-background:#21539c;
-}
-
-/* INPUT */
-
-.type-label{
-font-size:24px;
-font-weight:bold;
-color:#173f7a;
-margin-bottom:14px;
-}
-
-.word-input{
-width:100%;
-max-width:220px;
-padding:16px;
-border-radius:18px;
-border:3px solid #dfefff;
-font-size:24px;
-text-align:center;
-font-weight:bold;
-outline:none;
-}
-
-/* FEEDBACK */
-
-.correct{
-background:#38b94a !important;
-}
-
-.wrong{
-background:#ff4d4d !important;
-}
-
-/* CORRECTION */
-
-.correction{
-
-margin-top:14px;
-
-font-size:22px;
-
-font-weight:bold;
-
-color:#ff4d4d;
-
-}
-
-/* TEXT GAME */
-
-.text-story{
-font-size:38px;
-line-height:1.6;
-font-weight:bold;
-text-align:center;
-color:#173f7a;
-}
-
-.find-word{
-cursor:pointer;
-padding:6px 10px;
-border-radius:14px;
-transition:0.2s;
-display:inline-block;
-}
-
-.find-word:hover{
-background:#e8f7df;
-}
-
-/* RECORDING STATUS */
-
-.recording-status{
-display:none;
-margin-top:25px;
-margin-bottom:40px;
-text-align:center;
-font-size:34px;
-font-weight:bold;
-color:#ff3b3b;
-animation:pulse 1s infinite;
-}
-
-@keyframes pulse{
-0%{
-transform:scale(1);
-}
-50%{
-transform:scale(1.08);
-}
-100%{
-transform:scale(1);
-}
-}
-
-/* MOBILE */
+*{ box-sizing:border-box; }
+body{ margin:0; padding:25px; font-family:Arial,sans-serif; background:#7ec8ff; }
+.top-bar{ max-width:1100px; margin:auto; margin-bottom:25px; display:flex; align-items:center; gap:18px; }
+.back-button{ background:#fffdf8; padding:14px 20px; border-radius:20px; text-decoration:none; font-size:28px; box-shadow:0 6px 18px rgba(0,0,0,0.12); }
+.title{ font-size:38px; font-weight:bold; color:white; }
+.activity-box{ max-width:1100px; margin:auto; margin-bottom:35px; background:#fffdf8; border-radius:35px; padding:40px; box-shadow:0 10px 30px rgba(0,0,0,0.12); }
+.activity-title{ font-size:42px; font-weight:bold; color:#173f7a; margin-bottom:45px; text-align:center; }
+.cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:28px; }
+.card{ background:white; border-radius:30px; padding:25px; text-align:center; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
+.card img,.image-box img{ width:220px; height:220px; object-fit:contain; }
+.match-row{ display:flex; align-items:center; justify-content:space-between; gap:30px; padding:25px 0; border-bottom:2px dashed #dfefff; flex-wrap:wrap; }
+.image-box{ flex:1; text-align:center; }
+.words{ flex:1; display:flex; flex-wrap:wrap; gap:15px; justify-content:center; }
+.word-button,.check-button,.choice-button{ border:none; background:#173f7a; color:white; font-size:28px; font-weight:bold; padding:16px 26px; border-radius:20px; cursor:pointer; transition:0.2s; }
+.word-button:hover,.check-button:hover,.choice-button:hover{ transform:scale(1.05); background:#21539c; }
+.type-label{ font-size:24px; font-weight:bold; color:#173f7a; margin-bottom:14px; }
+.word-input{ width:100%; max-width:220px; padding:16px; border-radius:18px; border:3px solid #dfefff; font-size:24px; text-align:center; font-weight:bold; outline:none; }
+.correct{ background:#38b94a !important; }
+.wrong{ background:#ff4d4d !important; }
+.correction{ margin-top:14px; font-size:22px; font-weight:bold; color:#ff4d4d; }
+.text-story{ font-size:38px; line-height:1.6; font-weight:bold; text-align:center; color:#173f7a; }
+.find-word{ cursor:pointer; padding:6px 10px; border-radius:14px; transition:0.2s; display:inline-block; }
+.find-word:hover{ background:#e8f7df; }
+.recording-status{ display:none; margin-top:25px; margin-bottom:40px; text-align:center; font-size:34px; font-weight:bold; color:#ff3b3b; animation:pulse 1s infinite; }
+@keyframes pulse{ 0%{ transform:scale(1); } 50%{ transform:scale(1.08); } 100%{ transform:scale(1); } }
 
 @media(max-width:700px){
-
-body{
-padding:14px;
+body{ padding:14px; }
+.activity-box{ padding:20px; border-radius:24px; margin-bottom:22px; }
+.title{ font-size:24px; }
+.activity-title{ font-size:24px; margin-bottom:28px; line-height:1.4; }
+.word-button,.check-button,.choice-button{ font-size:18px; padding:12px 14px; border-radius:16px; }
+.card{ padding:18px; border-radius:22px; }
+.card img,.image-box img{ width:120px; height:120px; }
+.type-label{ font-size:18px; }
+.word-input{ font-size:18px; padding:12px; max-width:170px; }
+.text-story{ font-size:22px; line-height:1.5; }
+.find-word{ padding:3px 5px; }
+.recording-status{ font-size:24px; }
+.think-question{ font-size:20px; }
+.think-btn{ font-size:18px; padding:12px 16px; }
 }
 
-.activity-box{
-padding:20px;
-border-radius:24px;
-margin-bottom:22px;
-}
-
-.title{
-font-size:24px;
-}
-
-.activity-title{
-font-size:24px;
-margin-bottom:28px;
-line-height:1.4;
-}
-
-.word-button,
-.check-button,
-.choice-button{
-font-size:18px;
-padding:12px 14px;
-border-radius:16px;
-}
-
-.card{
-padding:18px;
-border-radius:22px;
-}
-
-.card img,
-.image-box img{
-width:120px;
-height:120px;
-}
-
-.type-label{
-font-size:18px;
-}
-
-.word-input{
-font-size:18px;
-padding:12px;
-max-width:170px;
-}
-
-.text-story{
-font-size:22px;
-line-height:1.5;
-}
-
-.find-word{
-padding:3px 5px;
-}
-
-.recording-status{
-font-size:24px;
-}
-
-}
+/* THINK TOGETHER */
+.think-question-block{ margin-bottom:36px; }
+.think-question{ font-size:28px; font-weight:bold; color:#173f7a; margin-bottom:4px; }
+.think-q-row{ display:flex; align-items:center; gap:10px; margin-bottom:18px; flex-wrap:wrap; }
+.think-question-fr{ font-size:19px; font-weight:600; color:#5c6f8f; font-style:italic; display:none; }
+.think-option{ margin-bottom:12px; display:flex; align-items:center; gap:10px; }
+.think-btn{ border:none; background:#173f7a; color:white; font-size:22px; font-weight:bold; padding:14px 20px; border-radius:18px; cursor:pointer; transition:0.2s; flex:1; text-align:left; }
+.think-btn:hover{ transform:scale(1.01); background:#21539c; }
+.think-option-fr{ font-size:17px; font-weight:600; color:#5c6f8f; font-style:italic; display:none; }
+.hint-bulb{ width:38px; height:38px; border:none; border-radius:50%; background:#eef4ff; font-size:18px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; transition:0.2s; }
+.hint-bulb:hover{ background:#dfefff; transform:scale(1.1); }
+.think-separator{ border:none; border-top:2px dashed #dfefff; margin:30px 0; }
+.think-feedback{ margin-top:14px; font-size:20px; font-weight:700; color:#173f7a; background:#eef4ff; border-radius:16px; padding:14px 18px; display:none; line-height:1.6; }
 </style>
-
 </head>
-
 <body translate="no">
 
 <!-- TOP -->
-
 <div class="top-bar">
-
-<a href="story1.html" class="back-button">
-⬅
-</a>
-
-<div class="title">
-Story 1 Activities
-</div>
-
+  <a href="story1.html" class="back-button">⬅</a>
+  <div class="title">Story 1 Activities</div>
 </div>
 
 <!-- ACTIVITY 1 -->
-
 <div class="activity-box">
+  <div class="activity-title">🎯 Activity 1 — Look at the picture. Mark the correct word.</div>
 
-<div class="activity-title">
-🎯 Activity 1 — Look at the picture. Mark the correct word.
-</div>
+  <div class="match-row">
+    <div class="image-box"><img src="Assets/images/cap.png"></div>
+    <div class="words">
+      <button class="word-button" onclick="checkAnswer(this,false)">bag</button>
+      <button class="word-button" onclick="checkAnswer(this,true)">cap</button>
+      <button class="word-button" onclick="checkAnswer(this,false)">Dad</button>
+    </div>
+  </div>
 
-<div class="match-row">
-
-<div class="image-box">
-<img src="Assets/images/cap.png">
-</div>
-
-<div class="words">
-
-<button class="word-button"
-onclick="checkAnswer(this,false)">
-bag
-</button>
-
-<button class="word-button"
-onclick="checkAnswer(this,true)">
-cap
-</button>
-
-<button class="word-button"
-onclick="checkAnswer(this,false)">
-Dad
-</button>
-
-</div>
-
-</div>
-
-<div class="match-row">
-
-<div class="image-box">
-<img src="Assets/images/bag.png">
-</div>
-
-<div class="words">
-
-<button class="word-button"
-onclick="checkAnswer(this,true)">
-bag
-</button>
-
-<button class="word-button"
-onclick="checkAnswer(this,false)">
-cap
-</button>
-
-<button class="word-button"
-onclick="checkAnswer(this,false)">
-Sam
-</button>
-
-</div>
-
-</div>
-
+  <div class="match-row">
+    <div class="image-box"><img src="Assets/images/bag.png"></div>
+    <div class="words">
+      <button class="word-button" onclick="checkAnswer(this,true)">bag</button>
+      <button class="word-button" onclick="checkAnswer(this,false)">cap</button>
+      <button class="word-button" onclick="checkAnswer(this,false)">Sam</button>
+    </div>
+  </div>
 </div>
 
 <!-- ACTIVITY 2 -->
-
 <div class="activity-box">
+  <div class="activity-title">🎯 Activity 2 — Type the word</div>
+  <div class="cards">
 
-<div class="activity-title">
-🎯 Activity 2 — Type the word
-</div>
+    <div class="card">
+      <img src="Assets/images/cap.png">
+      <div class="type-label">Type the word:</div>
+      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="cap-input" class="word-input">
+      <br><br>
+      <button class="check-button" onclick="checkTyping('cap-input','cap',this)">Check</button>
+    </div>
 
-<div class="cards">
+    <div class="card">
+      <img src="Assets/images/bag.png">
+      <div class="type-label">Type the word:</div>
+      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="bag-input" class="word-input">
+      <br><br>
+      <button class="check-button" onclick="checkTyping('bag-input','bag',this)">Check</button>
+    </div>
 
-<div class="card">
+    <div class="card">
+      <img src="Assets/images/dad.png">
+      <div class="type-label">Type the word:</div>
+      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="dad-input" class="word-input">
+      <br><br>
+      <button class="check-button" onclick="checkTyping('dad-input','dad',this)">Check</button>
+    </div>
 
-<img src="Assets/images/cap.png">
+    <div class="card">
+      <img src="Assets/images/story1-boy.png">
+      <div class="type-label">Type the word:</div>
+      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="sam-input" class="word-input">
+      <br><br>
+      <button class="check-button" onclick="checkTyping('sam-input','sam',this)">Check</button>
+    </div>
 
-<div class="type-label">
-Type the word:
-</div>
-
-<input
-type="text"
-autocomplete="off"
-autocorrect="off"
-autocapitalize="off"
-spellcheck="false"
-id="cap-input"
-class="word-input">
-
-<br><br>
-
-<button class="check-button"
-onclick="checkTyping('cap-input','cap',this)">
-Check
-</button>
-
-</div>
-
-<div class="card">
-
-<img src="Assets/images/bag.png">
-
-<div class="type-label">
-Type the word:
-</div>
-
-<input
-type="text"
-autocomplete="off"
-autocorrect="off"
-autocapitalize="off"
-spellcheck="false"
-id="bag-input"
-class="word-input">
-
-<br><br>
-
-<button class="check-button"
-onclick="checkTyping('bag-input','bag',this)">
-Check
-</button>
-
-</div>
-
-<div class="card">
-
-<img src="Assets/images/dad.png">
-
-<div class="type-label">
-Type the word:
-</div>
-
-<input
-type="text"
-autocomplete="off"
-autocorrect="off"
-autocapitalize="off"
-spellcheck="false"
-id="dad-input"
-class="word-input">
-
-<br><br>
-
-<button class="check-button"
-onclick="checkTyping('dad-input','dad',this)">
-Check
-</button>
-
-</div>
-
-<div class="card">
-
-<img src="Assets/images/story1-boy.png">
-
-<div class="type-label">
-Type the word:
-</div>
-
-<input
-type="text"
-autocomplete="off"
-autocorrect="off"
-autocapitalize="off"
-spellcheck="false"
-id="sam-input"
-class="word-input">
-
-<br><br>
-
-<button class="check-button"
-onclick="checkTyping('sam-input','sam',this)">
-Check
-</button>
-
-</div>
-
-</div>
-
+  </div>
 </div>
 
 <!-- ACTIVITY 3 -->
-
 <div class="activity-box">
+  <div class="activity-title">🎯 Activity 3 — Choose the correct sentence</div>
+  <div class="cards">
 
-<div class="activity-title">
-🎯 Activity 3 — Choose the correct sentence
-</div>
+    <div class="card">
+      <img src="Assets/images/cap.png">
+      <br><br>
+      <button class="choice-button" onclick="checkAnswer(this,true)">The cap is red.</button>
+      <br><br>
+      <button class="choice-button" onclick="checkAnswer(this,false)">The bag is red.</button>
+      <br><br>
+      <button class="choice-button" onclick="checkAnswer(this,false)">The cat is red.</button>
+    </div>
 
-<div class="cards">
+    <div class="card">
+      <img src="Assets/images/bag.png">
+      <br><br>
+      <button class="choice-button" onclick="checkAnswer(this,false)">Sam has a cap.</button>
+      <br><br>
+      <button class="choice-button" onclick="checkAnswer(this,true)">Sam has a bag.</button>
+      <br><br>
+      <button class="choice-button" onclick="checkAnswer(this,false)">Dad has a red bag.</button>
+    </div>
 
-<div class="card">
-
-<img src="Assets/images/cap.png">
-
-<br><br>
-
-<button class="choice-button"
-onclick="checkAnswer(this,true)">
-The cap is red.
-</button>
-
-<br><br>
-
-<button class="choice-button"
-onclick="checkAnswer(this,false)">
-The bag is red.
-</button>
-
-<br><br>
-
-<button class="choice-button"
-onclick="checkAnswer(this,false)">
-The cat is red.
-</button>
-
-</div>
-
-<div class="card">
-
-<img src="Assets/images/bag.png">
-
-<br><br>
-
-<button class="choice-button"
-onclick="checkAnswer(this,false)">
-Sam has a cap.
-</button>
-
-<br><br>
-
-<button class="choice-button"
-onclick="checkAnswer(this,true)">
-Sam has a bag.
-</button>
-
-<br><br>
-
-<button class="choice-button"
-onclick="checkAnswer(this,false)">
-Dad has a red bag.
-</button>
-
-</div>
-
-</div>
-
+  </div>
 </div>
 
 <!-- ACTIVITY 4 -->
-
 <div class="activity-box">
+  <div class="activity-title">🎯 Activity 4 — Translation</div>
+  <div class="cards">
 
-<div class="activity-title">
-🎯 Activity 4 — Translation
-</div>
+    <div class="card">
+      <div style="font-size:34px;font-weight:bold;color:#173f7a;line-height:1.5;">Le sac est rouge.</div>
+      <br>
+      <input type="text" id="translate1" class="word-input" placeholder="Write in English">
+      <br><br>
+      <button class="check-button" onclick="checkFlexibleAnswer('translate1',['The bag is red.','the bag is red','the bag is red.'],this)">Check</button>
+    </div>
 
-<div class="cards">
+    <div class="card">
+      <div style="font-size:34px;font-weight:bold;color:#173f7a;line-height:1.5;">Papa a un sac.</div>
+      <br>
+      <input type="text" id="translate2" class="word-input" placeholder="Write in English">
+      <br><br>
+      <button class="check-button" onclick="checkFlexibleAnswer('translate2',['Dad has a bag.','dad has a bag.','dad has a bag'],this)">Check</button>
+    </div>
 
-<div class="card">
-
-<div style="
-font-size:34px;
-font-weight:bold;
-color:#173f7a;
-line-height:1.5;">
-
-Le sac est rouge.
-
-</div>
-
-<br>
-
-<input
-type="text"
-id="translate1"
-class="word-input"
-placeholder="Write in English">
-
-<br><br>
-
-<button class="check-button"
-onclick="checkFlexibleAnswer(
-'translate1',
-['The bag is red.','the bag is red','the bag is red.'],
-this)">
-Check
-</button>
-
-</div>
-
-<div class="card">
-
-<div style="
-font-size:34px;
-font-weight:bold;
-color:#173f7a;
-line-height:1.5;">
-
-Papa a un sac.
-
-</div>
-
-<br>
-
-<input
-type="text"
-id="translate2"
-class="word-input"
-placeholder="Write in English">
-
-<br><br>
-
-<button class="check-button"
-onclick="checkFlexibleAnswer(
-'translate2',
-['Dad has a bag.','dad has a bag.','dad has a bag'],
-this)">
-Check
-</button>
-
-</div>
-
-</div>
-
+  </div>
 </div>
 
 <!-- ACTIVITY 5 -->
-
 <div class="activity-box">
+  <div class="activity-title">🎯 Activity 5 — Find the word in the text</div>
 
-<div class="activity-title">
-🎯 Activity 5 — Find the word in the text
+  <div style="text-align:center;margin-bottom:35px;">
+    <div style="font-size:22px;font-weight:600;color:#5c6f8f;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:25px;">
+      Look at the picture. Find it in the text.
+    </div>
+    <div style="width:min(75vw,340px);height:min(75vw,340px);margin:auto;border-radius:50%;background:#eef4ff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.08);margin-bottom:35px;">
+      <img src="Assets/images/cap.png" style="width:min(60vw,300px);height:min(60vw,300px);object-fit:contain;">
+    </div>
+  </div>
+
+  <!-- FIX: data-correct on each span so we can count total correct & found -->
+  <div class="text-story" id="findWordText">
+    <span class="find-word" data-correct="false" onclick="findWord(this,false)">Sam</span>
+    <span class="find-word" data-correct="false" onclick="findWord(this,false)">has</span>
+    <span class="find-word" data-correct="false" onclick="findWord(this,false)">a</span>
+    <span class="find-word" data-correct="true"  onclick="findWord(this,true)">cap.</span>
+    <br>
+    <span class="find-word" data-correct="false" onclick="findWord(this,false)">The</span>
+    <span class="find-word" data-correct="true"  onclick="findWord(this,true)">cap</span>
+    <span class="find-word" data-correct="false" onclick="findWord(this,false)">is</span>
+    <span class="find-word" data-correct="false" onclick="findWord(this,false)">red.</span>
+    <br>
+    <span class="find-word" data-correct="false" onclick="findWord(this,false)">Sam</span>
+    <span class="find-word" data-correct="false" onclick="findWord(this,false)">has</span>
+    <span class="find-word" data-correct="false" onclick="findWord(this,false)">a</span>
+    <span class="find-word" data-correct="false" onclick="findWord(this,false)">bag.</span>
+    <br>
+    <span class="find-word" data-correct="false" onclick="findWord(this,false)">Dad</span>
+    <span class="find-word" data-correct="false" onclick="findWord(this,false)">has</span>
+    <span class="find-word" data-correct="false" onclick="findWord(this,false)">a</span>
+    <span class="find-word" data-correct="true"  onclick="findWord(this,true)">cap.</span>
+  </div>
+
+  <!-- FIX: "all found" feedback message -->
+  <div id="allFoundMsg" style="display:none;margin-top:28px;text-align:center;font-size:28px;font-weight:bold;color:#38b94a;">
+    🎉 Well done! You found all the words!
+  </div>
 </div>
 
-<div style="
-text-align:center;
-margin-bottom:35px;">
+<!-- ACTIVITY 7 — Think Together -->
+<div class="activity-box">
+  <div class="activity-title">&#x1F4A1; Activity 7 &#x2014; Think Together</div>
 
-<div style="
-font-size:22px;
-font-weight:600;
-color:#5c6f8f;
-letter-spacing:0.5px;
-text-transform:uppercase;
-margin-bottom:25px;">
+  <!-- Science link banner -->
+  <div style="background:#eef4ff;border-radius:20px;padding:16px 24px;margin-bottom:32px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <span style="font-size:28px;">&#x1F52C;</span>
+    <span style="font-size:18px;font-weight:700;color:#5c6f8f;line-height:1.6;">
+      These questions are linked to the <em>British Curriculum — KG1/KG2 Science</em> programme:<br>
+      properties of materials (soft / hard) and uses of objects.<br>
+      <span style="font-size:16px;font-style:italic;font-weight:600;">
+        Ces questions sont li&#xe9;es au programme de <em>Sciences / cursus British KG1&#x2011;KG2</em>&#x00A0;&#x2014;
+        les propri&#xe9;t&#xe9;s des mat&#xe9;riaux et les fonctions des objets.
+      </span>
+    </span>
+  </div>
 
-Look at the picture. Find it in the text.
+  <!-- Q1 -->
+  <div class="think-question-block">
+    <div class="think-q-row">
+      <div class="think-question">What is a cap for?</div>
+      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
+    </div>
+    <div class="think-question-fr">&#xC0; quoi sert une casquette&#xA0;?</div>
 
-</div>
+    <div class="think-option">
+      <button class="think-btn" onclick="checkThink(this,true,'q1-feedback','&#x2600;&#xFE0F; Yes! A cap protects your head from the sun. / Oui&#x00A0;! Une casquette prot&#xe8;ge la t&#xea;te du soleil.')">A. A cap is for the sun.</button>
+      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
+      <div class="think-option-fr">Une casquette prot&#xe8;ge du soleil.</div>
+    </div>
+    <div class="think-option">
+      <button class="think-btn" onclick="checkThink(this,false,'q1-feedback','')">B. A cap is for the feet.</button>
+      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
+      <div class="think-option-fr">Une casquette est pour les pieds.</div>
+    </div>
+    <div class="think-option">
+      <button class="think-btn" onclick="checkThink(this,false,'q1-feedback','')">C. A cap is for the hand.</button>
+      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
+      <div class="think-option-fr">Une casquette est pour la main.</div>
+    </div>
+    <div id="q1-feedback" class="think-feedback"></div>
+  </div>
 
-<div style="
-width:min(75vw,340px);
-height:min(75vw,340px);
-margin:auto;
-border-radius:50%;
-background:#eef4ff;
-display:flex;
-align-items:center;
-justify-content:center;
-box-shadow:0 6px 18px rgba(0,0,0,0.08);
-margin-bottom:35px;">
+  <hr class="think-separator">
 
-<img src="Assets/images/cap.png"
-style="
-width:min(60vw,300px);
-height:min(60vw,300px);
-object-fit:contain;">
+  <!-- Q2 -->
+  <div class="think-question-block">
+    <div class="think-q-row">
+      <div class="think-question">Is a cap soft or hard?</div>
+      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
+    </div>
+    <div class="think-question-fr">Est-ce qu&#x2019;une casquette est douce ou dure&#xA0;?</div>
 
-</div>
-
-</div>
-
-<div class="text-story">
-
-<span class="find-word"
-onclick="findWord(this,false)">
-Sam
-</span>
-
-<span class="find-word"
-onclick="findWord(this,false)">
-has
-</span>
-
-<span class="find-word"
-onclick="findWord(this,false)">
-a
-</span>
-
-<span class="find-word"
-onclick="findWord(this,true)">
-cap.
-</span>
-
-<br>
-
-<span class="find-word"
-onclick="findWord(this,false)">
-The
-</span>
-
-<span class="find-word"
-onclick="findWord(this,true)">
-cap
-</span>
-
-<span class="find-word"
-onclick="findWord(this,false)">
-is
-</span>
-
-<span class="find-word"
-onclick="findWord(this,false)">
-red.
-</span>
-
-<br>
-
-<span class="find-word"
-onclick="findWord(this,false)">
-Sam
-</span>
-
-<span class="find-word"
-onclick="findWord(this,false)">
-has
-</span>
-
-<span class="find-word"
-onclick="findWord(this,false)">
-a
-</span>
-
-<span class="find-word"
-onclick="findWord(this,false)">
-bag.
-</span>
-
-<br>
-
-<span class="find-word"
-onclick="findWord(this,false)">
-Dad
-</span>
-
-<span class="find-word"
-onclick="findWord(this,false)">
-has
-</span>
-
-<span class="find-word"
-onclick="findWord(this,false)">
-a
-</span>
-
-<span class="find-word"
-onclick="findWord(this,true)">
-cap.
-</span>
-
-</div>
+    <div class="think-option">
+      <button class="think-btn" onclick="checkThink(this,true,'q2-feedback','&#x1F44D; Correct! A cap is soft &#x2014; you can bend it. In Science, soft materials can change shape when you press them. / Correct&#x00A0;! Une casquette est douce &#x2014; on peut la plier. En Sciences, les mat&#xe9;riaux mous changent de forme quand on appuie dessus.')">A. Soft.</button>
+      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
+      <div class="think-option-fr">Douce / molle.</div>
+    </div>
+    <div class="think-option">
+      <button class="think-btn" onclick="checkThink(this,false,'q2-feedback','')">B. Hard.</button>
+      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
+      <div class="think-option-fr">Dure.</div>
+    </div>
+    <div id="q2-feedback" class="think-feedback"></div>
+  </div>
 
 </div>
 
 <!-- ACTIVITY 6 -->
-
 <div class="activity-box">
+  <div class="activity-title">&#x1F3A4; Activity 6 &#x2014; Read and Listen to Yourself</div>
 
-<div class="activity-title">
-🎤 Activity 6 — Read and Listen to Yourself
-</div>
+  <div style="text-align:center;font-size:20px;font-weight:600;color:#5c6f8f;line-height:1.6;margin-bottom:30px;">
+    Read the story aloud.<br>
+    Record your voice and listen to yourself.
+  </div>
 
-<div style="
-text-align:center;
-font-size:20px;
-font-weight:600;
-color:#5c6f8f;
-line-height:1.6;
-margin-bottom:30px;">
+  <div style="max-width:700px;margin:auto;background:#eef4ff;padding:30px;border-radius:35px;margin-bottom:30px;">
+    <div class="text-story" style="font-size:32px;line-height:1.5;text-align:center;">
+      Sam has a cap.<br>
+      The cap is red.<br>
+      Sam has a bag.<br>
+      The bag is red too.<br>
+      Sam runs to Dad.<br>
+      Dad has a cap.<br>
+      Sam is glad.
+    </div>
+  </div>
 
-Read the story aloud.<br>
-Record your voice and listen to yourself.
+  <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:20px;">
+    <!-- FIX: id on Record button so we can disable it during recording -->
+    <button class="choice-button" id="recordBtn" onclick="startRecording()">🎙 Record</button>
+    <button class="choice-button" onclick="stopRecording()">⏹ Stop</button>
+    <button class="choice-button" onclick="playRecording()">🔊 Play &amp; Listen</button>
+  </div>
 
-</div>
+  <div id="recordingStatus" class="recording-status">🔴 Recording...</div>
 
-<div style="
-max-width:700px;
-margin:auto;
-background:#eef4ff;
-padding:30px;
-border-radius:35px;
-margin-bottom:30px;">
+  <div style="text-align:center;font-size:24px;font-weight:bold;color:#173f7a;margin-top:20px;margin-bottom:20px;">
+    How was your reading?
+  </div>
 
-<div class="text-story"
-style="
-font-size:32px;
-line-height:1.5;
-text-align:center;">
+  <div style="display:flex;justify-content:center;gap:18px;flex-wrap:wrap;">
+    <button class="choice-button" style="font-size:34px;padding:14px 22px;background:#ff6b6b;" onclick="rateReading(this,'Keep practicing! 🌱')">⭐</button>
+    <button class="choice-button" style="font-size:34px;padding:14px 22px;background:#ffd966;" onclick="rateReading(this,'Good reading! 🌟')">⭐⭐</button>
+    <button class="choice-button" style="font-size:34px;padding:14px 22px;background:#38b94a;" onclick="rateReading(this,'Excellent reading! 🏆')">⭐⭐⭐</button>
+  </div>
 
-Sam has a cap.<br>
-
-The cap is red.<br>
-
-Sam has a bag.<br>
-
-The bag is red too.<br>
-
-Sam runs to Dad.<br>
-
-Dad has a cap.<br>
-
-Sam is glad.
-
-</div>
-
-</div>
-
-<div style="
-display:flex;
-justify-content:center;
-gap:16px;
-flex-wrap:wrap;
-margin-bottom:20px;">
-
-<button class="choice-button"
-onclick="startRecording()">
-🎙 Record
-</button>
-
-<button class="choice-button"
-onclick="stopRecording()">
-⏹ Stop
-</button>
-
-<button class="choice-button"
-onclick="playRecording()">
-🔊 Play & Listen
-</button>
-
-</div>
-
-<div id="recordingStatus"
-class="recording-status">
-
-🔴 Recording...
-
-</div>
-
-<div style="
-text-align:center;
-font-size:24px;
-font-weight:bold;
-color:#173f7a;
-margin-top:20px;
-margin-bottom:20px;">
-
-How was your reading?
-
-</div>
-
-<div style="
-display:flex;
-justify-content:center;
-gap:18px;
-flex-wrap:wrap;">
-
-<button class="choice-button"
-style="
-font-size:34px;
-padding:14px 22px;
-background:#ff6b6b;"
-onclick="rateReading(this,'Keep practicing! 🌱')">
-
-⭐
-
-</button>
-
-<button class="choice-button"
-style="
-font-size:34px;
-padding:14px 22px;
-background:#ffd966;"
-onclick="rateReading(this,'Good reading! 🌟')">
-
-⭐⭐
-
-</button>
-
-<button class="choice-button"
-style="
-font-size:34px;
-padding:14px 22px;
-background:#38b94a;"
-onclick="rateReading(this,'Excellent reading! 🏆')">
-
-⭐⭐⭐
-
-</button>
-
-</div>
-
-<div id="readingFeedback"
-style="
-margin-top:25px;
-text-align:center;
-font-size:26px;
-font-weight:bold;
-color:#173f7a;">
-</div>
-
+  <div id="readingFeedback" style="margin-top:25px;text-align:center;font-size:26px;font-weight:bold;color:#173f7a;"></div>
 </div>
 
 <!-- BOTTOM BUTTONS -->
-
-<div style="
-text-align:center;
-margin-top:45px;
-margin-bottom:60px;">
-
-<button class="choice-button"
-onclick="location.reload()">
-
-🔄 Restart Activities
-
-</button>
-
-<br><br>
-
-<a href="index.html"
-style="text-decoration:none;">
-
-<button class="choice-button">
-
-📚 Back to Summary
-
-</button>
-
-</a>
-
+<div style="text-align:center;margin-top:45px;margin-bottom:60px;">
+  <button class="choice-button" onclick="location.reload()">🔄 Restart Activities</button>
+  <br><br>
+  <a href="index.html" style="text-decoration:none;">
+    <button class="choice-button">📚 Back to Summary</button>
+  </a>
 </div>
 
 <script>
 
-function playGood(){
+function playGood(){ new Audio("Assets/word-audio/goodanswer.mp3").play(); }
+function playBad(){  new Audio("Assets/word-audio/badanswer.mp3").play(); }
 
-const audio =
-new Audio("Assets/word-audio/goodanswer.mp3");
-
-audio.play();
-
+function checkAnswer(button, isCorrect){
+  button.classList.remove("correct","wrong");
+  if(isCorrect){ button.classList.add("correct"); playGood(); }
+  else         { button.classList.add("wrong");   playBad();  }
 }
 
-function playBad(){
-
-const audio =
-new Audio("Assets/word-audio/badanswer.mp3");
-
-audio.play();
-
+function showCorrection(input, message){
+  let old = input.parentElement.querySelector(".correction");
+  if(old) old.remove();
+  const d = document.createElement("div");
+  d.className = "correction";
+  d.innerHTML = message;
+  input.parentElement.appendChild(d);
 }
 
-function checkAnswer(button,isCorrect){
-
-button.classList.remove("correct");
-button.classList.remove("wrong");
-
-if(isCorrect){
-
-button.classList.add("correct");
-
-playGood();
-
-}else{
-
-button.classList.add("wrong");
-
-playBad();
-
+function checkTyping(inputId, correctWord, button){
+  const input = document.getElementById(inputId);
+  const value = input.value.toLowerCase().trim();
+  button.classList.remove("correct","wrong");
+  let old = input.parentElement.querySelector(".correction");
+  if(old) old.remove();
+  if(value === correctWord){
+    input.style.border = "3px solid #38b94a";
+    button.classList.add("correct");
+    playGood();
+  } else {
+    input.style.border = "3px solid #ff4d4d";
+    button.classList.add("wrong");
+    showCorrection(input, "Correct answer: " + correctWord);
+    playBad();
+  }
 }
 
+function normalizeText(t){ return t.toLowerCase().replace(/[.,!?]/g,"").trim(); }
+
+function checkFlexibleAnswer(inputId, answers, button){
+  const input = document.getElementById(inputId);
+  const value = normalizeText(input.value);
+  const normalized = answers.map(a => normalizeText(a));
+  button.classList.remove("correct","wrong");
+  let old = input.parentElement.querySelector(".correction");
+  if(old) old.remove();
+  if(normalized.includes(value)){
+    input.style.border = "3px solid #38b94a";
+    button.classList.add("correct");
+    playGood();
+  } else {
+    input.style.border = "3px solid #ff4d4d";
+    button.classList.add("wrong");
+    showCorrection(input, "Correct answer: " + answers[0]);
+    playBad();
+  }
 }
 
-function showCorrection(input,message){
+/* FIX: track found count to show "all found" message */
+const TOTAL_CORRECT = 3; // number of correct spans in Activity 5
+let foundCount = 0;
 
-let oldCorrection =
-input.parentElement.querySelector(".correction");
+function findWord(span, isCorrect){
+  /* prevent clicking the same word twice */
+  if(span.dataset.done) return;
+  span.dataset.done = "true";
 
-if(oldCorrection){
-
-oldCorrection.remove();
-
+  if(isCorrect){
+    span.style.background = "#38b94a";
+    span.style.color = "white";
+    playGood();
+    foundCount++;
+    if(foundCount >= TOTAL_CORRECT){
+      document.getElementById("allFoundMsg").style.display = "block";
+    }
+  } else {
+    span.style.background = "#ff4d4d";
+    span.style.color = "white";
+    playBad();
+    /* allow re-clicking wrong words after 1s (fade back) */
+    setTimeout(() => {
+      span.style.background = "";
+      span.style.color = "";
+      delete span.dataset.done;
+    }, 900);
+  }
 }
 
-const correction =
-document.createElement("div");
-
-correction.className = "correction";
-
-correction.innerHTML = message;
-
-input.parentElement.appendChild(correction);
-
-}
-
-function checkTyping(inputId,correctWord,button){
-
-const input =
-document.getElementById(inputId);
-
-const value =
-input.value.toLowerCase().trim();
-
-button.classList.remove("correct");
-button.classList.remove("wrong");
-
-let oldCorrection =
-input.parentElement.querySelector(".correction");
-
-if(oldCorrection){
-
-oldCorrection.remove();
-
-}
-
-if(value === correctWord){
-
-input.style.border =
-"3px solid #38b94a";
-
-button.classList.add("correct");
-
-playGood();
-
-}else{
-
-input.style.border =
-"3px solid #ff4d4d";
-
-button.classList.add("wrong");
-
-showCorrection(
-input,
-"Correct answer: " + correctWord
-);
-
-playBad();
-
-}
-
-}
-
-function normalizeText(text){
-
-return text
-.toLowerCase()
-.replace(/[.,!?]/g,"")
-.trim();
-
-}
-
-function checkFlexibleAnswer(inputId,answers,button){
-
-const input =
-document.getElementById(inputId);
-
-const value =
-normalizeText(input.value);
-
-const normalizedAnswers =
-answers.map(a => normalizeText(a));
-
-button.classList.remove("correct");
-button.classList.remove("wrong");
-
-let oldCorrection =
-input.parentElement.querySelector(".correction");
-
-if(oldCorrection){
-
-oldCorrection.remove();
-
-}
-
-if(normalizedAnswers.includes(value)){
-
-input.style.border =
-"3px solid #38b94a";
-
-button.classList.add("correct");
-
-playGood();
-
-}else{
-
-input.style.border =
-"3px solid #ff4d4d";
-
-button.classList.add("wrong");
-
-showCorrection(
-input,
-"Correct answer: " + answers[0]
-);
-
-playBad();
-
-}
-
-}
-
-function findWord(word,isCorrect){
-
-if(isCorrect){
-
-word.style.background =
-"#38b94a";
-
-word.style.color =
-"white";
-
-playGood();
-
-}else{
-
-word.style.background =
-"#ff4d4d";
-
-word.style.color =
-"white";
-
-playBad();
-
-}
-
-}
-
-let mediaRecorder;
-
-let audioChunks = [];
-
-let recordedAudio;
+/* FIX: recording with try/catch + double-click guard + proper stream stop */
+let mediaRecorder, audioChunks = [], recordedAudio;
+let isRecording = false;
 
 async function startRecording(){
-
-document.getElementById(
-"recordingStatus"
-).style.display = "block";
-
-const stream =
-await navigator.mediaDevices.getUserMedia({
-audio:true
-});
-
-mediaRecorder =
-new MediaRecorder(stream);
-
-audioChunks = [];
-
-mediaRecorder.ondataavailable = event => {
-
-audioChunks.push(event.data);
-
-};
-
-mediaRecorder.onstop = () => {
-
-const audioBlob =
-new Blob(audioChunks,{
-type:'audio/mp3'
-});
-
-recordedAudio =
-URL.createObjectURL(audioBlob);
-
-};
-
-mediaRecorder.start();
-
+  if(isRecording) return; // guard against double-click
+  try {
+    isRecording = true;
+    const btn = document.getElementById("recordBtn");
+    if(btn){ btn.style.opacity = "0.5"; btn.style.cursor = "not-allowed"; }
+    document.getElementById("recordingStatus").style.display = "block";
+    const stream = await navigator.mediaDevices.getUserMedia({audio:true});
+    mediaRecorder = new MediaRecorder(stream);
+    audioChunks = [];
+    mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+    mediaRecorder.onstop = () => {
+      const blob = new Blob(audioChunks, {type:'audio/webm'});
+      recordedAudio = URL.createObjectURL(blob);
+    };
+    mediaRecorder.start();
+  } catch(err){
+    isRecording = false;
+    document.getElementById("recordingStatus").style.display = "none";
+    const btn = document.getElementById("recordBtn");
+    if(btn){ btn.style.opacity = ""; btn.style.cursor = ""; }
+    alert("Microphone not available. Please allow microphone access.");
+  }
 }
 
 function stopRecording(){
-
-mediaRecorder.stop();
-
-document.getElementById(
-"recordingStatus"
-).style.display = "none";
-
+  if(mediaRecorder && mediaRecorder.state !== "inactive"){
+    mediaRecorder.stop();
+    mediaRecorder.stream.getTracks().forEach(t => t.stop());
+  }
+  isRecording = false;
+  document.getElementById("recordingStatus").style.display = "none";
+  const btn = document.getElementById("recordBtn");
+  if(btn){ btn.style.opacity = ""; btn.style.cursor = ""; }
 }
 
 function playRecording(){
-
-if(recordedAudio){
-
-const audio =
-new Audio(recordedAudio);
-
-audio.play();
-
+  if(recordedAudio){ new Audio(recordedAudio).play(); }
+  else { alert("No recording yet. Press Record first!"); }
 }
 
+/* THINK TOGETHER */
+function checkThink(button, isCorrect, feedbackId, feedbackMsg){
+  if(isCorrect){
+    button.classList.add("correct");
+    playGood();
+    if(feedbackId && feedbackMsg){
+      const el = document.getElementById(feedbackId);
+      if(el){ el.innerHTML = feedbackMsg; el.style.display = "block"; }
+    }
+  } else {
+    button.classList.add("wrong");
+    playBad();
+  }
 }
 
-function rateReading(button,message){
+function toggleTr(bulb){
+  const parent = bulb.parentElement;
+  let frEl = parent.querySelector(".think-question-fr, .think-option-fr");
+  if(!frEl){
+    const block = parent.closest(".think-question-block") || parent.parentElement;
+    frEl = block.querySelector(".think-question-fr");
+  }
+  if(!frEl) return;
+  frEl.style.display = (frEl.style.display === "none" || frEl.style.display === "") ? "block" : "none";
+}
 
-const buttons =
-button.parentElement.querySelectorAll("button");
-
-buttons.forEach(btn => {
-
-btn.classList.remove("correct");
-
-});
-
-button.classList.add("correct");
-
-const audio =
-new Audio("Assets/word-audio/star.mp3");
-
-audio.play();
-
-document.getElementById(
-"readingFeedback"
-).innerHTML = message;
-
+function rateReading(button, message){
+  button.parentElement.querySelectorAll("button").forEach(b => b.classList.remove("correct"));
+  button.classList.add("correct");
+  new Audio("Assets/word-audio/star.mp3").play();
+  document.getElementById("readingFeedback").innerHTML = message;
 }
 
 </script>
-
 </body>
-
 </html>
