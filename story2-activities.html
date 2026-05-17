@@ -17,7 +17,7 @@ body{ margin:0; padding:25px; font-family:Arial,sans-serif; background:#7ec8ff; 
 .activity-title{ font-size:42px; font-weight:bold; color:#173f7a; margin-bottom:45px; text-align:center; }
 .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:28px; }
 .card{ background:white; border-radius:30px; padding:25px; text-align:center; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
-.card img,.image-box img{ width:300px; height:300px; object-fit:contain; }
+.card img,.image-box img{ width:min(500px,90vw); height:min(500px,90vw); object-fit:contain; max-width:100%; }
 .match-row{ display:flex; align-items:center; justify-content:space-between; gap:30px; padding:25px 0; border-bottom:2px dashed #dfefff; flex-wrap:wrap; }
 .image-box{ flex:1; text-align:center; }
 .words{ flex:1; display:flex; flex-wrap:wrap; gap:15px; justify-content:center; }
@@ -73,7 +73,6 @@ body{ padding:10px; }
 .cards{ grid-template-columns:1fr; gap:16px; }
 .word-button,.check-button,.choice-button{ font-size:18px; padding:14px 12px; border-radius:16px; width:100%; }
 .card{ padding:16px; border-radius:22px; }
-.card img,.image-box img{ width:300px; height:300px; }
 .type-label{ font-size:18px; }
 .word-input{ font-size:18px; padding:12px; max-width:100%; width:100%; }
 .text-story{ font-size:20px; line-height:1.6; }
@@ -275,7 +274,7 @@ body{ padding:10px; }
   <div style="text-align:center;margin-bottom:35px;">
     <div style="font-size:22px;font-weight:600;color:#5c6f8f;text-transform:uppercase;margin-bottom:25px;">Look at the picture. Find it in the text.</div>
     <div style="width:min(80vw,420px);height:min(80vw,420px);margin:auto;border-radius:50%;background:#eef4ff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.08);margin-bottom:35px;">
-      <img src="Assets/images/cat.png" style="width:75%;height:75%;object-fit:contain;">
+      <img src="Assets/images/cat.png" style="width:90%;height:90%;object-fit:contain;">
     </div>
   </div>
   <div class="text-story">
