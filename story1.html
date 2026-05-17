@@ -1,342 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no" class="notranslate">
 
 <head>
 
 <meta charset="UTF-8">
 <meta name="google" content="notranslate">
 <meta name="google" value="notranslate">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Language" content="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>Story 1 – Sam's cap</title>
 
 <style>
 
-*{
-box-sizing:border-box;
-}
+*{ box-sizing:border-box; }
 
 body{
-
 margin:0;
 padding:25px;
-
 font-family:Arial,sans-serif;
-
 background:#7ec8ff;
-
 }
 
 /* TOP */
-
 .top-bar{
-
 max-width:1100px;
-
 margin:auto;
-
 margin-bottom:25px;
-
 display:flex;
-
 align-items:center;
-
 gap:18px;
-
 }
 
 .back-button{
-
 background:#fffdf8;
-
 padding:14px 20px;
-
 border-radius:20px;
-
 text-decoration:none;
-
 font-size:28px;
-
 box-shadow:0 6px 18px rgba(0,0,0,0.12);
-
 }
 
 .story-title{
-
 font-size:38px;
-
 font-weight:bold;
-
 color:white;
-
 }
 
 /* STORY */
-
 .story-box{
-
 max-width:1100px;
-
 margin:auto;
-
 background:#fffdf8;
-
 border-radius:35px;
-
 padding:40px;
-
 box-shadow:0 10px 30px rgba(0,0,0,0.12);
-
 }
 
 .story{
-
 font-size:42px;
-
 line-height:2.2;
-
 font-weight:bold;
-
 color:#173f7a;
-
 }
 
 .sentence{
-
 display:block;
-
 margin-bottom:12px;
-
 }
 
 .word{
-
 cursor:pointer;
-
 padding:5px 8px;
-
 border-radius:15px;
-
 transition:0.2s;
-
 display:inline-block;
-
 }
 
-.word:hover{
-
-background:#e8f7df;
-
-}
+.word:hover{ background:#e8f7df; }
 
 /* HELP + AUDIO */
-
 .help-icon{
-
 width:42px;
-
 height:42px;
-
 border:none;
-
 border-radius:50%;
-
 background:#eef4ff;
-
 font-size:20px;
-
 cursor:pointer;
-
 display:inline-flex;
-
 align-items:center;
-
 justify-content:center;
-
 margin-left:10px;
-
 vertical-align:middle;
-
 transition:0.2s;
-
 }
 
 .help-icon:hover{
-
 transform:scale(1.08);
-
 background:#dfefff;
-
 }
 
 .help-text{
-
 display:none;
-
 margin-top:12px;
-
 margin-left:10px;
-
 padding:14px;
-
 border-radius:18px;
-
 background:#f8f8f8;
-
 font-size:24px;
-
 color:#5c6f8f;
-
 line-height:1.5;
-
 max-width:700px;
-
 }
 
 /* ACTIVITIES BUTTON */
-
 .activities-section{
-
 text-align:center;
-
 margin-top:45px;
-
 margin-bottom:60px;
-
 }
 
 .activities-button{
-
 display:inline-block;
-
 background:#173f7a;
-
 color:white;
-
 text-decoration:none;
-
 font-size:34px;
-
 font-weight:bold;
-
 padding:22px 55px;
-
 border-radius:30px;
-
 box-shadow:0 10px 25px rgba(0,0,0,0.15);
-
 transition:0.2s;
-
 }
 
 .activities-button:hover{
-
 transform:scale(1.05);
-
 background:#21539c;
-
 }
 
 /* SUMMARY BUTTON */
-
 .summary-button{
-
 display:inline-block;
-
 background:#173f7a;
-
 color:white;
-
 text-decoration:none;
-
 font-size:34px;
-
 font-weight:bold;
-
 padding:22px 55px;
-
 border-radius:30px;
-
 box-shadow:0 10px 25px rgba(0,0,0,0.15);
-
 transition:0.2s;
-
 margin-top:20px;
-
 }
 
 .summary-button:hover{
-
 transform:scale(1.05);
-
 background:#21539c;
-
 }
 
 /* MOBILE */
-
 @media(max-width:700px){
 
+body{ padding:12px; }
+
+.top-bar{ gap:12px; margin-bottom:16px; }
+
+.story-title{ font-size:20px; }
+
+.back-button{ font-size:22px; padding:10px 14px; }
+
 .story-box{
-
-padding:22px;
-
-border-radius:25px;
-
+padding:18px 14px;
+border-radius:24px;
 }
 
 .story{
-
-font-size:20px;
-
-line-height:1.5;
-
+font-size:22px;
+line-height:1.9;
 }
 
 .sentence{
-
-margin-bottom:18px;
-
+margin-bottom:16px;
+/* wrap icons nicely on small screens */
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+gap:4px;
 }
 
 .word{
-
-padding:2px 4px;
-
+padding:4px 6px;
+font-size:22px;
+/* big enough tap target */
+min-height:36px;
+display:inline-flex;
+align-items:center;
 }
 
 .help-icon{
-
-width:28px;
-height:28px;
-
-font-size:14px;
-
-margin-left:5px;
-
+width:34px;
+height:34px;
+font-size:16px;
+margin-left:4px;
+/* prevent shrink */
+flex-shrink:0;
 }
 
 .help-text{
-
 font-size:18px;
-
-padding:12px;
-
-}
-
-.story-title{
-
-font-size:20px;
-
+padding:10px 12px;
+/* takes full width below the sentence */
+width:100%;
+margin-left:0;
+margin-top:8px;
 }
 
 .activities-button,
 .summary-button{
-
-font-size:22px;
-
+font-size:20px;
 padding:14px 24px;
-
+width:100%;
+text-align:center;
 }
 
 }
@@ -345,308 +230,94 @@ padding:14px 24px;
 
 </head>
 
-<body translate="no">
+<body translate="no" class="notranslate">
 
 <div class="top-bar">
-
-<a href="index.html" class="back-button">
-⬅
-</a>
-
-<div class="story-title">
-Story 1 – Sam's cap
-</div>
-
+  <a href="index.html" class="back-button">⬅</a>
+  <div class="story-title">Story 1 – Sam's cap</div>
 </div>
 
 <div class="story-box">
-
 <div class="story">
 
-<div class="sentence">
+  <div class="sentence">
+    <span class="word" onclick="saySimpleWord('Sam')">Sam</span>
+    <span class="word" onclick="saySimpleWord('has')">has</span>
+    <span class="word" onclick="saySimpleWord('a')">a</span>
+    <span class="word" onclick="saySimpleWord('cap')">cap.</span>
+    <button class="help-icon" onclick="playSentence('1.mp3')">🔊</button>
+    <button class="help-icon" onclick="toggleHelp('help1')">💡</button>
+    <div class="help-text" id="help1">Sam a une casquette.</div>
+  </div>
 
-<span class="word"
-onclick="saySimpleWord('Sam')">
-Sam
-</span>
+  <div class="sentence">
+    <span class="word" onclick="saySimpleWord('The')">The</span>
+    <span class="word" onclick="saySimpleWord('cap')">cap</span>
+    <span class="word" onclick="saySimpleWord('is')">is</span>
+    <span class="word" onclick="saySimpleWord('red')">red.</span>
+    <button class="help-icon" onclick="playSentence('2.mp3')">🔊</button>
+    <button class="help-icon" onclick="toggleHelp('help2')">💡</button>
+    <div class="help-text" id="help2">La casquette est rouge.</div>
+  </div>
 
-<span class="word"
-onclick="saySimpleWord('has')">
-has
-</span>
+  <div class="sentence">
+    <span class="word" onclick="saySimpleWord('Sam')">Sam</span>
+    <span class="word" onclick="saySimpleWord('has')">has</span>
+    <span class="word" onclick="saySimpleWord('a')">a</span>
+    <span class="word" onclick="saySimpleWord('bag')">bag.</span>
+    <button class="help-icon" onclick="playSentence('3.mp3')">🔊</button>
+    <button class="help-icon" onclick="toggleHelp('help3')">💡</button>
+    <div class="help-text" id="help3">Sam a un sac.</div>
+  </div>
 
-<span class="word"
-onclick="saySimpleWord('a')">
-a
-</span>
+  <div class="sentence">
+    <span class="word" onclick="saySimpleWord('The')">The</span>
+    <span class="word" onclick="saySimpleWord('bag')">bag</span>
+    <span class="word" onclick="saySimpleWord('is')">is</span>
+    <span class="word" onclick="saySimpleWord('red')">red</span>
+    <span class="word" onclick="saySimpleWord('too')">too.</span>
+    <button class="help-icon" onclick="playSentence('4.mp3')">🔊</button>
+    <button class="help-icon" onclick="toggleHelp('help4')">💡</button>
+    <div class="help-text" id="help4">Le sac est rouge aussi.</div>
+  </div>
 
-<span class="word"
-onclick="saySimpleWord('cap')">
-cap.
-</span>
+  <div class="sentence">
+    <span class="word" onclick="saySimpleWord('Sam')">Sam</span>
+    <span class="word" onclick="saySimpleWord('runs')">runs</span>
+    <span class="word" onclick="saySimpleWord('to')">to</span>
+    <span class="word" onclick="saySimpleWord('Dad')">Dad.</span>
+    <button class="help-icon" onclick="playSentence('5.mp3')">🔊</button>
+    <button class="help-icon" onclick="toggleHelp('help5')">💡</button>
+    <div class="help-text" id="help5">Sam court vers Papa.</div>
+  </div>
 
-<button class="help-icon"
-onclick="playSentence('1.mp3')">
-🔊
-</button>
+  <div class="sentence">
+    <span class="word" onclick="saySimpleWord('Dad')">Dad</span>
+    <span class="word" onclick="saySimpleWord('has')">has</span>
+    <span class="word" onclick="saySimpleWord('a')">a</span>
+    <span class="word" onclick="saySimpleWord('cap')">cap.</span>
+    <button class="help-icon" onclick="playSentence('6.mp3')">🔊</button>
+    <button class="help-icon" onclick="toggleHelp('help6')">💡</button>
+    <div class="help-text" id="help6">Papa a une casquette.</div>
+  </div>
 
-<button class="help-icon"
-onclick="toggleHelp('help1')">
-💡
-</button>
-
-<div class="help-text" id="help1">
-Sam a une casquette.
-</div>
-
-</div>
-
-<div class="sentence">
-
-<span class="word"
-onclick="saySimpleWord('The')">
-The
-</span>
-
-<span class="word"
-onclick="saySimpleWord('cap')">
-cap
-</span>
-
-<span class="word"
-onclick="saySimpleWord('is')">
-is
-</span>
-
-<span class="word"
-onclick="saySimpleWord('red')">
-red.
-</span>
-
-<button class="help-icon"
-onclick="playSentence('2.mp3')">
-🔊
-</button>
-
-<button class="help-icon"
-onclick="toggleHelp('help2')">
-💡
-</button>
-
-<div class="help-text" id="help2">
-La casquette est rouge.
-</div>
+  <div class="sentence">
+    <span class="word" onclick="saySimpleWord('Sam')">Sam</span>
+    <span class="word" onclick="saySimpleWord('is')">is</span>
+    <span class="word" onclick="saySimpleWord('glad')">glad.</span>
+    <button class="help-icon" onclick="playSentence('7.mp3')">🔊</button>
+    <button class="help-icon" onclick="toggleHelp('help7')">💡</button>
+    <div class="help-text" id="help7">Sam est content.</div>
+  </div>
 
 </div>
-
-<div class="sentence">
-
-<span class="word"
-onclick="saySimpleWord('Sam')">
-Sam
-</span>
-
-<span class="word"
-onclick="saySimpleWord('has')">
-has
-</span>
-
-<span class="word"
-onclick="saySimpleWord('a')">
-a
-</span>
-
-<span class="word"
-onclick="saySimpleWord('bag')">
-bag.
-</span>
-
-<button class="help-icon"
-onclick="playSentence('3.mp3')">
-🔊
-</button>
-
-<button class="help-icon"
-onclick="toggleHelp('help3')">
-💡
-</button>
-
-<div class="help-text" id="help3">
-Sam a un sac.
 </div>
 
-</div>
-
-<div class="sentence">
-
-<span class="word"
-onclick="saySimpleWord('The')">
-The
-</span>
-
-<span class="word"
-onclick="saySimpleWord('bag')">
-bag
-</span>
-
-<span class="word"
-onclick="saySimpleWord('is')">
-is
-</span>
-
-<span class="word"
-onclick="saySimpleWord('red')">
-red
-</span>
-
-<span class="word"
-onclick="saySimpleWord('too')">
-too.
-</span>
-
-<button class="help-icon"
-onclick="playSentence('4.mp3')">
-🔊
-</button>
-
-<button class="help-icon"
-onclick="toggleHelp('help4')">
-💡
-</button>
-
-<div class="help-text" id="help4">
-Le sac est rouge aussi.
-</div>
-
-</div>
-
-<div class="sentence">
-
-<span class="word"
-onclick="saySimpleWord('Sam')">
-Sam
-</span>
-
-<span class="word"
-onclick="saySimpleWord('runs')">
-runs
-</span>
-
-<span class="word"
-onclick="saySimpleWord('to')">
-to
-</span>
-
-<span class="word"
-onclick="saySimpleWord('Dad')">
-Dad.
-</span>
-
-<button class="help-icon"
-onclick="playSentence('5.mp3')">
-🔊
-</button>
-
-<button class="help-icon"
-onclick="toggleHelp('help5')">
-💡
-</button>
-
-<div class="help-text" id="help5">
-Sam court vers Papa.
-</div>
-
-</div>
-
-<div class="sentence">
-
-<span class="word"
-onclick="saySimpleWord('Dad')">
-Dad
-</span>
-
-<span class="word"
-onclick="saySimpleWord('has')">
-has
-</span>
-
-<span class="word"
-onclick="saySimpleWord('a')">
-a
-</span>
-
-<span class="word"
-onclick="saySimpleWord('cap')">
-cap.
-</span>
-
-<button class="help-icon"
-onclick="playSentence('6.mp3')">
-🔊
-</button>
-
-<button class="help-icon"
-onclick="toggleHelp('help6')">
-💡
-</button>
-
-<div class="help-text" id="help6">
-Papa a une casquette.
-</div>
-
-</div>
-
-<div class="sentence">
-
-<span class="word"
-onclick="saySimpleWord('Sam')">
-Sam
-</span>
-
-<span class="word"
-onclick="saySimpleWord('is')">
-is
-</span>
-
-<span class="word"
-onclick="saySimpleWord('glad')">
-glad.
-</span>
-
-<button class="help-icon"
-onclick="playSentence('7.mp3')">
-🔊
-</button>
-
-<button class="help-icon"
-onclick="toggleHelp('help7')">
-💡
-</button>
-
-<div class="help-text" id="help7">
-Sam est content.
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- ACTIVITIES BUTTON + SUMMARY BUTTON -->
-
+<!-- BUTTONS -->
 <div class="activities-section">
-
-<a href="story1-activities.html" class="activities-button">
-🎯 Activities
-</a>
-
-<br>
-
-<a href="index.html" class="summary-button">
-📚 Back to Summary
-</a>
-
+  <a href="story1-activities.html" class="activities-button">🎯 Activities</a>
+  <br>
+  <a href="index.html" class="summary-button">📚 Back to Summary</a>
 </div>
 
 <script>
@@ -654,77 +325,35 @@ Sam est content.
 let selectedVoice = null;
 
 function loadVoice(){
-
-const voices = window.speechSynthesis.getVoices();
-
-selectedVoice = voices.find(v =>
-v.lang.includes("en-GB")
-);
-
-if(!selectedVoice){
-
-selectedVoice = voices.find(v =>
-v.lang.includes("en")
-);
-
-}
-
+  const voices = window.speechSynthesis.getVoices();
+  /* FIX: try en-GB first, then en-US, then any English */
+  selectedVoice = voices.find(v => v.lang.includes("en-GB"))
+    || voices.find(v => v.lang.includes("en-US"))
+    || voices.find(v => v.lang.startsWith("en"));
 }
 
 speechSynthesis.onvoiceschanged = loadVoice;
-
 loadVoice();
 
-/* HELP */
-
 function toggleHelp(id){
-
-const element = document.getElementById(id);
-
-if(element.style.display === "block"){
-
-element.style.display = "none";
-
-}else{
-
-element.style.display = "block";
-
+  const el = document.getElementById(id);
+  el.style.display = (el.style.display === "block") ? "none" : "block";
 }
-
-}
-
-/* WORD AUDIO */
 
 function saySimpleWord(word){
-
-window.speechSynthesis.cancel();
-
-const speech =
-new SpeechSynthesisUtterance(word);
-
-speech.lang = "en-GB";
-
-speech.rate = 0.7;
-
-speech.voice = selectedVoice;
-
-window.speechSynthesis.speak(speech);
-
+  window.speechSynthesis.cancel();
+  const speech = new SpeechSynthesisUtterance(word);
+  speech.lang = "en-GB";
+  speech.rate = 0.7;
+  speech.voice = selectedVoice;
+  window.speechSynthesis.speak(speech);
 }
 
-/* SENTENCE AUDIO */
-
 function playSentence(file){
-
-const audio =
-new Audio("./story1/" + file);
-
-audio.play();
-
+  new Audio("./story1/" + file).play();
 }
 
 </script>
 
 </body>
-
 </html>
