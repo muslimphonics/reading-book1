@@ -1,343 +1,218 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no" class="notranslate">
 
 <head>
 
 <meta charset="UTF-8">
 <meta name="google" content="notranslate">
 <meta name="google" value="notranslate">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Language" content="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>Story 20 – Lunch bag</title>
 
 <style>
 
-*{
-box-sizing:border-box;
-}
+*{ box-sizing:border-box; }
 
 body{
-
 margin:0;
 padding:25px;
-
 font-family:Arial,sans-serif;
-
 background:#7ec8ff;
-
 }
 
-/* TOP */
-
 .top-bar{
-
 max-width:1100px;
-
 margin:auto;
-
 margin-bottom:25px;
-
 display:flex;
-
 align-items:center;
-
 gap:18px;
-
 }
 
 .back-button{
-
 background:#fffdf8;
-
 padding:14px 20px;
-
 border-radius:20px;
-
 text-decoration:none;
-
 font-size:28px;
-
 box-shadow:0 6px 18px rgba(0,0,0,0.12);
-
 }
 
 .story-title{
-
 font-size:38px;
-
 font-weight:bold;
-
 color:white;
-
 }
 
-/* STORY */
-
 .story-box{
-
 max-width:1100px;
-
 margin:auto;
-
 background:#fffdf8;
-
 border-radius:35px;
-
 padding:40px;
-
 box-shadow:0 10px 30px rgba(0,0,0,0.12);
-
 }
 
 .story{
-
 font-size:42px;
-
 line-height:2.2;
-
 font-weight:bold;
-
 color:#173f7a;
-
 }
 
 .sentence{
-
 display:block;
-
 margin-bottom:12px;
-
 }
 
 .word{
-
 cursor:pointer;
-
 padding:5px 8px;
-
 border-radius:15px;
-
 transition:0.2s;
-
 display:inline-block;
-
 }
 
-.word:hover{
-
-background:#e8f7df;
-
-}
-
-/* HELP + AUDIO */
+.word:hover{ background:#e8f7df; }
 
 .help-icon{
-
 width:42px;
-
 height:42px;
-
 border:none;
-
 border-radius:50%;
-
 background:#eef4ff;
-
 font-size:20px;
-
 cursor:pointer;
-
 display:inline-flex;
-
 align-items:center;
-
 justify-content:center;
-
 margin-left:10px;
-
 vertical-align:middle;
-
 transition:0.2s;
-
 }
 
 .help-icon:hover{
-
 transform:scale(1.08);
-
 background:#dfefff;
-
 }
 
 .help-text{
-
 display:none;
-
 margin-top:12px;
-
 margin-left:10px;
-
 padding:14px;
-
 border-radius:18px;
-
 background:#f8f8f8;
-
 font-size:24px;
-
 color:#5c6f8f;
-
 line-height:1.5;
-
 max-width:700px;
-
 }
 
-/* ACTIVITIES BUTTON */
-
 .activities-section{
-
 text-align:center;
-
 margin-top:45px;
-
 margin-bottom:60px;
-
 }
 
 .activities-button{
-
 display:inline-block;
-
 background:#173f7a;
-
 color:white;
-
 text-decoration:none;
-
 font-size:34px;
-
 font-weight:bold;
-
 padding:22px 55px;
-
 border-radius:30px;
-
 box-shadow:0 10px 25px rgba(0,0,0,0.15);
-
 transition:0.2s;
-
 }
 
 .activities-button:hover{
-
 transform:scale(1.05);
-
 background:#21539c;
-
 }
 
-/* SUMMARY BUTTON */
-
 .summary-button{
-
 display:inline-block;
-
 background:#173f7a;
-
 color:white;
-
 text-decoration:none;
-
 font-size:34px;
-
 font-weight:bold;
-
 padding:22px 55px;
-
 border-radius:30px;
-
 box-shadow:0 10px 25px rgba(0,0,0,0.15);
-
 transition:0.2s;
-
 margin-top:20px;
-
 }
 
 .summary-button:hover{
-
 transform:scale(1.05);
-
 background:#21539c;
-
 }
 
 /* MOBILE */
-
 @media(max-width:700px){
 
+body{ padding:12px; }
+
+.top-bar{ gap:12px; margin-bottom:16px; }
+
+.story-title{ font-size:20px; }
+
+.back-button{ font-size:22px; padding:10px 14px; }
+
 .story-box{
-
-padding:22px;
-
-border-radius:25px;
-
+padding:18px 14px;
+border-radius:24px;
 }
 
 .story{
-
-font-size:20px;
-
-line-height:1.5;
-
+font-size:22px;
+line-height:1.9;
 }
 
 .sentence{
-
-margin-bottom:18px;
-
+margin-bottom:16px;
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+gap:4px;
 }
 
 .word{
-
-padding:2px 4px;
-
+padding:4px 6px;
+font-size:22px;
+min-height:36px;
+display:inline-flex;
+align-items:center;
 }
 
 .help-icon{
-
-width:28px;
-
-height:28px;
-
-font-size:14px;
-
-margin-left:5px;
-
+width:34px;
+height:34px;
+font-size:16px;
+margin-left:4px;
+flex-shrink:0;
 }
 
 .help-text{
-
 font-size:18px;
-
-padding:12px;
-
-}
-
-.story-title{
-
-font-size:20px;
-
+padding:10px 12px;
+width:100%;
+margin-left:0;
+margin-top:8px;
 }
 
 .activities-button,
 .summary-button{
-
-font-size:22px;
-
+font-size:20px;
 padding:14px 24px;
-
+width:100%;
+text-align:center;
 }
 
 }
@@ -346,302 +221,87 @@ padding:14px 24px;
 
 </head>
 
-<body translate="no">
+<body translate="no" class="notranslate">
 
 <div class="top-bar">
-
-<a href="index.html" class="back-button">
-⬅
-</a>
-
-<div class="story-title">
-Story 20 – Lunch bag
-</div>
-
+  <a href="index.html" class="back-button">⬅</a>
+  <div class="story-title">Story 20 – Lunch bag</div>
 </div>
 
 <div class="story-box">
-
 <div class="story">
 
-<!-- SENTENCE 1 -->
+  <div class="sentence">
+    <span class="word" onclick="saySimpleWord('In')">In</span>
+    <span class="word" onclick="saySimpleWord('the')">the</span>
+    <span class="word" onclick="saySimpleWord('bag')">bag,</span>
+    <span class="word" onclick="saySimpleWord('there')">there</span>
+    <span class="word" onclick="saySimpleWord('is')">is</span>
+    <span class="word" onclick="saySimpleWord('a')">a</span>
+    <span class="word" onclick="saySimpleWord('bun')">bun.</span>
+    <button class="help-icon" onclick="playSentence('1.mp3')">🔊</button>
+    <button class="help-icon" onclick="toggleHelp('help1')">💡</button>
+    <div class="help-text" id="help1">Dans le sac, il y a un petit pain.</div>
+  </div>
 
-<div class="sentence">
+  <div class="sentence">
+    <span class="word" onclick="saySimpleWord('In')">In</span>
+    <span class="word" onclick="saySimpleWord('the')">the</span>
+    <span class="word" onclick="saySimpleWord('bag')">bag,</span>
+    <span class="word" onclick="saySimpleWord('there')">there</span>
+    <span class="word" onclick="saySimpleWord('is')">is</span>
+    <span class="word" onclick="saySimpleWord('a')">a</span>
+    <span class="word" onclick="saySimpleWord('nut')">nut.</span>
+    <button class="help-icon" onclick="playSentence('2.mp3')">🔊</button>
+    <button class="help-icon" onclick="toggleHelp('help2')">💡</button>
+    <div class="help-text" id="help2">Dans le sac, il y a une noix.</div>
+  </div>
 
-<span class="word"
-onclick="saySimpleWord('In')">
-In
-</span>
+  <div class="sentence">
+    <span class="word" onclick="saySimpleWord('In')">In</span>
+    <span class="word" onclick="saySimpleWord('the')">the</span>
+    <span class="word" onclick="saySimpleWord('bag')">bag,</span>
+    <span class="word" onclick="saySimpleWord('there')">there</span>
+    <span class="word" onclick="saySimpleWord('is')">is</span>
+    <span class="word" onclick="saySimpleWord('gum')">gum.</span>
+    <button class="help-icon" onclick="playSentence('3.mp3')">🔊</button>
+    <button class="help-icon" onclick="toggleHelp('help3')">💡</button>
+    <div class="help-text" id="help3">Dans le sac, il y a du chewing-gum.</div>
+  </div>
 
-<span class="word"
-onclick="saySimpleWord('the')">
-the
-</span>
+  <div class="sentence">
+    <span class="word" onclick="saySimpleWord('Yum')">Yum!</span>
+    <button class="help-icon" onclick="playSentence('4.mp3')">🔊</button>
+    <button class="help-icon" onclick="toggleHelp('help4')">💡</button>
+    <div class="help-text" id="help4">Miam&#x00A0;!</div>
+  </div>
 
-<span class="word"
-onclick="saySimpleWord('bag')">
-bag,
-</span>
+  <div class="sentence">
+    <span class="word" onclick="saySimpleWord('I')">I</span>
+    <span class="word" onclick="saySimpleWord('am')">am</span>
+    <span class="word" onclick="saySimpleWord('hungry')">hungry.</span>
+    <button class="help-icon" onclick="playSentence('5.mp3')">🔊</button>
+    <button class="help-icon" onclick="toggleHelp('help5')">💡</button>
+    <div class="help-text" id="help5">J&#x2019;ai faim.</div>
+  </div>
 
-<span class="word"
-onclick="saySimpleWord('there')">
-there
-</span>
-
-<span class="word"
-onclick="saySimpleWord('is')">
-is
-</span>
-
-<span class="word"
-onclick="saySimpleWord('a')">
-a
-</span>
-
-<span class="word"
-onclick="saySimpleWord('bun')">
-bun
-</span>.
-
-<button class="help-icon"
-onclick="playSentence('1.mp3')">
-🔊
-</button>
-
-<button class="help-icon"
-onclick="toggleHelp('help1')">
-💡
-</button>
-
-<div class="help-text" id="help1">
-Dans le sac, il y a un petit pain.
-</div>
-
-</div>
-
-<!-- SENTENCE 2 -->
-
-<div class="sentence">
-
-<span class="word"
-onclick="saySimpleWord('In')">
-In
-</span>
-
-<span class="word"
-onclick="saySimpleWord('the')">
-the
-</span>
-
-<span class="word"
-onclick="saySimpleWord('bag')">
-bag,
-</span>
-
-<span class="word"
-onclick="saySimpleWord('there')">
-there
-</span>
-
-<span class="word"
-onclick="saySimpleWord('is')">
-is
-</span>
-
-<span class="word"
-onclick="saySimpleWord('a')">
-a
-</span>
-
-<span class="word"
-onclick="saySimpleWord('nut')">
-nut
-</span>.
-
-<button class="help-icon"
-onclick="playSentence('2.mp3')">
-🔊
-</button>
-
-<button class="help-icon"
-onclick="toggleHelp('help2')">
-💡
-</button>
-
-<div class="help-text" id="help2">
-Dans le sac, il y a une noix.
-</div>
+  <div class="sentence">
+    <span class="word" onclick="saySimpleWord('The')">The</span>
+    <span class="word" onclick="saySimpleWord('bag')">bag</span>
+    <span class="word" onclick="saySimpleWord('is')">is</span>
+    <span class="word" onclick="saySimpleWord('empty')">empty.</span>
+    <button class="help-icon" onclick="playSentence('6.mp3')">🔊</button>
+    <button class="help-icon" onclick="toggleHelp('help6')">💡</button>
+    <div class="help-text" id="help6">Le sac est vide.</div>
+  </div>
 
 </div>
-
-<!-- SENTENCE 3 -->
-
-<div class="sentence">
-
-<span class="word"
-onclick="saySimpleWord('In')">
-In
-</span>
-
-<span class="word"
-onclick="saySimpleWord('the')">
-the
-</span>
-
-<span class="word"
-onclick="saySimpleWord('bag')">
-bag,
-</span>
-
-<span class="word"
-onclick="saySimpleWord('there')">
-there
-</span>
-
-<span class="word"
-onclick="saySimpleWord('is')">
-is
-</span>
-
-<span class="word"
-onclick="saySimpleWord('gum')">
-gum
-</span>.
-
-<button class="help-icon"
-onclick="playSentence('3.mp3')">
-🔊
-</button>
-
-<button class="help-icon"
-onclick="toggleHelp('help3')">
-💡
-</button>
-
-<div class="help-text" id="help3">
-Dans le sac, il y a du chewing-gum.
 </div>
-
-</div>
-
-<!-- SENTENCE 4 -->
-
-<div class="sentence">
-
-<span class="word"
-onclick="saySimpleWord('Yum')">
-Yum!
-</span>
-
-<button class="help-icon"
-onclick="playSentence('4.mp3')">
-🔊
-</button>
-
-<button class="help-icon"
-onclick="toggleHelp('help4')">
-💡
-</button>
-
-<div class="help-text" id="help4">
-Miam !
-</div>
-
-</div>
-
-<!-- SENTENCE 5 -->
-
-<div class="sentence">
-
-<span class="word"
-onclick="saySimpleWord('I')">
-I
-</span>
-
-<span class="word"
-onclick="saySimpleWord('am')">
-am
-</span>
-
-<span class="word"
-onclick="saySimpleWord('hungry')">
-hungry
-</span>.
-
-<button class="help-icon"
-onclick="playSentence('5.mp3')">
-🔊
-</button>
-
-<button class="help-icon"
-onclick="toggleHelp('help5')">
-💡
-</button>
-
-<div class="help-text" id="help5">
-J'ai faim.
-</div>
-
-</div>
-
-<!-- SENTENCE 6 -->
-
-<div class="sentence">
-
-<span class="word"
-onclick="saySimpleWord('The')">
-The
-</span>
-
-<span class="word"
-onclick="saySimpleWord('bag')">
-bag
-</span>
-
-<span class="word"
-onclick="saySimpleWord('is')">
-is
-</span>
-
-<span class="word"
-onclick="saySimpleWord('empty')">
-empty
-</span>.
-
-<button class="help-icon"
-onclick="playSentence('6.mp3')">
-🔊
-</button>
-
-<button class="help-icon"
-onclick="toggleHelp('help6')">
-💡
-</button>
-
-<div class="help-text" id="help6">
-Le sac est vide.
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- ACTIVITIES BUTTON + SUMMARY BUTTON -->
 
 <div class="activities-section">
-
-<a href="story20-activities.html" class="activities-button">
-🎯 Activities
-</a>
-
-<br>
-
-<a href="index.html" class="summary-button">
-📚 Back to Summary
-</a>
-
+  <a href="story20-activities.html" class="activities-button">🎯 Activities</a>
+  <br>
+  <a href="index.html" class="summary-button">📚 Back to Summary</a>
 </div>
 
 <script>
@@ -649,77 +309,34 @@ Le sac est vide.
 let selectedVoice = null;
 
 function loadVoice(){
-
-const voices = window.speechSynthesis.getVoices();
-
-selectedVoice = voices.find(v =>
-v.lang.includes("en-GB")
-);
-
-if(!selectedVoice){
-
-selectedVoice = voices.find(v =>
-v.lang.includes("en")
-);
-
-}
-
+  const voices = window.speechSynthesis.getVoices();
+  selectedVoice = voices.find(v => v.lang.includes("en-GB"))
+    || voices.find(v => v.lang.includes("en-US"))
+    || voices.find(v => v.lang.startsWith("en"));
 }
 
 speechSynthesis.onvoiceschanged = loadVoice;
-
 loadVoice();
 
-/* HELP */
-
 function toggleHelp(id){
-
-const element = document.getElementById(id);
-
-if(element.style.display === "block"){
-
-element.style.display = "none";
-
-}else{
-
-element.style.display = "block";
-
+  const el = document.getElementById(id);
+  el.style.display = (el.style.display === "block") ? "none" : "block";
 }
-
-}
-
-/* WORD AUDIO */
 
 function saySimpleWord(word){
-
-window.speechSynthesis.cancel();
-
-const speech =
-new SpeechSynthesisUtterance(word);
-
-speech.lang = "en-GB";
-
-speech.rate = 0.7;
-
-speech.voice = selectedVoice;
-
-window.speechSynthesis.speak(speech);
-
+  window.speechSynthesis.cancel();
+  const speech = new SpeechSynthesisUtterance(word);
+  speech.lang = "en-GB";
+  speech.rate = 0.7;
+  speech.voice = selectedVoice;
+  window.speechSynthesis.speak(speech);
 }
 
-/* SENTENCE AUDIO */
-
 function playSentence(file){
-
-const audio =
-new Audio("./story20/" + file);
-
-audio.play();
-
+  new Audio("./story20/" + file).play();
 }
 
 </script>
 
 </body>
-
 </html>
