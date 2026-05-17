@@ -15,9 +15,9 @@ body{ margin:0; padding:25px; font-family:Arial,sans-serif; background:#7ec8ff; 
 .title{ font-size:38px; font-weight:bold; color:white; }
 .activity-box{ max-width:1100px; margin:auto; margin-bottom:35px; background:#fffdf8; border-radius:35px; padding:40px; box-shadow:0 10px 30px rgba(0,0,0,0.12); }
 .activity-title{ font-size:42px; font-weight:bold; color:#173f7a; margin-bottom:45px; text-align:center; }
-.cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:28px; }
+.cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:28px; }
 .card{ background:white; border-radius:30px; padding:25px; text-align:center; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
-.card img,.image-box img{ width:260px; height:260px; object-fit:contain; }
+.card img,.image-box img{ width:300px; height:300px; object-fit:contain; }
 .match-row{ display:flex; align-items:center; justify-content:space-between; gap:30px; padding:25px 0; border-bottom:2px dashed #dfefff; flex-wrap:wrap; }
 .image-box{ flex:1; text-align:center; }
 .words{ flex:1; display:flex; flex-wrap:wrap; gap:15px; justify-content:center; }
@@ -32,50 +32,27 @@ body{ margin:0; padding:25px; font-family:Arial,sans-serif; background:#7ec8ff; 
 .find-word{ cursor:pointer; padding:6px 10px; border-radius:14px; transition:0.2s; display:inline-block; }
 .find-word:hover{ background:#e8f7df; }
 .recording-status{ display:none; margin-top:25px; margin-bottom:40px; text-align:center; font-size:34px; font-weight:bold; color:#ff3b3b; animation:pulse 1s infinite; }
-@keyframes pulse{ 0%{ transform:scale(1); } 50%{ transform:scale(1.08); } 100%{ transform:scale(1); } }
-
-/* TRUE FALSE */
+@keyframes pulse{ 0%{transform:scale(1);} 50%{transform:scale(1.08);} 100%{transform:scale(1);} }
 .tf-row{ display:flex; align-items:center; justify-content:space-between; gap:20px; padding:20px 0; border-bottom:2px dashed #dfefff; flex-wrap:wrap; }
 .tf-sentence{ font-size:28px; font-weight:bold; color:#173f7a; flex:2; }
 .tf-buttons{ display:flex; gap:12px; flex-wrap:wrap; }
-.tf-btn{ border:none; font-size:24px; font-weight:bold; padding:14px 22px; border-radius:18px; cursor:pointer; transition:0.2s; background:white; color:#173f7a; border:3px solid #dfefff; }
+.tf-btn{ border:3px solid #dfefff; font-size:24px; font-weight:bold; padding:14px 22px; border-radius:18px; cursor:pointer; transition:0.2s; background:white; color:#173f7a; }
 .tf-btn:hover{ transform:scale(1.05); background:#f0f6ff; }
 .tf-btn.correct{ background:#38b94a !important; color:white !important; border-color:#38b94a; }
 .tf-btn.wrong{ background:#ff4d4d !important; color:white !important; border-color:#ff4d4d; }
-
-/* UNSCRAMBLE */
 .scramble-card{ background:white; border-radius:30px; padding:28px; text-align:center; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
 .letters-area{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:16px; min-height:64px; padding:10px; background:#f0f6ff; border-radius:14px; }
 .answer-area{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:18px; min-height:70px; background:#eef4ff; border-radius:16px; padding:8px; border:2px dashed #c0d8ff; }
-.answer-area.drag-over-area{ border-color:#173f7a; background:#d8eeff; }
-.letter-tile{
-  width:54px; height:54px; background:#173f7a; color:white; border-radius:12px;
-  font-size:26px; font-weight:bold; display:flex; align-items:center; justify-content:center;
-  cursor:grab; user-select:none; touch-action:none;
-  transition:transform 0.15s, box-shadow 0.15s;
-  box-shadow:0 4px 10px rgba(0,0,0,0.18);
-  position:relative;
-}
+.letter-tile{ width:54px; height:54px; background:#173f7a; color:white; border-radius:12px; font-size:26px; font-weight:bold; display:flex; align-items:center; justify-content:center; cursor:grab; user-select:none; touch-action:none; transition:transform 0.15s,box-shadow 0.15s; box-shadow:0 4px 10px rgba(0,0,0,0.18); }
 .letter-tile:hover{ transform:scale(1.12); background:#21539c; }
 .letter-tile.dragging{ opacity:0.3; transform:scale(0.9); }
-.letter-ghost{
-  position:fixed; pointer-events:none; z-index:9999;
-  width:54px; height:54px; background:#21539c; color:white; border-radius:12px;
-  font-size:26px; font-weight:bold; display:flex; align-items:center; justify-content:center;
-  box-shadow:0 8px 24px rgba(0,0,0,0.35); transform:scale(1.18);
-}
-.answer-slot{
-  width:54px; height:54px; border:3px dashed #c0d8ff; border-radius:12px;
-  font-size:26px; font-weight:bold; display:flex; align-items:center; justify-content:center;
-  color:#173f7a; background:#f8fbff; cursor:default; transition:background 0.15s, border-color 0.15s;
-}
+.letter-ghost{ position:fixed; pointer-events:none; z-index:9999; width:54px; height:54px; background:#21539c; color:white; border-radius:12px; font-size:26px; font-weight:bold; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(0,0,0,0.35); transform:scale(1.18); }
+.answer-slot{ width:54px; height:54px; border:3px dashed #c0d8ff; border-radius:12px; font-size:26px; font-weight:bold; display:flex; align-items:center; justify-content:center; color:#173f7a; background:#f8fbff; cursor:default; transition:background 0.15s,border-color 0.15s; }
 .answer-slot.drag-over{ background:#d4edff; border-color:#173f7a; transform:scale(1.1); }
 .answer-slot.filled{ background:#dff0ff; border-style:solid; border-color:#a0caff; cursor:grab; }
 .scramble-check{ border:none; background:#173f7a; color:white; font-size:22px; font-weight:bold; padding:12px 22px; border-radius:16px; cursor:pointer; transition:0.2s; margin-top:6px; }
 .scramble-check:hover{ transform:scale(1.05); background:#21539c; }
 .scramble-result{ margin-top:14px; font-size:22px; font-weight:bold; min-height:32px; line-height:1.5; }
-
-/* THINK TOGETHER */
 .think-question-block{ margin-bottom:36px; }
 .think-question{ font-size:28px; font-weight:bold; color:#173f7a; margin-bottom:4px; }
 .think-q-row{ display:flex; align-items:center; gap:10px; margin-bottom:18px; flex-wrap:wrap; }
@@ -87,7 +64,7 @@ body{ margin:0; padding:25px; font-family:Arial,sans-serif; background:#7ec8ff; 
 .hint-bulb{ width:38px; height:38px; border:none; border-radius:50%; background:#eef4ff; font-size:18px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; transition:0.2s; }
 .hint-bulb:hover{ background:#dfefff; transform:scale(1.1); }
 .think-separator{ border:none; border-top:2px dashed #dfefff; margin:30px 0; }
-
+.think-feedback{ margin-top:14px; font-size:20px; font-weight:700; color:#173f7a; background:#eef4ff; border-radius:16px; padding:14px 18px; display:none; line-height:1.6; }
 @media(max-width:700px){
 body{ padding:10px; }
 .activity-box{ padding:18px 14px; border-radius:24px; margin-bottom:18px; }
@@ -96,7 +73,7 @@ body{ padding:10px; }
 .cards{ grid-template-columns:1fr; gap:16px; }
 .word-button,.check-button,.choice-button{ font-size:18px; padding:14px 12px; border-radius:16px; width:100%; }
 .card{ padding:16px; border-radius:22px; }
-.card img,.image-box img{ width:140px; height:140px; }
+.card img,.image-box img{ width:200px; height:200px; }
 .type-label{ font-size:18px; }
 .word-input{ font-size:18px; padding:12px; max-width:100%; width:100%; }
 .text-story{ font-size:20px; line-height:1.6; }
@@ -125,7 +102,6 @@ body{ padding:10px; }
 <!-- ACTIVITY 1 -->
 <div class="activity-box">
   <div class="activity-title">&#x1F3AF; Activity 1 &#x2014; Look at the picture. Mark the correct word.</div>
-
   <div class="match-row">
     <div class="image-box"><img src="Assets/images/cat.png"></div>
     <div class="words">
@@ -134,7 +110,6 @@ body{ padding:10px; }
       <button class="word-button" onclick="checkAnswer(this,false)">bag</button>
     </div>
   </div>
-
   <div class="match-row">
     <div class="image-box"><img src="Assets/images/dad2.png"></div>
     <div class="words">
@@ -143,7 +118,6 @@ body{ padding:10px; }
       <button class="word-button" onclick="checkAnswer(this,false)">sad</button>
     </div>
   </div>
-
   <div class="match-row">
     <div class="image-box"><img src="Assets/images/cat-nap.png"></div>
     <div class="words">
@@ -158,75 +132,61 @@ body{ padding:10px; }
 <div class="activity-box">
   <div class="activity-title">&#x270D;&#xFE0F; Activity 2 &#x2014; Type the word</div>
   <div class="cards">
-
     <div class="card">
       <img src="Assets/images/cat.png">
       <div class="type-label">Type the word:</div>
       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="cat-input" class="word-input">
-      <br><br>
-      <button class="check-button" onclick="checkTyping('cat-input','cat',this)">Check</button>
+      <br><br><button class="check-button" onclick="checkTyping('cat-input','cat',this)">Check</button>
     </div>
-
     <div class="card">
       <img src="Assets/images/dad2.png">
       <div class="type-label">Type the word:</div>
       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="dad-input" class="word-input">
-      <br><br>
-      <button class="check-button" onclick="checkTyping('dad-input','dad',this)">Check</button>
+      <br><br><button class="check-button" onclick="checkTyping('dad-input','dad',this)">Check</button>
     </div>
-
     <div class="card">
       <img src="Assets/images/adam-cat.png">
       <div class="type-label">Type the verb: <em>to ___</em></div>
       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="adam-input" class="word-input" placeholder="to …">
-      <br><br>
-      <button class="check-button" onclick="checkTypingVerb('adam-input','pat',this)">Check</button>
+      <br><br><button class="check-button" onclick="checkTypingVerb('adam-input','pat',this)">Check</button>
     </div>
-
     <div class="card">
       <img src="Assets/images/cat-nap.png">
       <div class="type-label">Type the word:</div>
       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="nap-input" class="word-input">
-      <br><br>
-      <button class="check-button" onclick="checkTyping('nap-input','nap',this)">Check</button>
+      <br><br><button class="check-button" onclick="checkTyping('nap-input','nap',this)">Check</button>
     </div>
-
   </div>
 </div>
 
-<!-- ACTIVITY 3 — Unscramble -->
+<!-- ACTIVITY 3 -->
 <div class="activity-box">
   <div class="activity-title">&#x1F524; Activity 3 &#x2014; Unscramble the letters</div>
   <div class="cards">
-
     <div class="scramble-card">
       <div class="letters-area" id="letters-cat"></div>
       <div class="answer-area" id="answer-cat"></div>
       <button class="scramble-check" onclick="checkScramble('cat')">Check</button>
       <div class="scramble-result" id="result-cat"></div>
     </div>
-
     <div class="scramble-card">
       <div class="letters-area" id="letters-sad"></div>
       <div class="answer-area" id="answer-sad"></div>
       <button class="scramble-check" onclick="checkScramble('sad')">Check</button>
       <div class="scramble-result" id="result-sad"></div>
     </div>
-
     <div class="scramble-card">
       <div class="letters-area" id="letters-pat"></div>
       <div class="answer-area" id="answer-pat"></div>
       <button class="scramble-check" onclick="checkScramble('pat')">Check</button>
       <div class="scramble-result" id="result-pat"></div>
     </div>
-
   </div>
 </div>
 
-<!-- ACTIVITY 4 — True or False -->
+<!-- ACTIVITY 4 -->
 <div class="activity-box">
   <div class="activity-title">&#x2705; Activity 4 &#x2014; True or False?</div>
-
   <div class="tf-row">
     <div class="tf-sentence">Adam has a dog.</div>
     <div class="tf-buttons">
@@ -234,7 +194,6 @@ body{ padding:10px; }
       <button class="tf-btn" onclick="checkTF(this,true)">FALSE</button>
     </div>
   </div>
-
   <div class="tf-row">
     <div class="tf-sentence">Adam pats the cat.</div>
     <div class="tf-buttons">
@@ -242,7 +201,6 @@ body{ padding:10px; }
       <button class="tf-btn" onclick="checkTF(this,false)">FALSE</button>
     </div>
   </div>
-
   <div class="tf-row">
     <div class="tf-sentence">The cat naps.</div>
     <div class="tf-buttons">
@@ -250,7 +208,6 @@ body{ padding:10px; }
       <button class="tf-btn" onclick="checkTF(this,false)">FALSE</button>
     </div>
   </div>
-
   <div class="tf-row">
     <div class="tf-sentence">The cat is glad at the end.</div>
     <div class="tf-buttons">
@@ -258,135 +215,77 @@ body{ padding:10px; }
       <button class="tf-btn" onclick="checkTF(this,false)">FALSE</button>
     </div>
   </div>
-
 </div>
 
-<!-- ACTIVITY 5 — Choose the correct sentence -->
+<!-- ACTIVITY 5 -->
 <div class="activity-box">
   <div class="activity-title">&#x1F3AF; Activity 5 &#x2014; Choose the correct sentence</div>
   <div class="cards">
-
     <div class="card">
-      <img src="Assets/images/cat.png">
-      <br><br>
-      <button class="choice-button" onclick="checkAnswer(this,false)">This is a cap.</button>
-      <br><br>
-      <button class="choice-button" onclick="checkAnswer(this,true)">This is a cat.</button>
-      <br><br>
+      <img src="Assets/images/cat.png"><br><br>
+      <button class="choice-button" onclick="checkAnswer(this,false)">This is a cap.</button><br><br>
+      <button class="choice-button" onclick="checkAnswer(this,true)">This is a cat.</button><br><br>
       <button class="choice-button" onclick="checkAnswer(this,false)">This is a dog.</button>
     </div>
-
     <div class="card">
-      <img src="Assets/images/cat-nap.png">
-      <br><br>
-      <button class="choice-button" onclick="checkAnswer(this,false)">The cat is glad.</button>
-      <br><br>
-      <button class="choice-button" onclick="checkAnswer(this,true)">The cat naps.</button>
-      <br><br>
+      <img src="Assets/images/cat-nap.png"><br><br>
+      <button class="choice-button" onclick="checkAnswer(this,false)">The cat is glad.</button><br><br>
+      <button class="choice-button" onclick="checkAnswer(this,true)">The cat naps.</button><br><br>
       <button class="choice-button" onclick="checkAnswer(this,false)">The cat is sad.</button>
     </div>
-
     <div class="card">
-      <img src="Assets/images/cat-glad.png">
-      <br><br>
-      <button class="choice-button" onclick="checkAnswer(this,false)">The cat is sad.</button>
-      <br><br>
-      <button class="choice-button" onclick="checkAnswer(this,true)">The cat is glad.</button>
-      <br><br>
+      <img src="Assets/images/cat-glad.png"><br><br>
+      <button class="choice-button" onclick="checkAnswer(this,false)">The cat is sad.</button><br><br>
+      <button class="choice-button" onclick="checkAnswer(this,true)">The cat is glad.</button><br><br>
       <button class="choice-button" onclick="checkAnswer(this,false)">Adam pats the cat.</button>
     </div>
-
   </div>
 </div>
 
-<!-- ACTIVITY 6 — Translation -->
+<!-- ACTIVITY 6 -->
 <div class="activity-box">
   <div class="activity-title">&#x1F30D; Activity 6 &#x2014; Translation</div>
   <div class="cards">
-
     <div class="card">
-      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Le chat est triste.</div>
-      <br>
-      <input type="text" id="translate1" class="word-input" placeholder="in English">
-      <br><br>
+      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Le chat est triste.</div><br>
+      <input type="text" id="translate1" class="word-input" placeholder="in English"><br><br>
       <button class="check-button" onclick="checkFlexibleAnswer('translate1',['The cat is sad.','the cat is sad','the cat is sad.'],this)">Check</button>
     </div>
-
     <div class="card">
-      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Adam caresse le chat.</div>
-      <br>
-      <input type="text" id="translate2" class="word-input" placeholder="in English">
-      <br><br>
+      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Adam caresse le chat.</div><br>
+      <input type="text" id="translate2" class="word-input" placeholder="in English"><br><br>
       <button class="check-button" onclick="checkFlexibleAnswer('translate2',['Adam pats the cat.','adam pats the cat','adam pats the cat.'],this)">Check</button>
     </div>
-
     <div class="card">
-      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Le chat fait une sieste.</div>
-      <br>
-      <input type="text" id="translate3" class="word-input" placeholder="in English">
-      <br><br>
+      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Le chat fait une sieste.</div><br>
+      <input type="text" id="translate3" class="word-input" placeholder="in English"><br><br>
       <button class="check-button" onclick="checkFlexibleAnswer('translate3',['The cat naps.','the cat naps','the cat naps.'],this)">Check</button>
     </div>
-
     <div class="card">
-      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Le chat est content.</div>
-      <br>
-      <input type="text" id="translate4" class="word-input" placeholder="in English">
-      <br><br>
+      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Le chat est content.</div><br>
+      <input type="text" id="translate4" class="word-input" placeholder="in English"><br><br>
       <button class="check-button" onclick="checkFlexibleAnswer('translate4',['The cat is glad.','the cat is glad','the cat is glad.'],this)">Check</button>
     </div>
-
   </div>
 </div>
 
-<!-- ACTIVITY 7 — Find the word in the text -->
+<!-- ACTIVITY 7 -->
 <div class="activity-box">
   <div class="activity-title">&#x1F50D; Activity 7 &#x2014; Find the word in the text</div>
-
   <div style="text-align:center;margin-bottom:35px;">
-    <div style="font-size:22px;font-weight:600;color:#5c6f8f;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:25px;">
-      Look at the picture. Find it in the text.
-    </div>
-    <div style="width:min(80vw,360px);height:min(80vw,360px);margin:auto;border-radius:50%;background:#eef4ff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.08);margin-bottom:35px;">
+    <div style="font-size:22px;font-weight:600;color:#5c6f8f;text-transform:uppercase;margin-bottom:25px;">Look at the picture. Find it in the text.</div>
+    <div style="width:min(80vw,420px);height:min(80vw,420px);margin:auto;border-radius:50%;background:#eef4ff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.08);margin-bottom:35px;">
       <img src="Assets/images/cat.png" style="width:75%;height:75%;object-fit:contain;">
     </div>
   </div>
-
   <div class="text-story">
-    <span class="find-word" onclick="findWord(this,false)">Adam</span>
-    <span class="find-word" onclick="findWord(this,false)">has</span>
-    <span class="find-word" onclick="findWord(this,false)">a</span>
-    <span class="find-word" onclick="findWord(this,true)">cat.</span>
-    <br>
-    <span class="find-word" onclick="findWord(this,false)">The</span>
-    <span class="find-word" onclick="findWord(this,true)">cat</span>
-    <span class="find-word" onclick="findWord(this,false)">is</span>
-    <span class="find-word" onclick="findWord(this,false)">sad.</span>
-    <br>
-    <span class="find-word" onclick="findWord(this,false)">Adam</span>
-    <span class="find-word" onclick="findWord(this,false)">pats</span>
-    <span class="find-word" onclick="findWord(this,false)">the</span>
-    <span class="find-word" onclick="findWord(this,true)">cat.</span>
-    <br>
-    <span class="find-word" onclick="findWord(this,false)">The</span>
-    <span class="find-word" onclick="findWord(this,true)">cat</span>
-    <span class="find-word" onclick="findWord(this,false)">is</span>
-    <span class="find-word" onclick="findWord(this,false)">on</span>
-    <span class="find-word" onclick="findWord(this,false)">Adam.</span>
-    <br>
-    <span class="find-word" onclick="findWord(this,false)">The</span>
-    <span class="find-word" onclick="findWord(this,true)">cat</span>
-    <span class="find-word" onclick="findWord(this,false)">is</span>
-    <span class="find-word" onclick="findWord(this,false)">glad.</span>
-    <br>
-    <span class="find-word" onclick="findWord(this,false)">The</span>
-    <span class="find-word" onclick="findWord(this,true)">cat</span>
-    <span class="find-word" onclick="findWord(this,false)">naps.</span>
-    <br>
-    <span class="find-word" onclick="findWord(this,false)">Dad</span>
-    <span class="find-word" onclick="findWord(this,false)">pats</span>
-    <span class="find-word" onclick="findWord(this,false)">the</span>
-    <span class="find-word" onclick="findWord(this,true)">cat.</span>
+    <span class="find-word" onclick="findWord(this,false)">Adam</span> <span class="find-word" onclick="findWord(this,false)">has</span> <span class="find-word" onclick="findWord(this,false)">a</span> <span class="find-word" onclick="findWord(this,true)">cat.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">The</span> <span class="find-word" onclick="findWord(this,true)">cat</span> <span class="find-word" onclick="findWord(this,false)">is</span> <span class="find-word" onclick="findWord(this,false)">sad.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">Adam</span> <span class="find-word" onclick="findWord(this,false)">pats</span> <span class="find-word" onclick="findWord(this,false)">the</span> <span class="find-word" onclick="findWord(this,true)">cat.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">The</span> <span class="find-word" onclick="findWord(this,true)">cat</span> <span class="find-word" onclick="findWord(this,false)">is</span> <span class="find-word" onclick="findWord(this,false)">on</span> <span class="find-word" onclick="findWord(this,false)">Adam.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">The</span> <span class="find-word" onclick="findWord(this,true)">cat</span> <span class="find-word" onclick="findWord(this,false)">is</span> <span class="find-word" onclick="findWord(this,false)">glad.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">The</span> <span class="find-word" onclick="findWord(this,true)">cat</span> <span class="find-word" onclick="findWord(this,false)">naps.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">Dad</span> <span class="find-word" onclick="findWord(this,false)">pats</span> <span class="find-word" onclick="findWord(this,false)">the</span> <span class="find-word" onclick="findWord(this,true)">cat.</span>
   </div>
 </div>
 
@@ -394,472 +293,151 @@ body{ padding:10px; }
 <div class="activity-box">
   <div class="activity-title">&#x1F4A1; Activity 8 &#x2014; Think Together</div>
 
-  <!-- Q1 -->
+  <div style="background:#eef4ff;border-radius:20px;padding:16px 24px;margin-bottom:32px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <span style="font-size:28px;">&#x1F52C;</span>
+    <span style="font-size:18px;font-weight:700;color:#5c6f8f;line-height:1.6;">
+      These questions are linked to the <em>British Curriculum — KG1/KG2 Science</em> programme:<br>
+      living and non-living things, and body parts / senses.<br>
+      <span style="font-size:16px;font-style:italic;font-weight:600;">
+        Ces questions sont li&#xe9;es au programme de <em>Sciences / cursus British KG1&#x2011;KG2</em>&#x00A0;&#x2014;
+        les &#xea;tres vivants et non vivants, et les parties du corps&#x00A0;/ les sens.
+      </span>
+    </span>
+  </div>
+
   <div class="think-question-block">
     <div class="think-q-row">
       <div class="think-question">Is a cat a living or a non-living thing?</div>
-      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
+      <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
     </div>
     <div class="think-question-fr">Est-ce qu&#x2019;un chat est un &#xEA;tre vivant ou une chose non vivante&#xA0;?</div>
-
     <div class="think-option">
-      <button class="think-btn" onclick="checkThink(this,true)">A. A living thing.</button>
-      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
+      <button class="think-btn" onclick="checkThink(this,true,'q1-feedback','&#x2705; Yes! A cat is a living thing — it eats, moves and grows. / Oui&#x00A0;! Un chat est un &#xea;tre vivant — il mange, bouge et grandit.')">A. A living thing.</button>
+      <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
       <div class="think-option-fr">un &#xEA;tre vivant</div>
     </div>
     <div class="think-option">
-      <button class="think-btn" onclick="checkThink(this,false)">B. A non-living thing.</button>
-      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
+      <button class="think-btn" onclick="checkThink(this,false,'q1-feedback','')">B. A non-living thing.</button>
+      <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
       <div class="think-option-fr">une chose non vivante</div>
     </div>
+    <div id="q1-feedback" class="think-feedback"></div>
   </div>
 
   <hr class="think-separator">
 
-  <!-- Q2 -->
   <div class="think-question-block">
     <div class="think-q-row">
-      <div class="think-question">What body part does a cat use to feel?</div>
-      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
+      <div class="think-question">How does a cat show it is happy?</div>
+      <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
     </div>
-    <div class="think-question-fr">Quelle partie du corps le chat utilise-t-il pour ressentir&#xA0;?</div>
-
+    <div class="think-question-fr">Comment le chat montre-t-il qu&#x2019;il est heureux&#xA0;?</div>
     <div class="think-option">
-      <button class="think-btn" onclick="checkThink(this,true)">A. Paws.</button>
-      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
-      <div class="think-option-fr">les pattes</div>
-    </div>
-    <div class="think-option">
-      <button class="think-btn" onclick="checkThink(this,false)">B. Feet.</button>
-      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
-      <div class="think-option-fr">les pieds</div>
+      <button class="think-btn" onclick="checkThink(this,false,'q2-feedback','')">A. It wags its tail.</button>
+      <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
+      <div class="think-option-fr">Il remue la queue.</div>
     </div>
     <div class="think-option">
-      <button class="think-btn" onclick="checkThink(this,false)">C. Tail.</button>
-      <button class="hint-bulb" onclick="toggleTr(this)" title="Voir en fran&#xe7;ais">&#x1F4A1;</button>
-      <div class="think-option-fr">la queue</div>
+      <button class="think-btn" onclick="checkThink(this,true,'q2-feedback','&#x1F431; Correct! A happy cat purrs. It is a soft sound cats make when they feel safe and loved. / Correct&#x00A0;! Un chat heureux ronronne. C&#x2019;est le son doux que font les chats quand ils se sentent en s&#xe9;curit&#xe9; et aim&#xe9;s.')">B. It purrs.</button>
+      <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
+      <div class="think-option-fr">Il ronronne.</div>
     </div>
+    <div class="think-option">
+      <button class="think-btn" onclick="checkThink(this,false,'q2-feedback','')">C. It barks.</button>
+      <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
+      <div class="think-option-fr">Il aboie.</div>
+    </div>
+    <div id="q2-feedback" class="think-feedback"></div>
   </div>
-
 </div>
 
-<!-- ACTIVITY 9 — Read and Listen -->
+<!-- ACTIVITY 9 -->
 <div class="activity-box">
   <div class="activity-title">&#x1F3A4; Activity 9 &#x2014; Read and Listen to Yourself</div>
-
-  <div style="text-align:center;font-size:20px;font-weight:600;color:#5c6f8f;line-height:1.6;margin-bottom:30px;">
-    Read the story aloud.<br>
-    Record your voice and listen to yourself.
-  </div>
-
+  <div style="text-align:center;font-size:20px;font-weight:600;color:#5c6f8f;line-height:1.6;margin-bottom:30px;">Read the story aloud.<br>Record your voice and listen to yourself.</div>
   <div style="max-width:700px;margin:auto;background:#eef4ff;padding:30px;border-radius:35px;margin-bottom:30px;">
     <div class="text-story" style="font-size:32px;line-height:1.5;text-align:center;">
-      Adam has a cat.<br>
-      The cat is sad.<br>
-      Adam pats the cat.<br>
-      The cat is on Adam.<br>
-      Adam pats the cat.<br>
-      The cat is glad.<br>
-      The cat naps.<br>
-      Dad pats the cat.
+      Adam has a cat.<br>The cat is sad.<br>Adam pats the cat.<br>The cat is on Adam.<br>Adam pats the cat.<br>The cat is glad.<br>The cat naps.<br>Dad pats the cat.
     </div>
   </div>
-
   <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:20px;">
-    <button class="choice-button" onclick="startRecording()">&#x1F399; Record</button>
+    <button class="choice-button" id="recordBtn" onclick="startRecording()">&#x1F399; Record</button>
     <button class="choice-button" onclick="stopRecording()">&#x23F9; Stop</button>
     <button class="choice-button" onclick="playRecording()">&#x1F50A; Play &amp; Listen</button>
   </div>
-
   <div id="recordingStatus" class="recording-status">&#x1F534; Recording...</div>
-
-  <div style="text-align:center;font-size:24px;font-weight:bold;color:#173f7a;margin-top:20px;margin-bottom:20px;">
-    How was your reading?
-  </div>
-
+  <div style="text-align:center;font-size:24px;font-weight:bold;color:#173f7a;margin-top:20px;margin-bottom:20px;">How was your reading?</div>
   <div style="display:flex;justify-content:center;gap:18px;flex-wrap:wrap;">
     <button class="choice-button" style="font-size:34px;padding:14px 22px;background:#ff6b6b;" onclick="rateReading(this,'Keep practicing! &#x1F331;')">&#x2B50;</button>
-    <button class="choice-button" style="font-size:34px;padding:14px 22px;background:#ffd966;" onclick="rateReading(this,'Good reading! &#x1F31F;')">&#x2B50;&#x2B50;</button>
+    <button class="choice-button" style="font-size:34px;padding:14px 22px;background:#ff9500;" onclick="rateReading(this,'Good reading! &#x1F31F;')">&#x2B50;&#x2B50;</button>
     <button class="choice-button" style="font-size:34px;padding:14px 22px;background:#38b94a;" onclick="rateReading(this,'Excellent reading! &#x1F3C6;')">&#x2B50;&#x2B50;&#x2B50;</button>
   </div>
-
   <div id="readingFeedback" style="margin-top:25px;text-align:center;font-size:26px;font-weight:bold;color:#173f7a;"></div>
 </div>
 
-<!-- BOTTOM BUTTONS -->
 <div style="text-align:center;margin-top:45px;margin-bottom:60px;">
   <button class="choice-button" onclick="location.reload()">&#x1F504; Restart Activities</button>
   <br><br>
-  <a href="index.html" style="text-decoration:none;">
-    <button class="choice-button">&#x1F4DA; Back to Summary</button>
-  </a>
+  <a href="index.html" style="text-decoration:none;"><button class="choice-button">&#x1F4DA; Back to Summary</button></a>
 </div>
 
 <script>
-
-/* AUDIO */
 function playGood(){ new Audio("Assets/word-audio/goodanswer.mp3").play(); }
 function playBad(){  new Audio("Assets/word-audio/badanswer.mp3").play(); }
 
-/* BUTTONS */
-function checkAnswer(button, isCorrect){
-  button.classList.remove("correct","wrong");
-  if(isCorrect){ button.classList.add("correct"); playGood(); }
-  else         { button.classList.add("wrong");   playBad();  }
-}
+function checkAnswer(button,isCorrect){ button.classList.remove("correct","wrong"); if(isCorrect){button.classList.add("correct");playGood();}else{button.classList.add("wrong");playBad();} }
 
-/* TYPING — verb version: accepts "pat" or "to pat" */
-function checkTypingVerb(inputId, correctWord, button){
-  const input = document.getElementById(inputId);
-  const raw = input.value.toLowerCase().trim();
-  const value = raw.startsWith("to ") ? raw.slice(3) : raw;
-  button.classList.remove("correct","wrong");
-  let old = input.parentElement.querySelector(".correction");
-  if(old) old.remove();
-  if(value === correctWord){
-    input.style.border = "3px solid #38b94a";
-    button.classList.add("correct");
-    playGood();
-  } else {
-    input.style.border = "3px solid #ff4d4d";
-    button.classList.add("wrong");
-    showCorrection(input, "Correct answer: to " + correctWord);
-    playBad();
-  }
-}
+function showCorrection(input,message){ let old=input.parentElement.querySelector(".correction"); if(old)old.remove(); const d=document.createElement("div"); d.className="correction"; d.innerHTML=message; input.parentElement.appendChild(d); }
 
-/* TYPING */
-function showCorrection(input, message){
-  let old = input.parentElement.querySelector(".correction");
-  if(old) old.remove();
-  const d = document.createElement("div");
-  d.className = "correction";
-  d.innerHTML = message;
-  input.parentElement.appendChild(d);
-}
+function checkTypingVerb(inputId,correctWord,button){ const input=document.getElementById(inputId); const raw=input.value.toLowerCase().trim(); const value=raw.startsWith("to ")?raw.slice(3):raw; button.classList.remove("correct","wrong"); let old=input.parentElement.querySelector(".correction"); if(old)old.remove(); if(value===correctWord){input.style.border="3px solid #38b94a";button.classList.add("correct");playGood();}else{input.style.border="3px solid #ff4d4d";button.classList.add("wrong");showCorrection(input,"Correct answer: to "+correctWord);playBad();} }
 
-function checkTyping(inputId, correctWord, button){
-  const input = document.getElementById(inputId);
-  const value = input.value.toLowerCase().trim();
-  button.classList.remove("correct","wrong");
-  let old = input.parentElement.querySelector(".correction");
-  if(old) old.remove();
-  if(value === correctWord){
-    input.style.border = "3px solid #38b94a";
-    button.classList.add("correct");
-    playGood();
-  } else {
-    input.style.border = "3px solid #ff4d4d";
-    button.classList.add("wrong");
-    showCorrection(input, "Correct answer: " + correctWord);
-    playBad();
-  }
-}
+function checkTyping(inputId,correctWord,button){ const input=document.getElementById(inputId); const value=input.value.toLowerCase().trim(); button.classList.remove("correct","wrong"); let old=input.parentElement.querySelector(".correction"); if(old)old.remove(); if(value===correctWord){input.style.border="3px solid #38b94a";button.classList.add("correct");playGood();}else{input.style.border="3px solid #ff4d4d";button.classList.add("wrong");showCorrection(input,"Correct answer: "+correctWord);playBad();} }
 
 function normalizeText(t){ return t.toLowerCase().replace(/[.,!?]/g,"").trim(); }
 
-function checkFlexibleAnswer(inputId, answers, button){
-  const input = document.getElementById(inputId);
-  const value = normalizeText(input.value);
-  const normalized = answers.map(a => normalizeText(a));
-  button.classList.remove("correct","wrong");
-  let old = input.parentElement.querySelector(".correction");
-  if(old) old.remove();
-  if(normalized.includes(value)){
-    input.style.border = "3px solid #38b94a";
-    button.classList.add("correct");
-    playGood();
-  } else {
-    input.style.border = "3px solid #ff4d4d";
-    button.classList.add("wrong");
-    showCorrection(input, "Correct answer: " + answers[0]);
-    playBad();
-  }
-}
+function checkFlexibleAnswer(inputId,answers,button){ const input=document.getElementById(inputId); const value=normalizeText(input.value); const normalized=answers.map(a=>normalizeText(a)); button.classList.remove("correct","wrong"); let old=input.parentElement.querySelector(".correction"); if(old)old.remove(); if(normalized.includes(value)){input.style.border="3px solid #38b94a";button.classList.add("correct");playGood();}else{input.style.border="3px solid #ff4d4d";button.classList.add("wrong");showCorrection(input,"Correct answer: "+answers[0]);playBad();} }
 
-/* TRUE / FALSE */
-function checkTF(button, isCorrect){
-  const row = button.closest(".tf-buttons");
-  row.querySelectorAll(".tf-btn").forEach(b => b.classList.remove("correct","wrong"));
-  if(isCorrect){ button.classList.add("correct"); playGood(); }
-  else         { button.classList.add("wrong");   playBad();  }
-}
+function checkTF(button,isCorrect){ const row=button.closest(".tf-buttons"); row.querySelectorAll(".tf-btn").forEach(b=>b.classList.remove("correct","wrong")); if(isCorrect){button.classList.add("correct");playGood();}else{button.classList.add("wrong");playBad();} }
 
-/* FIND WORD */
-function findWord(word, isCorrect){
-  if(isCorrect){
-    word.style.background = "#38b94a";
-    word.style.color = "white";
-    playGood();
-  } else {
-    word.style.background = "#ff4d4d";
-    word.style.color = "white";
-    playBad();
-  }
-}
+function findWord(word,isCorrect){ if(isCorrect){word.style.background="#38b94a";word.style.color="white";playGood();}else{word.style.background="#ff4d4d";word.style.color="white";playBad();} }
 
-/* THINK */
-function checkThink(button, isCorrect){
-  if(isCorrect){ button.classList.add("correct"); playGood(); }
-  else         { button.classList.add("wrong");   playBad();  }
-}
+function checkThink(button,isCorrect,feedbackId,feedbackMsg){ if(isCorrect){button.classList.add("correct");playGood();if(feedbackId&&feedbackMsg){const el=document.getElementById(feedbackId);if(el){el.innerHTML=feedbackMsg;el.style.display="block";}}}else{button.classList.add("wrong");playBad();} }
 
-/* ✅ FIX: toggleTr — was called but never defined */
-function toggleTr(bulb){
-  /* The bulb can be next to:
-     - a .think-question  → sibling is .think-question-fr
-     - a .think-btn       → sibling is .think-option-fr
-  */
-  const parent = bulb.parentElement; // .think-q-row or .think-option
-  // Look for a French text element in the same parent container
-  let frEl = parent.querySelector(".think-question-fr, .think-option-fr");
-  // If not found directly, look in the parent's parent (think-question-block)
-  if(!frEl){
-    const block = parent.closest(".think-question-block") || parent.parentElement;
-    frEl = block.querySelector(".think-question-fr");
-  }
-  if(!frEl) return;
-  frEl.style.display = (frEl.style.display === "none" || frEl.style.display === "") ? "block" : "none";
-}
+function toggleTr(bulb){ const parent=bulb.parentElement; let frEl=parent.querySelector(".think-question-fr,.think-option-fr"); if(!frEl){const block=parent.closest(".think-question-block")||parent.parentElement;frEl=block.querySelector(".think-question-fr");} if(!frEl)return; frEl.style.display=(frEl.style.display==="none"||frEl.style.display==="")?"block":"none"; }
 
-/* ===== DRAG & DROP UNSCRAMBLE ===== */
-const WORDS = {
-  cat: { letters:['c','a','t'], shuffled:['t','c','a'], frWord:'le chat',  feedback:'Bravo\u00a0! Tu as trouv\u00e9 le mot <strong>le chat</strong>\u00a0!' },
-  sad: { letters:['s','a','d'], shuffled:['a','d','s'], frWord:'triste',   feedback:'Bravo\u00a0! Tu as trouv\u00e9 le mot <strong>triste</strong>\u00a0!' },
-  pat: { letters:['p','a','t'], shuffled:['t','p','a'], frWord:'to pat',   feedback:'Bravo\u00a0! Tu as trouv\u00e9 le verbe <strong>caresser</strong>\u00a0!' }
+const WORDS={
+  cat:{letters:['c','a','t'],shuffled:['t','c','a'],feedback:'Bravo\u00a0! Tu as trouv\u00e9 le mot <strong>le chat</strong>\u00a0!'},
+  sad:{letters:['s','a','d'],shuffled:['a','d','s'],feedback:'Bravo\u00a0! Tu as trouv\u00e9 le mot <strong>triste</strong>\u00a0!'},
+  pat:{letters:['p','a','t'],shuffled:['t','p','a'],feedback:'Bravo\u00a0! Tu as trouv\u00e9 le verbe <strong>to pat</strong> (caresser)\u00a0!'}
 };
 
-let ghost = null;
-let dragInfo = null; /* { word, letter, bankIdx, sourceSlotId } */
+let ghost=null,dragInfo=null;
+function createGhost(l,x,y){ghost=document.createElement("div");ghost.className="letter-ghost";ghost.textContent=l;positionGhost(x,y);document.body.appendChild(ghost);}
+function positionGhost(x,y){if(!ghost)return;ghost.style.left=(x-27)+"px";ghost.style.top=(y-27)+"px";}
+function removeGhost(){if(ghost){ghost.remove();ghost=null;}}
+function initScramble(word){const data=WORDS[word];const a=document.getElementById("answer-"+word);a.innerHTML="";for(let i=0;i<data.letters.length;i++){const s=document.createElement("div");s.className="answer-slot";s.id="slot-"+word+"-"+i;s.dataset.word=word;s.dataset.slotIdx=i;a.appendChild(s);}renderBank(word);}
+function renderBank(word){const b=document.getElementById("letters-"+word);b.innerHTML="";const p=getPlacedBankIdxs(word);WORDS[word].shuffled.forEach((l,i)=>{if(p.has(i))return;b.appendChild(makeTile(l,word,i));});}
+function getPlacedBankIdxs(word){const s=new Set();document.getElementById("answer-"+word).querySelectorAll(".answer-slot").forEach(slot=>{if(slot.dataset.filled)s.add(parseInt(slot.dataset.bankIdx));});return s;}
+function makeTile(letter,word,bankIdx){const t=document.createElement("div");t.className="letter-tile";t.textContent=letter;t.addEventListener("mousedown",e=>{e.preventDefault();dragInfo={word,letter,bankIdx,sourceSlotId:null};t.classList.add("dragging");createGhost(letter,e.clientX,e.clientY);});t.addEventListener("touchstart",e=>{e.preventDefault();dragInfo={word,letter,bankIdx,sourceSlotId:null};t.classList.add("dragging");const tc=e.touches[0];createGhost(letter,tc.clientX,tc.clientY);},{passive:false});return t;}
+function fillSlot(slot,letter,bankIdx){if(slot.dataset.filled)freeSlot(slot,false);slot.textContent=letter;slot.dataset.filled="true";slot.dataset.letter=letter;slot.dataset.bankIdx=bankIdx;slot.classList.add("filled");slot.onmousedown=e=>{if(!slot.dataset.filled)return;e.preventDefault();e.stopPropagation();const w=slot.dataset.word,l=slot.dataset.letter,bi=parseInt(slot.dataset.bankIdx);freeSlot(slot,true);dragInfo={word:w,letter:l,bankIdx:bi,sourceSlotId:slot.id};createGhost(l,e.clientX,e.clientY);};slot.ontouchstart=e=>{if(!slot.dataset.filled)return;e.preventDefault();e.stopPropagation();const w=slot.dataset.word,l=slot.dataset.letter,bi=parseInt(slot.dataset.bankIdx);freeSlot(slot,true);dragInfo={word:w,letter:l,bankIdx:bi,sourceSlotId:slot.id};const tc=e.touches[0];createGhost(l,tc.clientX,tc.clientY);};}
+function freeSlot(slot,skipRender){slot.textContent="";slot.classList.remove("filled","drag-over");slot.onmousedown=null;slot.ontouchstart=null;delete slot.dataset.filled;delete slot.dataset.letter;delete slot.dataset.bankIdx;if(!skipRender)renderBank(slot.dataset.word||slot.id.split("-")[1]);}
+document.addEventListener("mousemove",e=>positionGhost(e.clientX,e.clientY));
+document.addEventListener("touchmove",e=>{if(!ghost)return;e.preventDefault();const t=e.touches[0];positionGhost(t.clientX,t.clientY);document.querySelectorAll(".answer-slot").forEach(s=>s.classList.remove("drag-over"));const el=document.elementFromPoint(t.clientX,t.clientY);const slot=el?el.closest(".answer-slot"):null;if(slot&&dragInfo&&slot.dataset.word===dragInfo.word)slot.classList.add("drag-over");},{passive:false});
+document.addEventListener("mouseover",e=>{if(!dragInfo)return;const slot=e.target.closest(".answer-slot");document.querySelectorAll(".answer-slot").forEach(s=>s.classList.remove("drag-over"));if(slot&&slot.dataset.word===dragInfo.word)slot.classList.add("drag-over");});
+function dropAtPoint(x,y){if(!dragInfo){removeGhost();return;}removeGhost();document.querySelectorAll(".answer-slot").forEach(s=>s.classList.remove("drag-over"));document.querySelectorAll(".letter-tile.dragging").forEach(t=>t.classList.remove("dragging"));const el=document.elementFromPoint(x,y);const ts=el?el.closest(".answer-slot"):null;if(ts&&ts.dataset.word===dragInfo.word)fillSlot(ts,dragInfo.letter,dragInfo.bankIdx);renderBank(dragInfo.word);dragInfo=null;}
+document.addEventListener("mouseup",e=>dropAtPoint(e.clientX,e.clientY));
+document.addEventListener("touchend",e=>{if(!dragInfo){removeGhost();return;}const t=e.changedTouches[0];dropAtPoint(t.clientX,t.clientY);});
+function checkScramble(word){const data=WORDS[word];const r=document.getElementById("result-"+word);let answer="";for(let i=0;i<data.letters.length;i++){const s=document.getElementById("slot-"+word+"-"+i);answer+=(s.dataset.letter||"");}if(answer===word){r.innerHTML=data.feedback;r.style.color="#38b94a";playGood();}else if(answer.length<data.letters.length){r.innerHTML="Complete all the letters !";r.style.color="#ffa500";}else{r.innerHTML="Try again !";r.style.color="#ff4d4d";playBad();}}
 
-function createGhost(letter, x, y){
-  ghost = document.createElement("div");
-  ghost.className = "letter-ghost";
-  ghost.textContent = letter;
-  positionGhost(x, y);
-  document.body.appendChild(ghost);
-}
-function positionGhost(x, y){
-  if(!ghost) return;
-  ghost.style.left = (x - 27) + "px";
-  ghost.style.top  = (y - 27) + "px";
-}
-function removeGhost(){
-  if(ghost){ ghost.remove(); ghost = null; }
-}
+let mediaRecorder,audioChunks=[],recordedAudio,isRecording=false;
+async function startRecording(){if(isRecording)return;try{isRecording=true;const btn=document.getElementById("recordBtn");if(btn){btn.style.opacity="0.5";btn.style.cursor="not-allowed";}document.getElementById("recordingStatus").style.display="block";const stream=await navigator.mediaDevices.getUserMedia({audio:true});mediaRecorder=new MediaRecorder(stream);audioChunks=[];mediaRecorder.ondataavailable=e=>audioChunks.push(e.data);mediaRecorder.onstop=()=>{const blob=new Blob(audioChunks,{type:'audio/webm'});recordedAudio=URL.createObjectURL(blob);};mediaRecorder.start();}catch(err){isRecording=false;document.getElementById("recordingStatus").style.display="none";const btn=document.getElementById("recordBtn");if(btn){btn.style.opacity="";btn.style.cursor="";}alert("Microphone not available.");}}
+function stopRecording(){if(mediaRecorder&&mediaRecorder.state!=="inactive"){mediaRecorder.stop();mediaRecorder.stream.getTracks().forEach(t=>t.stop());}isRecording=false;document.getElementById("recordingStatus").style.display="none";const btn=document.getElementById("recordBtn");if(btn){btn.style.opacity="";btn.style.cursor="";}}
+function playRecording(){if(recordedAudio){new Audio(recordedAudio).play();}else{alert("No recording yet. Press Record first!");}}
+function rateReading(button,message){button.parentElement.querySelectorAll("button").forEach(b=>b.classList.remove("correct"));button.classList.add("correct");new Audio("Assets/word-audio/star.mp3").play();document.getElementById("readingFeedback").innerHTML=message;}
 
-/* Build UI */
-function initScramble(word){
-  const data = WORDS[word];
-  const answerEl = document.getElementById("answer-"+word);
-  answerEl.innerHTML = "";
-  for(let i = 0; i < data.letters.length; i++){
-    const slot = document.createElement("div");
-    slot.className = "answer-slot";
-    slot.id = "slot-"+word+"-"+i;
-    slot.dataset.word = word;
-    slot.dataset.slotIdx = i;
-    answerEl.appendChild(slot);
-  }
-  renderBank(word);
-}
-
-function renderBank(word){
-  const bankEl = document.getElementById("letters-"+word);
-  bankEl.innerHTML = "";
-  const placed = getPlacedBankIdxs(word);
-  WORDS[word].shuffled.forEach((letter, idx) => {
-    if(placed.has(idx)) return;
-    bankEl.appendChild(makeTile(letter, word, idx));
-  });
-}
-
-function getPlacedBankIdxs(word){
-  const s = new Set();
-  document.getElementById("answer-"+word).querySelectorAll(".answer-slot").forEach(slot => {
-    if(slot.dataset.filled) s.add(parseInt(slot.dataset.bankIdx));
-  });
-  return s;
-}
-
-function makeTile(letter, word, bankIdx){
-  const tile = document.createElement("div");
-  tile.className = "letter-tile";
-  tile.textContent = letter;
-
-  tile.addEventListener("mousedown", e => {
-    e.preventDefault();
-    dragInfo = { word, letter, bankIdx, sourceSlotId: null };
-    tile.classList.add("dragging");
-    createGhost(letter, e.clientX, e.clientY);
-  });
-  tile.addEventListener("touchstart", e => {
-    e.preventDefault();
-    dragInfo = { word, letter, bankIdx, sourceSlotId: null };
-    tile.classList.add("dragging");
-    const t = e.touches[0];
-    createGhost(letter, t.clientX, t.clientY);
-  }, {passive:false});
-
-  return tile;
-}
-
-function fillSlot(slot, letter, bankIdx){
-  /* if slot already occupied, free that tile back to bank */
-  if(slot.dataset.filled) freeSlot(slot, false);
-  slot.textContent = letter;
-  slot.dataset.filled = "true";
-  slot.dataset.letter = letter;
-  slot.dataset.bankIdx = bankIdx;
-  slot.classList.add("filled");
-
-  /* allow dragging out of a filled slot */
-  slot.onmousedown = e => {
-    if(!slot.dataset.filled) return;
-    e.preventDefault();
-    e.stopPropagation();
-    const w = slot.dataset.word, l = slot.dataset.letter, bi = parseInt(slot.dataset.bankIdx);
-    freeSlot(slot, true);
-    dragInfo = { word: w, letter: l, bankIdx: bi, sourceSlotId: slot.id };
-    createGhost(l, e.clientX, e.clientY);
-  };
-  slot.ontouchstart = e => {
-    if(!slot.dataset.filled) return;
-    e.preventDefault();
-    e.stopPropagation();
-    const w = slot.dataset.word, l = slot.dataset.letter, bi = parseInt(slot.dataset.bankIdx);
-    freeSlot(slot, true);
-    dragInfo = { word: w, letter: l, bankIdx: bi, sourceSlotId: slot.id };
-    const t = e.touches[0];
-    createGhost(l, t.clientX, t.clientY);
-  };
-}
-
-function freeSlot(slot, skipRender){
-  slot.textContent = "";
-  slot.classList.remove("filled","drag-over");
-  slot.onmousedown = null;
-  slot.ontouchstart = null;
-  delete slot.dataset.filled;
-  delete slot.dataset.letter;
-  delete slot.dataset.bankIdx;
-  if(!skipRender) renderBank(slot.dataset.word || slot.id.split("-")[1]);
-}
-
-/* Global move */
-document.addEventListener("mousemove", e => positionGhost(e.clientX, e.clientY));
-document.addEventListener("touchmove", e => {
-  if(!ghost) return;
-  e.preventDefault();
-  const t = e.touches[0];
-  positionGhost(t.clientX, t.clientY);
-  /* highlight slot under finger */
-  document.querySelectorAll(".answer-slot").forEach(s => s.classList.remove("drag-over"));
-  const el = document.elementFromPoint(t.clientX, t.clientY);
-  const slot = el ? el.closest(".answer-slot") : null;
-  if(slot && dragInfo && slot.dataset.word === dragInfo.word) slot.classList.add("drag-over");
-}, {passive:false});
-
-/* Slot hover highlight (mouse) */
-document.addEventListener("mouseover", e => {
-  if(!dragInfo) return;
-  const slot = e.target.closest(".answer-slot");
-  document.querySelectorAll(".answer-slot").forEach(s => s.classList.remove("drag-over"));
-  if(slot && slot.dataset.word === dragInfo.word) slot.classList.add("drag-over");
-});
-
-/* Drop */
-function dropAtPoint(x, y){
-  if(!dragInfo){ removeGhost(); return; }
-  removeGhost();
-  document.querySelectorAll(".answer-slot").forEach(s => s.classList.remove("drag-over"));
-  document.querySelectorAll(".letter-tile.dragging").forEach(t => t.classList.remove("dragging"));
-  const el = document.elementFromPoint(x, y);
-  const targetSlot = el ? el.closest(".answer-slot") : null;
-  if(targetSlot && targetSlot.dataset.word === dragInfo.word){
-    fillSlot(targetSlot, dragInfo.letter, dragInfo.bankIdx);
-  }
-  /* if dropped outside a slot, tile returns to bank automatically (not placed) */
-  renderBank(dragInfo.word);
-  dragInfo = null;
-}
-
-document.addEventListener("mouseup",  e => dropAtPoint(e.clientX, e.clientY));
-document.addEventListener("touchend", e => {
-  if(!dragInfo){ removeGhost(); return; }
-  const t = e.changedTouches[0];
-  dropAtPoint(t.clientX, t.clientY);
-});
-
-/* Check */
-function checkScramble(word){
-  const data = WORDS[word];
-  const resultEl = document.getElementById("result-"+word);
-  let answer = "";
-  for(let i = 0; i < data.letters.length; i++){
-    const slot = document.getElementById("slot-"+word+"-"+i);
-    answer += (slot.dataset.letter || "");
-  }
-  if(answer === word){
-    resultEl.innerHTML = data.feedback;
-    resultEl.style.color = "#38b94a";
-    playGood();
-  } else if(answer.length < data.letters.length){
-    resultEl.innerHTML = "Complete all the letters !";
-    resultEl.style.color = "#ffa500";
-  } else {
-    resultEl.innerHTML = "Try again !";
-    resultEl.style.color = "#ff4d4d";
-    playBad();
-  }
-}
-
-/* RECORDING — with error handling */
-let mediaRecorder, audioChunks = [], recordedAudio;
-
-async function startRecording(){
-  try {
-    document.getElementById("recordingStatus").style.display = "block";
-    const stream = await navigator.mediaDevices.getUserMedia({audio:true});
-    mediaRecorder = new MediaRecorder(stream);
-    audioChunks = [];
-    mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
-    mediaRecorder.onstop = () => {
-      const blob = new Blob(audioChunks, {type:'audio/webm'});
-      recordedAudio = URL.createObjectURL(blob);
-    };
-    mediaRecorder.start();
-  } catch(err){
-    document.getElementById("recordingStatus").style.display = "none";
-    alert("Microphone not available. Please allow microphone access.");
-  }
-}
-
-function stopRecording(){
-  if(mediaRecorder && mediaRecorder.state !== "inactive"){
-    mediaRecorder.stop();
-    mediaRecorder.stream.getTracks().forEach(t => t.stop());
-  }
-  document.getElementById("recordingStatus").style.display = "none";
-}
-
-function playRecording(){
-  if(recordedAudio){ new Audio(recordedAudio).play(); }
-  else { alert("No recording yet. Press Record first!"); }
-}
-
-function rateReading(button, message){
-  button.parentElement.querySelectorAll("button").forEach(b => b.classList.remove("correct"));
-  button.classList.add("correct");
-  new Audio("Assets/word-audio/star.mp3").play();
-  document.getElementById("readingFeedback").innerHTML = message;
-}
-
-/* INIT */
 initScramble("cat");
 initScramble("sad");
 initScramble("pat");
-
 </script>
 </body>
 </html>
