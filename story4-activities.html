@@ -176,9 +176,9 @@ body{ padding:10px; }
     <div class="card">
       <img src="Assets/images/jam.png">
       <br><br>
-      <button class="choice-button" onclick="checkAnswer(this,true)">The cat likes jam.</button><br><br>
+      <button class="choice-button" onclick="checkAnswer(this,false)">The cat likes jam.</button><br><br>
       <button class="choice-button" onclick="checkAnswer(this,false)">The cat likes yam.</button><br><br>
-      <button class="choice-button" onclick="checkAnswer(this,false)">The cat likes the jam and the yam.</button>
+      <button class="choice-button" onclick="checkAnswer(this,true)">The cat likes the jam and the yam.</button>
     </div>
   </div>
 </div>
@@ -205,7 +205,7 @@ body{ padding:10px; }
     <div class="card">
       <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Le chat aime la confiture et la patate douce.</div><br>
       <input type="text" id="translate4" class="word-input" placeholder="in English"><br><br>
-      <button class="check-button" onclick="checkFlexibleAnswer('translate4',['The cat likes the jam and the yam.','the cat likes the jam and the yam','the cat likes the jam and the yam.'],this)">Check</button>
+      <button class="check-button" onclick="checkFlexibleAnswer('translate4',['The cat likes the jam and the yam.','the cat likes the jam and the yam','the cat likes jam and yam.','the cat likes jam and yam','The cat likes jam and yam.','The cat likes jam and yam'],this)">Check</button>
     </div>
   </div>
 </div>
