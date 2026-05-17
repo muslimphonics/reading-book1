@@ -73,7 +73,7 @@ body{ padding:10px; }
 .cards{ grid-template-columns:1fr; gap:16px; }
 .word-button,.check-button,.choice-button{ font-size:18px; padding:14px 12px; border-radius:16px; width:100%; }
 .card{ padding:16px; border-radius:22px; }
-.card img,.image-box img{ width:200px; height:200px; }
+.card img,.image-box img{ width:300px; height:300px; }
 .type-label{ font-size:18px; }
 .word-input{ font-size:18px; padding:12px; max-width:100%; width:100%; }
 .text-story{ font-size:20px; line-height:1.6; }
@@ -406,9 +406,9 @@ function checkThink(button,isCorrect,feedbackId,feedbackMsg){ if(isCorrect){butt
 function toggleTr(bulb){ const parent=bulb.parentElement; let frEl=parent.querySelector(".think-question-fr,.think-option-fr"); if(!frEl){const block=parent.closest(".think-question-block")||parent.parentElement;frEl=block.querySelector(".think-question-fr");} if(!frEl)return; frEl.style.display=(frEl.style.display==="none"||frEl.style.display==="")?"block":"none"; }
 
 const WORDS={
-  cat:{letters:['c','a','t'],shuffled:['t','c','a'],feedback:'Bravo\u00a0! Tu as trouv\u00e9 le mot <strong>le chat</strong>\u00a0!'},
-  sad:{letters:['s','a','d'],shuffled:['a','d','s'],feedback:'Bravo\u00a0! Tu as trouv\u00e9 le mot <strong>triste</strong>\u00a0!'},
-  pat:{letters:['p','a','t'],shuffled:['t','p','a'],feedback:'Bravo\u00a0! Tu as trouv\u00e9 le verbe <strong>to pat</strong> (caresser)\u00a0!'}
+  cat:{letters:['c','a','t'],shuffled:['t','c','a'],feedback:'Bravo\u00a0! Tu as trouv\u00e9 le mot <strong>cat</strong> = chat\u00a0!'},
+  sad:{letters:['s','a','d'],shuffled:['a','d','s'],feedback:'Bravo\u00a0! Tu as trouv\u00e9 le mot <strong>sad</strong> = triste\u00a0!'},
+  pat:{letters:['p','a','t'],shuffled:['t','p','a'],feedback:'Bravo\u00a0! Tu as trouv\u00e9 le verbe <strong>to pat</strong> = caresser\u00a0!'}
 };
 
 let ghost=null,dragInfo=null;
