@@ -343,7 +343,7 @@ body{ padding:10px; }
       <div class="think-option-fr">le renard</div>
     </div>
     <div class="think-option">
-      <button class="think-btn" onclick="checkThink(this,true,'q3-feedback',' The dog lives with humans — but outside the house! &#x1F3E0;<br>The Prophet &#xFD3E;&#xFD3F; said: &quot;The angels do not enter a house in which there is a dog or an image.&quot;<br><span style="font-size:17px;font-weight:600;color:#5c6f8f;">(Sahih al-Bukhari 3322 &amp; Sahih Muslim 2106 — narrated by Abu Talha رضي الله عنه)</span><br><br><span style="font-style:italic;color:#5c6f8f;">Le chien vit avec les humains — mais dehors&#x00A0;! &#x1F3E0;<br>Le Proph&#xe8;te &#xFD3E;&#xFD3F; a dit : &quot;Les anges n&#x2019;entrent pas dans une maison o&#xf9; il y a un chien ou une image.&quot;<br>(Sahih al-Bukhari 3322 &amp; Sahih Muslim 2106 — rapport&#xe9; par Ab&#xfb; Talha رضي الله عنه)</span>')">B. The dog, outside.</button>
+      <button class="think-btn" onclick="showDogFeedback(this)">B. The dog, outside.</button>
       <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
       <div class="think-option-fr">le chien, dehors</div>
     </div>
@@ -546,6 +546,46 @@ async function startRecording(){if(isRecording)return;try{isRecording=true;const
 function stopRecording(){if(mediaRecorder&&mediaRecorder.state!=="inactive"){mediaRecorder.stop();mediaRecorder.stream.getTracks().forEach(t=>t.stop());}isRecording=false;document.getElementById("recordingStatus").style.display="none";const btn=document.getElementById("recordBtn");if(btn){btn.style.opacity="";btn.style.cursor="";}}
 function playRecording(){if(recordedAudio){new Audio(recordedAudio).play();}else{alert("No recording yet. Press Record first!");}}
 function rateReading(button,message){button.parentElement.querySelectorAll("button").forEach(b=>b.classList.remove("correct"));button.classList.add("correct");new Audio("Assets/word-audio/star.mp3").play();document.getElementById("readingFeedback").innerHTML=message;}
+
+function showDogFeedback(button){
+  button.classList.add('correct');
+  playGood();
+  var el = document.getElementById('q3-feedback');
+  if(el){
+    el.innerHTML = 'The dog lives with humans — but outside the house! &#x1F3E0;<br><br>'
+      + 'The Prophet (salla Allahu alayhi wa sallam) said:<br>'
+      + '<em>“The angels do not enter a house in which there is a dog or an image.”</em><br>'
+      + '<span style="font-size:17px;font-weight:600;color:#5c6f8f;">'
+      + '(Sahih al-Bukhari 3322 &amp; Sahih Muslim 2106 — narrated by Abu Talha رضي الله عنه)'
+      + '</span><br><br>'
+      + '<span style="font-style:italic;color:#5c6f8f;">'
+      + 'Le chien vit avec les humains — mais dehors ! &#x1F3E0;<br>'
+      + 'Le Prophète (salla Allahu alayhi wa sallam) a dit : <em>« Les anges n’entrent pas dans une maison où il y a un chien ou une image. »</em><br>'
+      + '(Sahih al-Bukhari 3322 &amp; Sahih Muslim 2106 — rapporté par Abû Talha رضي الله عنه)'
+      + '</span>';
+    el.style.display = 'block';
+  }
+}
+
+function showDogFeedback(button){
+  button.classList.add('correct');
+  playGood();
+  var el = document.getElementById('q3-feedback');
+  if(el){
+    el.innerHTML = 'The dog lives with humans — but outside the house! &#x1F3E0;<br><br>'
+      + 'The Prophet (salla Allahu alayhi wa sallam) said:<br>'
+      + '<em>“The angels do not enter a house in which there is a dog or an image.”</em><br>'
+      + '<span style="font-size:17px;font-weight:600;color:#5c6f8f;">'
+      + '(Sahih al-Bukhari 3322 &amp; Sahih Muslim 2106 — narrated by Abu Talha رضي الله عنه)'
+      + '</span><br><br>'
+      + '<span style="font-style:italic;color:#5c6f8f;">'
+      + 'Le Prophète (salla Allahu alayhi wa sallam) a dit : <em>« Les anges n’entrent pas dans une maison où il y a un chien ou une image. »</em><br>'
+      + '(Sahih al-Bukhari 3322 &amp; Sahih Muslim 2106 — rapporté par Abû Talha رضي الله عنه)'
+      + '</span>';
+    el.style.display = 'block';
+  }
+}
+
 </script>
 </body>
 </html>
