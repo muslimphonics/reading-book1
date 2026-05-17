@@ -144,25 +144,25 @@ body{ padding:10px; }
     <div class="card">
       <img src="Assets/images/dog.png" alt="">
       <div class="type-label">Type the word:</div>
-      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="dog-input" class="word-input">
+      <input type="text" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false" id="dog-input" class="word-input">
       <br><br><button class="check-button" onclick="checkTyping('dog-input','dog',this)">Check</button>
     </div>
     <div class="card">
       <img src="Assets/images/fox.png" alt="">
       <div class="type-label">Type the word:</div>
-      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="fox-input" class="word-input">
+      <input type="text" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false" id="fox-input" class="word-input">
       <br><br><button class="check-button" onclick="checkTyping('fox-input','fox',this)">Check</button>
     </div>
     <div class="card">
       <img src="Assets/images/log.png" alt="">
       <div class="type-label">Type the word:</div>
-      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="log-input" class="word-input">
+      <input type="text" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false" id="log-input" class="word-input">
       <br><br><button class="check-button" onclick="checkTyping('log-input','log',this)">Check</button>
     </div>
     <div class="card">
       <img src="Assets/images/forest.png" alt="">
       <div class="type-label">Type the word:</div>
-      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="forest-input" class="word-input">
+      <input type="text" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false" id="forest-input" class="word-input">
       <br><br><button class="check-button" onclick="checkTyping('forest-input','forest',this)">Check</button>
     </div>
   </div>
@@ -202,22 +202,22 @@ body{ padding:10px; }
   <div class="cards">
     <div class="card">
       <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Un chien est sur une bûche.</div><br>
-      <input type="text" id="translate1" class="word-input" placeholder="in English"><br><br>
+      <input type="text" id="translate1" class="word-input" placeholder="in English" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false"><br><br>
       <button class="check-button" onclick="checkFlexibleAnswer('translate1',['A dog is on a log.','a dog is on a log','a dog is on a log.'],this)">Check</button>
     </div>
     <div class="card">
       <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Un renard a couru vers la forêt.</div><br>
-      <input type="text" id="translate2" class="word-input" placeholder="in English"><br><br>
+      <input type="text" id="translate2" class="word-input" placeholder="in English" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false"><br><br>
       <button class="check-button" onclick="checkFlexibleAnswer('translate2',['The fox ran to the forest.','the fox ran to the forest','a fox ran to the forest.','a fox ran to the forest'],this)">Check</button>
     </div>
     <div class="card">
       <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Le chien a couru vers l'homme.</div><br>
-      <input type="text" id="translate3" class="word-input" placeholder="in English"><br><br>
+      <input type="text" id="translate3" class="word-input" placeholder="in English" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false"><br><br>
       <button class="check-button" onclick="checkFlexibleAnswer('translate3',['The dog ran to the man.','the dog ran to the man','the dog ran to the man.'],this)">Check</button>
     </div>
     <div class="card">
       <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Le renard est descendu de la bûche.</div><br>
-      <input type="text" id="translate4" class="word-input" placeholder="in English"><br><br>
+      <input type="text" id="translate4" class="word-input" placeholder="in English" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false"><br><br>
       <button class="check-button" onclick="checkFlexibleAnswer('translate4',['The fox got off the log.','the fox got off the log','the fox got off the log.'],this)">Check</button>
     </div>
   </div>
@@ -585,6 +585,15 @@ function showDogFeedback(button){
     el.style.display = 'block';
   }
 }
+
+
+// Clear all inputs on load to prevent browser autocomplete prefill
+window.addEventListener('load', function(){
+  document.querySelectorAll('input[type="text"]').forEach(function(inp){
+    inp.value = '';
+    inp.style.border = '3px solid #dfefff';
+  });
+});
 
 </script>
 </body>
