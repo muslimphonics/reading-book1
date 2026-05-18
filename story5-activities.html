@@ -104,75 +104,91 @@ body{ padding:10px; }
   <div class="title">Story 5 Activities</div>
 </div>
 
-<!-- ACTIVITY 1 -->
+<!-- ACTIVITY 1 — Match word to picture -->
 <div class="activity-box">
   <div class="activity-title">&#x1F3AF; Activity 1 &#x2014; Match the word to the picture.</div>
+
   <div class="match-game-area">
+    <!-- Words column -->
     <div class="match-col" id="words-col">
       <button class="match-word-btn" data-word="dog" onclick="selectWord(this)">Dog</button>
       <button class="match-word-btn" data-word="log" onclick="selectWord(this)">Log</button>
       <button class="match-word-btn" data-word="fox" onclick="selectWord(this)">Fox</button>
       <button class="match-word-btn" data-word="forest" onclick="selectWord(this)">Forest</button>
     </div>
+
+    <!-- Images column -->
     <div class="match-col" id="images-col">
-      <button class="match-img-btn" data-word="dog" onclick="selectImage(this)"><img src="Assets/images/dog.png" alt=""></button>
-      <button class="match-img-btn" data-word="log" onclick="selectImage(this)"><img src="Assets/images/log.png" alt=""></button>
-      <button class="match-img-btn" data-word="forest" onclick="selectImage(this)"><img src="Assets/images/forest.png" alt=""></button>
-      <button class="match-img-btn" data-word="fox" onclick="selectImage(this)"><img src="Assets/images/fox.png" alt=""></button>
+      <button class="match-img-btn" data-word="dog" onclick="selectImage(this)">
+        <img src="Assets/images/dog.png" alt="">
+      </button>
+      <button class="match-img-btn" data-word="log" onclick="selectImage(this)">
+        <img src="Assets/images/log.png" alt="">
+      </button>
+      <button class="match-img-btn" data-word="forest" onclick="selectImage(this)">
+        <img src="Assets/images/forest.png" alt="">
+      </button>
+      <button class="match-img-btn" data-word="fox" onclick="selectImage(this)">
+        <img src="Assets/images/fox.png" alt="">
+      </button>
     </div>
   </div>
+
   <div id="match-msg" style="text-align:center;margin-top:28px;font-size:26px;font-weight:bold;color:#173f7a;min-height:40px;"></div>
 </div>
 
-<!-- ACTIVITY 2 -->
+<!-- ACTIVITY 2 — Type the word -->
 <div class="activity-box">
   <div class="activity-title">&#x270D;&#xFE0F; Activity 2 &#x2014; Type the word</div>
   <div class="cards">
     <div class="card">
       <img src="Assets/images/dog.png" alt="">
       <div class="type-label">Type the word:</div>
-      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" id="dog-input" class="word-input">
+      <input type="text" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false" id="dog-input" class="word-input">
       <br><br><button class="check-button" onclick="checkTyping('dog-input','dog',this)">Check</button>
     </div>
     <div class="card">
       <img src="Assets/images/fox.png" alt="">
       <div class="type-label">Type the word:</div>
-      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" id="fox-input" class="word-input">
+      <input type="text" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false" id="fox-input" class="word-input">
       <br><br><button class="check-button" onclick="checkTyping('fox-input','fox',this)">Check</button>
     </div>
     <div class="card">
       <img src="Assets/images/log.png" alt="">
       <div class="type-label">Type the word:</div>
-      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" id="log-input" class="word-input">
+      <input type="text" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false" id="log-input" class="word-input">
       <br><br><button class="check-button" onclick="checkTyping('log-input','log',this)">Check</button>
     </div>
     <div class="card">
       <img src="Assets/images/forest.png" alt="">
       <div class="type-label">Type the word:</div>
-      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" id="forest-input" class="word-input">
+      <input type="text" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false" id="forest-input" class="word-input">
       <br><br><button class="check-button" onclick="checkTyping('forest-input','forest',this)">Check</button>
     </div>
   </div>
 </div>
 
-<!-- ACTIVITY 3 -->
+<!-- ACTIVITY 3 — Choose the correct sentence -->
 <div class="activity-box">
   <div class="activity-title">&#x1F3AF; Activity 3 &#x2014; Choose the correct sentence</div>
   <div class="cards">
     <div class="card">
-      <img src="Assets/images/dog-on-log.png" alt=""><br><br>
+      <img src="Assets/images/dog-on-log.png" alt="">
+      <br><br>
       <button class="choice-button" onclick="checkAnswer(this,true)">The dog is on a log.</button><br><br>
       <button class="choice-button" onclick="checkAnswer(this,false)">The fox is on a log.</button><br><br>
       <button class="choice-button" onclick="checkAnswer(this,false)">The dog ran to the forest.</button>
     </div>
     <div class="card">
-      <img src="Assets/images/fox-to-forest.png" alt=""><br><br>
+      <img src="Assets/images/fox-to-forest.png" alt="">
+      <br><br>
       <button class="choice-button" onclick="checkAnswer(this,false)">The dog ran to the forest.</button><br><br>
       <button class="choice-button" onclick="checkAnswer(this,true)">The fox ran to the forest.</button><br><br>
       <button class="choice-button" onclick="checkAnswer(this,false)">The fox ran to the man.</button>
     </div>
     <div class="card">
-      <img src="Assets/images/dog-off-log.png" alt=""><br><br>
+      <img src="Assets/images/dog-off-log.png" alt="">
+      <br><br>
       <button class="choice-button" onclick="checkAnswer(this,false)">The fox got on the log.</button><br><br>
       <button class="choice-button" onclick="checkAnswer(this,true)">The dog got off the log.</button><br><br>
       <button class="choice-button" onclick="checkAnswer(this,false)">The dog is on the log.</button>
@@ -180,53 +196,84 @@ body{ padding:10px; }
   </div>
 </div>
 
-<!-- ACTIVITY 4 -->
+<!-- ACTIVITY 4 — Translation -->
 <div class="activity-box">
   <div class="activity-title">&#x1F30D; Activity 4 &#x2014; Translation</div>
   <div class="cards">
     <div class="card">
-      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Un chien est sur une b&#xfb;che.</div><br>
-      <input type="text" id="translate1" class="word-input" placeholder="in English" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')"><br><br>
+      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Un chien est sur une bûche.</div><br>
+      <input type="text" id="translate1" class="word-input" placeholder="in English" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false"><br><br>
       <button class="check-button" onclick="checkFlexibleAnswer('translate1',['A dog is on a log.','a dog is on a log','a dog is on a log.'],this)">Check</button>
     </div>
     <div class="card">
-      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Un renard s&#x2019;est enfui vers la for&#xea;t.</div><br>
-      <input type="text" id="translate2" class="word-input" placeholder="in English" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')"><br><br>
+      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Un renard a couru vers la forêt.</div><br>
+      <input type="text" id="translate2" class="word-input" placeholder="in English" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false"><br><br>
       <button class="check-button" onclick="checkFlexibleAnswer('translate2',['The fox ran to the forest.','the fox ran to the forest','a fox ran to the forest.','a fox ran to the forest'],this)">Check</button>
     </div>
     <div class="card">
-      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Le chien a couru vers l&#x2019;homme.</div><br>
-      <input type="text" id="translate3" class="word-input" placeholder="in English" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')"><br><br>
+      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Le chien a couru vers l'homme.</div><br>
+      <input type="text" id="translate3" class="word-input" placeholder="in English" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false"><br><br>
       <button class="check-button" onclick="checkFlexibleAnswer('translate3',['The dog ran to the man.','the dog ran to the man','the dog ran to the man.'],this)">Check</button>
     </div>
     <div class="card">
-      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Le renard est descendu de la b&#xfb;che.</div><br>
-      <input type="text" id="translate4" class="word-input" placeholder="in English" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')"><br><br>
+      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Le renard est descendu de la bûche.</div><br>
+      <input type="text" id="translate4" class="word-input" placeholder="in English" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false"><br><br>
       <button class="check-button" onclick="checkFlexibleAnswer('translate4',['The fox got off the log.','the fox got off the log','the fox got off the log.'],this)">Check</button>
     </div>
   </div>
 </div>
 
-<!-- ACTIVITY 5 -->
+<!-- ACTIVITY 5 — Find the word in the text -->
 <div class="activity-box">
   <div class="activity-title">&#x1F50D; Activity 5 &#x2014; Find the word in the text</div>
   <div style="text-align:center;margin-bottom:35px;">
     <div style="font-size:22px;font-weight:600;color:#5c6f8f;text-transform:uppercase;margin-bottom:20px;">Look at the picture. Find it in the text.</div>
-    <img src="Assets/images/fox.png" style="width:min(420px,85vw);height:auto;object-fit:contain;display:block;margin:auto;" alt="">
+    <img src="Assets/images/fox.png" style="width:min(340px,75vw);height:auto;object-fit:contain;display:block;margin:auto;" alt="">
   </div>
   <div class="text-story">
-    <span class="find-word" onclick="findWord(this,false)">A</span> <span class="find-word" onclick="findWord(this,false)">dog</span> <span class="find-word" onclick="findWord(this,false)">is</span> <span class="find-word" onclick="findWord(this,false)">on</span> <span class="find-word" onclick="findWord(this,false)">a</span> <span class="find-word" onclick="findWord(this,false)">log.</span><br>
-    <span class="find-word" onclick="findWord(this,false)">The</span> <span class="find-word" onclick="findWord(this,false)">dog</span> <span class="find-word" onclick="findWord(this,false)">got</span> <span class="find-word" onclick="findWord(this,false)">off</span> <span class="find-word" onclick="findWord(this,false)">the</span> <span class="find-word" onclick="findWord(this,false)">log.</span><br>
-    <span class="find-word" onclick="findWord(this,false)">A</span> <span class="find-word" onclick="findWord(this,true)">fox</span> <span class="find-word" onclick="findWord(this,false)">got</span> <span class="find-word" onclick="findWord(this,false)">on</span> <span class="find-word" onclick="findWord(this,false)">the</span> <span class="find-word" onclick="findWord(this,false)">log.</span><br>
-    <span class="find-word" onclick="findWord(this,false)">The</span> <span class="find-word" onclick="findWord(this,true)">fox</span> <span class="find-word" onclick="findWord(this,false)">got</span> <span class="find-word" onclick="findWord(this,false)">off</span> <span class="find-word" onclick="findWord(this,false)">the</span> <span class="find-word" onclick="findWord(this,false)">log.</span><br>
-    <span class="find-word" onclick="findWord(this,false)">The</span> <span class="find-word" onclick="findWord(this,true)">fox</span> <span class="find-word" onclick="findWord(this,false)">ran</span> <span class="find-word" onclick="findWord(this,false)">to</span> <span class="find-word" onclick="findWord(this,false)">the</span> <span class="find-word" onclick="findWord(this,false)">forest.</span><br>
-    <span class="find-word" onclick="findWord(this,false)">The</span> <span class="find-word" onclick="findWord(this,false)">dog</span> <span class="find-word" onclick="findWord(this,false)">ran</span> <span class="find-word" onclick="findWord(this,false)">to</span> <span class="find-word" onclick="findWord(this,false)">the</span> <span class="find-word" onclick="findWord(this,false)">man.</span>
+    <span class="find-word" onclick="findWord(this,false)">A</span>
+    <span class="find-word" onclick="findWord(this,false)">dog</span>
+    <span class="find-word" onclick="findWord(this,false)">is</span>
+    <span class="find-word" onclick="findWord(this,false)">on</span>
+    <span class="find-word" onclick="findWord(this,false)">a</span>
+    <span class="find-word" onclick="findWord(this,false)">log.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">The</span>
+    <span class="find-word" onclick="findWord(this,false)">dog</span>
+    <span class="find-word" onclick="findWord(this,false)">got</span>
+    <span class="find-word" onclick="findWord(this,false)">off</span>
+    <span class="find-word" onclick="findWord(this,false)">the</span>
+    <span class="find-word" onclick="findWord(this,false)">log.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">A</span>
+    <span class="find-word" onclick="findWord(this,true)">fox</span>
+    <span class="find-word" onclick="findWord(this,false)">got</span>
+    <span class="find-word" onclick="findWord(this,false)">on</span>
+    <span class="find-word" onclick="findWord(this,false)">the</span>
+    <span class="find-word" onclick="findWord(this,false)">log.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">The</span>
+    <span class="find-word" onclick="findWord(this,true)">fox</span>
+    <span class="find-word" onclick="findWord(this,false)">got</span>
+    <span class="find-word" onclick="findWord(this,false)">off</span>
+    <span class="find-word" onclick="findWord(this,false)">the</span>
+    <span class="find-word" onclick="findWord(this,false)">log.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">The</span>
+    <span class="find-word" onclick="findWord(this,true)">fox</span>
+    <span class="find-word" onclick="findWord(this,false)">ran</span>
+    <span class="find-word" onclick="findWord(this,false)">to</span>
+    <span class="find-word" onclick="findWord(this,false)">the</span>
+    <span class="find-word" onclick="findWord(this,false)">forest.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">The</span>
+    <span class="find-word" onclick="findWord(this,false)">dog</span>
+    <span class="find-word" onclick="findWord(this,false)">ran</span>
+    <span class="find-word" onclick="findWord(this,false)">to</span>
+    <span class="find-word" onclick="findWord(this,false)">the</span>
+    <span class="find-word" onclick="findWord(this,false)">man.</span>
   </div>
 </div>
 
 <!-- ACTIVITY 6 — Think Together -->
 <div class="activity-box">
   <div class="activity-title">&#x1F9E0; Activity 6 &#x2014; Think Together</div>
+
   <div style="background:#eef4ff;border-radius:20px;padding:16px 24px;margin-bottom:32px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
     <span style="font-size:28px;">&#x1F52C;</span>
     <span style="font-size:18px;font-weight:700;color:#5c6f8f;line-height:1.6;">
@@ -239,6 +286,7 @@ body{ padding:10px; }
     </span>
   </div>
 
+  <!-- Q1 -->
   <div class="think-question-block">
     <div class="think-q-row">
       <div class="think-question">Is a fox a pet or a wild animal?</div>
@@ -251,7 +299,7 @@ body{ padding:10px; }
       <div class="think-option-fr">un animal domestique</div>
     </div>
     <div class="think-option">
-      <button class="think-btn" onclick="checkThink(this,true,'q1-feedback','&#x1F98A; Yes! A fox is a wild animal. It lives in the forest, not with people. / Oui&#x00A0;! Le renard est un animal sauvage. Il vit dans la for&#xea;t, pas avec les gens.')">B. A wild animal.</button>
+      <button class="think-btn" onclick="checkThink(this,true,'q1-feedback',' Yes! A fox is a wild animal. It lives in the forest, not with people. / Oui&#x00A0;! Le renard est un animal sauvage. Il vit dans la for&#xea;t, pas avec les gens.')">B. A wild animal.</button>
       <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
       <div class="think-option-fr">un animal sauvage</div>
     </div>
@@ -260,6 +308,7 @@ body{ padding:10px; }
 
   <hr class="think-separator">
 
+  <!-- Q2 -->
   <div class="think-question-block">
     <div class="think-q-row">
       <div class="think-question">Is a log a living or non-living thing?</div>
@@ -281,6 +330,7 @@ body{ padding:10px; }
 
   <hr class="think-separator">
 
+  <!-- Q3 — Dog outside / Islamic context -->
   <div class="think-question-block">
     <div class="think-q-row">
       <div class="think-question">Which animal lives with humans?</div>
@@ -299,6 +349,7 @@ body{ padding:10px; }
     </div>
     <div id="q3-feedback" class="think-feedback"></div>
   </div>
+
 </div>
 
 <!-- ACTIVITY 7 — Fill in the blank -->
@@ -308,24 +359,32 @@ body{ padding:10px; }
     Choose the correct word.<br>
     <span style="font-size:18px;font-style:italic;">Choisis le bon mot.</span>
   </div>
+
+  <!-- Blank 1 -->
   <div class="blank-row">
     <span>The fox ran to the</span>
-    <span class="blank-slot" id="blank1-slot">___</span><span>.</span>
+    <span class="blank-slot" id="blank1-slot">___</span>
+    <span>.</span>
     <div class="blank-choices">
       <button class="blank-btn" onclick="checkBlank(this,'blank1-slot','forest',true)">forest</button>
       <button class="blank-btn" onclick="checkBlank(this,'blank1-slot','man',false)">man</button>
       <button class="blank-btn" onclick="checkBlank(this,'blank1-slot','log',false)">log</button>
     </div>
   </div>
+
+  <!-- Blank 2 -->
   <div class="blank-row">
     <span>The dog ran to the</span>
-    <span class="blank-slot" id="blank2-slot">___</span><span>.</span>
+    <span class="blank-slot" id="blank2-slot">___</span>
+    <span>.</span>
     <div class="blank-choices">
       <button class="blank-btn" onclick="checkBlank(this,'blank2-slot','forest',false)">forest</button>
       <button class="blank-btn" onclick="checkBlank(this,'blank2-slot','man',true)">man</button>
       <button class="blank-btn" onclick="checkBlank(this,'blank2-slot','fox',false)">fox</button>
     </div>
   </div>
+
+  <!-- Blank 3 -->
   <div class="blank-row">
     <span>A dog is</span>
     <span class="blank-slot" id="blank3-slot">___</span>
@@ -336,6 +395,8 @@ body{ padding:10px; }
       <button class="blank-btn" onclick="checkBlank(this,'blank3-slot','on',true)">on</button>
     </div>
   </div>
+
+  <!-- Blank 4 -->
   <div class="blank-row">
     <span>The dog got</span>
     <span class="blank-slot" id="blank4-slot">___</span>
@@ -356,7 +417,12 @@ body{ padding:10px; }
   </div>
   <div style="max-width:700px;margin:auto;background:#eef4ff;padding:30px;border-radius:35px;margin-bottom:30px;">
     <div class="text-story" style="font-size:32px;line-height:1.5;text-align:center;">
-      A dog is on a log.<br>The dog got off the log.<br>A fox got on the log.<br>The fox got off the log.<br>The fox ran to the forest.<br>The dog ran to the man.
+      A dog is on a log.<br>
+      The dog got off the log.<br>
+      A fox got on the log.<br>
+      The fox got off the log.<br>
+      The fox ran to the forest.<br>
+      The dog ran to the man.
     </div>
   </div>
   <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:20px;">
@@ -374,6 +440,7 @@ body{ padding:10px; }
   <div id="readingFeedback" style="margin-top:25px;text-align:center;font-size:26px;font-weight:bold;color:#173f7a;"></div>
 </div>
 
+<!-- BOTTOM -->
 <div style="text-align:center;margin-top:45px;margin-bottom:60px;">
   <button class="choice-button" onclick="location.reload()">&#x1F504; Restart Activities</button>
   <br><br>
@@ -400,42 +467,142 @@ function checkThink(button,isCorrect,feedbackId,feedbackMsg){ if(isCorrect){butt
 
 function toggleTr(bulb){ const parent=bulb.parentElement; let frEl=parent.querySelector(".think-question-fr,.think-option-fr"); if(!frEl){const block=parent.closest(".think-question-block")||parent.parentElement;frEl=block.querySelector(".think-question-fr");} if(!frEl)return; frEl.style.display=(frEl.style.display==="none"||frEl.style.display==="")?"block":"none"; }
 
-function checkBlank(button,slotId,word,isCorrect){ const slot=document.getElementById(slotId); const row=button.closest(".blank-row"); row.querySelectorAll(".blank-btn").forEach(b=>b.classList.remove("correct","wrong")); if(isCorrect){button.classList.add("correct");slot.textContent=word;slot.style.color="#38b94a";slot.style.borderColor="#38b94a";playGood();}else{button.classList.add("wrong");playBad();} }
-
-/* MATCHING GAME */
-let selectedWord=null, selectedImage=null;
-function selectWord(btn){ document.querySelectorAll(".match-word-btn:not(.matched)").forEach(b=>b.classList.remove("selected")); if(btn.classList.contains("matched"))return; btn.classList.add("selected"); selectedWord=btn; tryMatch(); }
-function selectImage(btn){ document.querySelectorAll(".match-img-btn:not(.matched)").forEach(b=>b.classList.remove("selected")); if(btn.classList.contains("matched"))return; btn.classList.add("selected"); selectedImage=btn; tryMatch(); }
-function tryMatch(){ if(!selectedWord||!selectedImage)return; const w=selectedWord.dataset.word; const i=selectedImage.dataset.word; if(w===i){ selectedWord.classList.remove("selected");selectedWord.classList.add("matched"); selectedImage.classList.remove("selected");selectedImage.classList.add("matched"); playGood(); document.getElementById("match-msg").textContent="✅ Great match!"; checkAllMatched(); }else{ selectedWord.classList.add("wrong-match"); selectedImage.classList.add("wrong-match"); playBad(); document.getElementById("match-msg").textContent="❌ Try again!"; setTimeout(()=>{ selectedWord.classList.remove("selected","wrong-match"); selectedImage.classList.remove("selected","wrong-match"); document.getElementById("match-msg").textContent=""; },900); } selectedWord=null; selectedImage=null; }
-function checkAllMatched(){ const total=document.querySelectorAll(".match-word-btn").length; const done=document.querySelectorAll(".match-word-btn.matched").length; if(done===total){ setTimeout(()=>{ document.getElementById("match-msg").innerHTML="🎉 All matched! Well done!"; new Audio("Assets/word-audio/star.mp3").play(); },400); } }
-
-function showDogFeedback(button){
-  button.classList.add('correct');
-  playGood();
-  const el=document.getElementById('q3-feedback');
-  if(el){
-    el.innerHTML='The dog lives with humans — but outside the house! &#x1F3E0;<br><br>'
-      +'The Prophet (salla Allahu alayhi wa sallam) said:<br>'
-      +'<em>"The angels do not enter a house in which there is a dog or an image."</em><br>'
-      +'<span style="font-size:17px;font-weight:600;color:#5c6f8f;">'
-      +'(Sahih al-Bukhari 3322 &amp; Sahih Muslim 2106 — narrated by Abu Talha &#x631;&#x636;&#x64A; &#x627;&#x644;&#x644;&#x647; &#x639;&#x646;&#x647;)'
-      +'</span><br><br>'
-      +'<span style="font-style:italic;color:#5c6f8f;">'
-      +'Le chien vit avec les humains — mais dehors&#x00A0;! &#x1F3E0;<br>'
-      +'Le Proph&#xe8;te (salla Allahu alayhi wa sallam) a dit&#x00A0;: <em>&#xab;&#x202F;Les anges n&#x2019;entrent pas dans une maison o&#xf9; il y a un chien ou une image.&#x202F;&#xbb;</em><br>'
-      +'(Sahih al-Bukhari 3322 &amp; Sahih Muslim 2106 — rapport&#xe9; par Ab&#xfb; Talha &#x631;&#x636;&#x64A; &#x627;&#x644;&#x644;&#x647; &#x639;&#x646;&#x647;)'
-      +'</span>';
-    el.style.display='block';
+function checkBlank(button, slotId, word, isCorrect){
+  const slot = document.getElementById(slotId);
+  const row = button.closest(".blank-row");
+  row.querySelectorAll(".blank-btn").forEach(b=>b.classList.remove("correct","wrong"));
+  if(isCorrect){
+    button.classList.add("correct");
+    slot.textContent = word;
+    slot.style.color = "#38b94a";
+    slot.style.borderColor = "#38b94a";
+    playGood();
+  } else {
+    button.classList.add("wrong");
+    playBad();
   }
 }
 
+/* ── MATCHING GAME ── */
+let selectedWord = null;
+let selectedImage = null;
+
+function selectWord(btn){
+  // deselect all words
+  document.querySelectorAll(".match-word-btn:not(.matched)").forEach(b=>b.classList.remove("selected"));
+  if(btn.classList.contains("matched")) return;
+  btn.classList.add("selected");
+  selectedWord = btn;
+  tryMatch();
+}
+
+function selectImage(btn){
+  document.querySelectorAll(".match-img-btn:not(.matched)").forEach(b=>b.classList.remove("selected"));
+  if(btn.classList.contains("matched")) return;
+  btn.classList.add("selected");
+  selectedImage = btn;
+  tryMatch();
+}
+
+function tryMatch(){
+  if(!selectedWord || !selectedImage) return;
+  const w = selectedWord.dataset.word;
+  const i = selectedImage.dataset.word;
+  if(w === i){
+    selectedWord.classList.remove("selected"); selectedWord.classList.add("matched");
+    selectedImage.classList.remove("selected"); selectedImage.classList.add("matched");
+    playGood();
+    document.getElementById("match-msg").textContent = "✅ Great match!";
+    checkAllMatched();
+  } else {
+    selectedWord.classList.add("wrong-match");
+    selectedImage.classList.add("wrong-match");
+    playBad();
+    document.getElementById("match-msg").textContent = "❌ Try again!";
+    setTimeout(()=>{
+      selectedWord.classList.remove("selected","wrong-match");
+      selectedImage.classList.remove("selected","wrong-match");
+      document.getElementById("match-msg").textContent = "";
+    }, 900);
+  }
+  selectedWord = null;
+  selectedImage = null;
+}
+
+function checkAllMatched(){
+  const total = document.querySelectorAll(".match-word-btn").length;
+  const done  = document.querySelectorAll(".match-word-btn.matched").length;
+  if(done === total){
+    setTimeout(()=>{
+      document.getElementById("match-msg").innerHTML = "🎉 All matched! Well done!";
+      new Audio("Assets/word-audio/star.mp3").play();
+    }, 400);
+  }
+}
+
+/* ── RECORDING ── */
 let mediaRecorder,audioChunks=[],recordedAudio,isRecording=false;
 async function startRecording(){if(isRecording)return;try{isRecording=true;const btn=document.getElementById("recordBtn");if(btn){btn.style.opacity="0.5";btn.style.cursor="not-allowed";}document.getElementById("recordingStatus").style.display="block";const stream=await navigator.mediaDevices.getUserMedia({audio:true});mediaRecorder=new MediaRecorder(stream);audioChunks=[];mediaRecorder.ondataavailable=e=>audioChunks.push(e.data);mediaRecorder.onstop=()=>{const blob=new Blob(audioChunks,{type:'audio/webm'});recordedAudio=URL.createObjectURL(blob);};mediaRecorder.start();}catch(err){isRecording=false;document.getElementById("recordingStatus").style.display="none";const btn=document.getElementById("recordBtn");if(btn){btn.style.opacity="";btn.style.cursor="";}alert("Microphone not available.");}}
 function stopRecording(){if(mediaRecorder&&mediaRecorder.state!=="inactive"){mediaRecorder.stop();mediaRecorder.stream.getTracks().forEach(t=>t.stop());}isRecording=false;document.getElementById("recordingStatus").style.display="none";const btn=document.getElementById("recordBtn");if(btn){btn.style.opacity="";btn.style.cursor="";}}
 function playRecording(){if(recordedAudio){new Audio(recordedAudio).play();}else{alert("No recording yet. Press Record first!");}}
 function rateReading(button,message){button.parentElement.querySelectorAll("button").forEach(b=>b.classList.remove("correct"));button.classList.add("correct");new Audio("Assets/word-audio/star.mp3").play();document.getElementById("readingFeedback").innerHTML=message;}
 
-window.addEventListener('load',function(){ document.querySelectorAll('input[type="text"]').forEach(function(inp){ inp.value=''; inp.style.border='3px solid #dfefff'; }); });
+function showDogFeedback(button){
+  button.classList.add('correct');
+  playGood();
+  var el = document.getElementById('q3-feedback');
+  if(el){
+    el.innerHTML = 'The dog lives with humans — but outside the house! &#x1F3E0;<br><br>'
+      + 'The Prophet (salla Allahu alayhi wa sallam) said:<br>'
+      + '<em>“The angels do not enter a house in which there is a dog or an image.”</em><br>'
+      + '<span style="font-size:17px;font-weight:600;color:#5c6f8f;">'
+      + '(Sahih al-Bukhari 3322 &amp; Sahih Muslim 2106 — narrated by Abu Talha رضي الله عنه)'
+      + '</span><br><br>'
+      + '<span style="font-style:italic;color:#5c6f8f;">'
+      + 'Le chien vit avec les humains — mais dehors ! &#x1F3E0;<br>'
+      + 'Le Prophète (salla Allahu alayhi wa sallam) a dit : <em>« Les anges n’entrent pas dans une maison où il y a un chien ou une image. »</em><br>'
+      + '(Sahih al-Bukhari 3322 &amp; Sahih Muslim 2106 — rapporté par Abû Talha رضي الله عنه)'
+      + '</span>';
+    el.style.display = 'block';
+  }
+}
+
+function showDogFeedback(button){
+  button.classList.add('correct');
+  playGood();
+  var el = document.getElementById('q3-feedback');
+  if(el){
+    el.innerHTML = 'The dog lives with humans — but outside the house! &#x1F3E0;<br><br>'
+      + 'The Prophet (salla Allahu alayhi wa sallam) said:<br>'
+      + '<em>“The angels do not enter a house in which there is a dog or an image.”</em><br>'
+      + '<span style="font-size:17px;font-weight:600;color:#5c6f8f;">'
+      + '(Sahih al-Bukhari 3322 &amp; Sahih Muslim 2106 — narrated by Abu Talha رضي الله عنه)'
+      + '</span><br><br>'
+      + '<span style="font-style:italic;color:#5c6f8f;">'
+      + 'Le Prophète (salla Allahu alayhi wa sallam) a dit : <em>« Les anges n’entrent pas dans une maison où il y a un chien ou une image. »</em><br>'
+      + '(Sahih al-Bukhari 3322 &amp; Sahih Muslim 2106 — rapporté par Abû Talha رضي الله عنه)'
+      + '</span>';
+    el.style.display = 'block';
+  }
+}
+
+
+// Block browser autocomplete completely
+window.addEventListener('load', function(){
+  document.querySelectorAll('input[type="text"]').forEach(function(inp){
+    inp.value = '';
+    inp.style.border = '3px solid #dfefff';
+    inp.setAttribute('autocomplete', 'off');
+    inp.setAttribute('readonly', true);
+  });
+  // Remove readonly after tiny delay so user can still type
+  setTimeout(function(){
+    document.querySelectorAll('input[type="text"]').forEach(function(inp){
+      inp.removeAttribute('readonly');
+    });
+  }, 200);
+});
+
 </script>
 </body>
 </html>
