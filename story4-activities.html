@@ -131,25 +131,25 @@ body{ padding:10px; }
     <div class="card">
       <img src="Assets/images/yam.png">
       <div class="type-label">Type the word:</div>
-      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" readonly onfocus="this.removeAttribute('readonly')" id="yam-input" class="word-input">
+      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" id="yam-input" class="word-input">
       <br><br><button class="check-button" onclick="checkTyping('yam-input','yam',this)">Check</button>
     </div>
     <div class="card">
       <img src="Assets/images/jam.png">
       <div class="type-label">Type the word:</div>
-      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" readonly onfocus="this.removeAttribute('readonly')" id="jam-input" class="word-input">
+      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" id="jam-input" class="word-input">
       <br><br><button class="check-button" onclick="checkTyping('jam-input','jam',this)">Check</button>
     </div>
     <div class="card">
       <img src="Assets/images/pan.png">
       <div class="type-label">Type the word:</div>
-      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" readonly onfocus="this.removeAttribute('readonly')" id="pan-input" class="word-input">
+      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" id="pan-input" class="word-input">
       <br><br><button class="check-button" onclick="checkTyping('pan-input','pan',this)">Check</button>
     </div>
     <div class="card">
       <img src="Assets/images/cat.png">
       <div class="type-label">Type the word:</div>
-      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" readonly onfocus="this.removeAttribute('readonly')" id="cat-input" class="word-input">
+      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" id="cat-input" class="word-input">
       <br><br><button class="check-button" onclick="checkTyping('cat-input','cat',this)">Check</button>
     </div>
   </div>
@@ -469,6 +469,8 @@ let mediaRecorder,audioChunks=[],recordedAudio,isRecording=false;
 async function startRecording(){if(isRecording)return;try{isRecording=true;const btn=document.getElementById("recordBtn");if(btn){btn.style.opacity="0.5";btn.style.cursor="not-allowed";}document.getElementById("recordingStatus").style.display="block";const stream=await navigator.mediaDevices.getUserMedia({audio:true});mediaRecorder=new MediaRecorder(stream);audioChunks=[];mediaRecorder.ondataavailable=e=>audioChunks.push(e.data);mediaRecorder.onstop=()=>{const blob=new Blob(audioChunks,{type:'audio/webm'});recordedAudio=URL.createObjectURL(blob);};mediaRecorder.start();}catch(err){isRecording=false;document.getElementById("recordingStatus").style.display="none";const btn=document.getElementById("recordBtn");if(btn){btn.style.opacity="";btn.style.cursor="";}alert("Microphone not available.");}}
 function stopRecording(){if(mediaRecorder&&mediaRecorder.state!=="inactive"){mediaRecorder.stop();mediaRecorder.stream.getTracks().forEach(t=>t.stop());}isRecording=false;document.getElementById("recordingStatus").style.display="none";const btn=document.getElementById("recordBtn");if(btn){btn.style.opacity="";btn.style.cursor="";}}
 function playRecording(){if(recordedAudio){new Audio(recordedAudio).play();}else{alert("No recording yet. Press Record first!");}}
+window.addEventListener('load',function(){ document.querySelectorAll('input[type="text"]').forEach(function(inp){ inp.value=''; inp.style.border='3px solid #dfefff'; }); });
+
 function rateReading(button,message){button.parentElement.querySelectorAll("button").forEach(b=>b.classList.remove("correct"));button.classList.add("correct");new Audio("Assets/word-audio/star.mp3").play();document.getElementById("readingFeedback").innerHTML=message;}
 </script>
 </body>
