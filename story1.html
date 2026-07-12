@@ -195,6 +195,26 @@ width:100%;
 display:block;
 }
 
+/* LISTEN ICON (discret, dans le top-bar) */
+.listen-icon{
+background:#ffd54f;
+color:#173f7a;
+border:none;
+padding:16px 26px;
+border-radius:24px;
+font-size:26px;
+font-weight:700;
+cursor:pointer;
+box-shadow:0 8px 20px rgba(224,168,0,0.45);
+transition:0.2s;
+margin-left:auto;
+}
+
+.listen-icon:hover{
+transform:scale(1.08);
+background:#ffc82c;
+}
+
 /* MOBILE */
 @media(max-width:700px){
 
@@ -205,6 +225,8 @@ body{ padding:12px; }
 .story-title{ font-size:20px; }
 
 .back-button{ font-size:22px; padding:10px 14px; }
+
+.listen-icon{ font-size:18px; padding:10px 12px; }
 
 .story-box{
 padding:18px 14px;
@@ -272,6 +294,7 @@ text-align:center;
 <div class="top-bar">
   <a href="index.html" class="back-button">⬅</a>
   <div class="story-title">Story 1 – Sam's cap</div>
+  <button class="listen-icon" onclick="playFullStory()" title="Listen to full story">🔊 Listen</button>
 </div>
 
 <div class="story-box">
@@ -400,6 +423,10 @@ function saySimpleWord(word){
 
 function playSentence(file){
   new Audio("./story1/" + file).play();
+}
+
+function playFullStory(){
+  new Audio("./story1/full.mp3").play();
 }
 
 </script>
