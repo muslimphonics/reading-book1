@@ -159,6 +159,42 @@ transform:scale(1.05);
 background:#21539c;
 }
 
+/* VIDEO BUTTON */
+.video-button{
+display:inline-block;
+background:#173f7a;
+color:white;
+text-decoration:none;
+font-size:34px;
+font-weight:bold;
+padding:22px 55px;
+border-radius:30px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+transition:0.2s;
+margin-top:20px;
+border:none;
+cursor:pointer;
+}
+
+.video-button:hover{
+transform:scale(1.05);
+background:#21539c;
+}
+
+.video-wrapper{
+display:none;
+max-width:900px;
+margin:25px auto 0 auto;
+border-radius:25px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.video-wrapper video{
+width:100%;
+display:block;
+}
+
 /* MOBILE */
 @media(max-width:700px){
 
@@ -217,7 +253,8 @@ margin-top:8px;
 }
 
 .activities-button,
-.summary-button{
+.summary-button,
+.video-button{
 font-size:20px;
 padding:14px 24px;
 width:100%;
@@ -317,6 +354,13 @@ text-align:center;
 <div class="activities-section">
   <a href="story1-activities.html" class="activities-button">🎯 Activities</a>
   <br>
+  <button class="video-button" onclick="toggleVideo()">🎬 Video</button>
+  <div class="video-wrapper" id="videoWrapper">
+    <video controls>
+      <source src="Assets/videos/story1.mp4" type="video/mp4">
+    </video>
+  </div>
+  <br>
   <a href="index.html" class="summary-button">📚 Back to Summary</a>
 </div>
 
@@ -337,6 +381,11 @@ loadVoice();
 
 function toggleHelp(id){
   const el = document.getElementById(id);
+  el.style.display = (el.style.display === "block") ? "none" : "block";
+}
+
+function toggleVideo(){
+  const el = document.getElementById("videoWrapper");
   el.style.display = (el.style.display === "block") ? "none" : "block";
 }
 
