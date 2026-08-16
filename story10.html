@@ -154,6 +154,26 @@ transform:scale(1.05);
 background:#21539c;
 }
 
+/* LISTEN ICON (discret, dans le top-bar) */
+.listen-icon{
+background:#ffd54f;
+color:#173f7a;
+border:none;
+padding:16px 26px;
+border-radius:24px;
+font-size:26px;
+font-weight:700;
+cursor:pointer;
+box-shadow:0 8px 20px rgba(224,168,0,0.45);
+transition:0.2s;
+margin-left:auto;
+}
+
+.listen-icon:hover{
+transform:scale(1.08);
+background:#ffc82c;
+}
+
 /* MOBILE */
 @media(max-width:700px){
 
@@ -164,6 +184,8 @@ body{ padding:12px; }
 .story-title{ font-size:20px; }
 
 .back-button{ font-size:22px; padding:10px 14px; }
+
+.listen-icon{ font-size:18px; padding:10px 12px; }
 
 .story-box{
 padding:18px 14px;
@@ -226,6 +248,7 @@ text-align:center;
 <div class="top-bar">
   <a href="index.html" class="back-button">⬅</a>
   <div class="story-title">Story 10 – Tim wins</div>
+  <button class="listen-icon" onclick="playFullStory()" title="Listen to full story">🔊 Listen</button>
 </div>
 
 <div class="story-box">
@@ -235,7 +258,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('Tim')">Tim</span>
     <span class="word" onclick="saySimpleWord('is')">is</span>
     <span class="word" onclick="saySimpleWord('six')">six.</span>
-    <button class="help-icon" onclick="playSentence('1.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help1')">💡</button>
     <div class="help-text" id="help1">Tim a six ans.</div>
   </div>
@@ -244,7 +266,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('Tim')">Tim</span>
     <span class="word" onclick="saySimpleWord('is')">is</span>
     <span class="word" onclick="saySimpleWord('big')">big.</span>
-    <button class="help-icon" onclick="playSentence('2.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help2')">💡</button>
     <div class="help-text" id="help2">Tim est grand.</div>
   </div>
@@ -253,7 +274,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('Tim')">Tim</span>
     <span class="word" onclick="saySimpleWord('is')">is</span>
     <span class="word" onclick="saySimpleWord('fit')">fit.</span>
-    <button class="help-icon" onclick="playSentence('3.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help3')">💡</button>
     <div class="help-text" id="help3">Tim est sportif.</div>
   </div>
@@ -264,7 +284,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('jog')">jog</span>
     <span class="word" onclick="saySimpleWord('and')">and</span>
     <span class="word" onclick="saySimpleWord('hop')">hop.</span>
-    <button class="help-icon" onclick="playSentence('4.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help4')">💡</button>
     <div class="help-text" id="help4">Tim peut courir et sauter.</div>
   </div>
@@ -275,7 +294,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('hit')">hit</span>
     <span class="word" onclick="saySimpleWord('the')">the</span>
     <span class="word" onclick="saySimpleWord('ball')">ball.</span>
-    <button class="help-icon" onclick="playSentence('5.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help5')">💡</button>
     <div class="help-text" id="help5">Tim peut frapper la balle.</div>
   </div>
@@ -285,7 +303,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('hits')">hits</span>
     <span class="word" onclick="saySimpleWord('the')">the</span>
     <span class="word" onclick="saySimpleWord('ball')">ball.</span>
-    <button class="help-icon" onclick="playSentence('6.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help6')">💡</button>
     <div class="help-text" id="help6">Il frappe la balle.</div>
   </div>
@@ -297,7 +314,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('in')">in</span>
     <span class="word" onclick="saySimpleWord('the')">the</span>
     <span class="word" onclick="saySimpleWord('bin')">bin.</span>
-    <button class="help-icon" onclick="playSentence('7.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help7')">💡</button>
     <div class="help-text" id="help7">La balle est dans le panier.</div>
   </div>
@@ -305,7 +321,6 @@ text-align:center;
   <div class="sentence">
     <span class="word" onclick="saySimpleWord('Tim')">Tim</span>
     <span class="word" onclick="saySimpleWord('wins')">wins.</span>
-    <button class="help-icon" onclick="playSentence('8.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help8')">💡</button>
     <div class="help-text" id="help8">Tim gagne&#x00A0;!</div>
   </div>
@@ -347,8 +362,8 @@ function saySimpleWord(word){
   window.speechSynthesis.speak(speech);
 }
 
-function playSentence(file){
-  new Audio("./story10/" + file).play();
+function playFullStory(){
+  new Audio("./story10/full.mp3").play();
 }
 
 </script>

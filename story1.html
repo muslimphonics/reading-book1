@@ -305,7 +305,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('has')">has</span>
     <span class="word" onclick="saySimpleWord('a')">a</span>
     <span class="word" onclick="saySimpleWord('cap')">cap.</span>
-    <button class="help-icon" onclick="playSentence('1.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help1')">💡</button>
     <div class="help-text" id="help1">Sam a une casquette.</div>
   </div>
@@ -315,7 +314,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('cap')">cap</span>
     <span class="word" onclick="saySimpleWord('is')">is</span>
     <span class="word" onclick="saySimpleWord('red')">red.</span>
-    <button class="help-icon" onclick="playSentence('2.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help2')">💡</button>
     <div class="help-text" id="help2">La casquette est rouge.</div>
   </div>
@@ -325,7 +323,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('has')">has</span>
     <span class="word" onclick="saySimpleWord('a')">a</span>
     <span class="word" onclick="saySimpleWord('bag')">bag.</span>
-    <button class="help-icon" onclick="playSentence('3.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help3')">💡</button>
     <div class="help-text" id="help3">Sam a un sac.</div>
   </div>
@@ -336,7 +333,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('is')">is</span>
     <span class="word" onclick="saySimpleWord('red')">red</span>
     <span class="word" onclick="saySimpleWord('too')">too.</span>
-    <button class="help-icon" onclick="playSentence('4.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help4')">💡</button>
     <div class="help-text" id="help4">Le sac est rouge aussi.</div>
   </div>
@@ -346,7 +342,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('runs')">runs</span>
     <span class="word" onclick="saySimpleWord('to')">to</span>
     <span class="word" onclick="saySimpleWord('Dad')">Dad.</span>
-    <button class="help-icon" onclick="playSentence('5.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help5')">💡</button>
     <div class="help-text" id="help5">Sam court vers Papa.</div>
   </div>
@@ -356,7 +351,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('has')">has</span>
     <span class="word" onclick="saySimpleWord('a')">a</span>
     <span class="word" onclick="saySimpleWord('cap')">cap.</span>
-    <button class="help-icon" onclick="playSentence('6.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help6')">💡</button>
     <div class="help-text" id="help6">Papa a une casquette.</div>
   </div>
@@ -365,7 +359,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('Sam')">Sam</span>
     <span class="word" onclick="saySimpleWord('is')">is</span>
     <span class="word" onclick="saySimpleWord('glad')">glad.</span>
-    <button class="help-icon" onclick="playSentence('7.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help7')">💡</button>
     <div class="help-text" id="help7">Sam est content.</div>
   </div>
@@ -419,10 +412,6 @@ function saySimpleWord(word){
   speech.rate = 0.7;
   speech.voice = selectedVoice;
   window.speechSynthesis.speak(speech);
-}
-
-function playSentence(file){
-  new Audio("./story1/" + file).play();
 }
 
 function playFullStory(){

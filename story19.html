@@ -154,6 +154,26 @@ transform:scale(1.05);
 background:#21539c;
 }
 
+/* LISTEN ICON (discret, dans le top-bar) */
+.listen-icon{
+background:#ffd54f;
+color:#173f7a;
+border:none;
+padding:16px 26px;
+border-radius:24px;
+font-size:26px;
+font-weight:700;
+cursor:pointer;
+box-shadow:0 8px 20px rgba(224,168,0,0.45);
+transition:0.2s;
+margin-left:auto;
+}
+
+.listen-icon:hover{
+transform:scale(1.08);
+background:#ffc82c;
+}
+
 /* MOBILE */
 @media(max-width:700px){
 
@@ -164,6 +184,8 @@ body{ padding:12px; }
 .story-title{ font-size:20px; }
 
 .back-button{ font-size:22px; padding:10px 14px; }
+
+.listen-icon{ font-size:18px; padding:10px 12px; }
 
 .story-box{
 padding:18px 14px;
@@ -226,6 +248,7 @@ text-align:center;
 <div class="top-bar">
   <a href="index.html" class="back-button">⬅</a>
   <div class="story-title">Story 19 – In the hut</div>
+  <button class="listen-icon" onclick="playFullStory()" title="Listen to full story">🔊 Listen</button>
 </div>
 
 <div class="story-box">
@@ -236,7 +259,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('is')">is</span>
     <span class="word" onclick="saySimpleWord('a')">a</span>
     <span class="word" onclick="saySimpleWord('hut')">hut.</span>
-    <button class="help-icon" onclick="playSentence('1.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help1')">💡</button>
     <div class="help-text" id="help1">Voici une cabane.</div>
   </div>
@@ -249,7 +271,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('is')">is</span>
     <span class="word" onclick="saySimpleWord('a')">a</span>
     <span class="word" onclick="saySimpleWord('rug')">rug.</span>
-    <button class="help-icon" onclick="playSentence('2.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help2')">💡</button>
     <div class="help-text" id="help2">Dans la cabane, il y a un tapis.</div>
   </div>
@@ -262,7 +283,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('is')">is</span>
     <span class="word" onclick="saySimpleWord('a')">a</span>
     <span class="word" onclick="saySimpleWord('jug')">jug.</span>
-    <button class="help-icon" onclick="playSentence('3.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help3')">💡</button>
     <div class="help-text" id="help3">Dans la cabane, il y a une cruche.</div>
   </div>
@@ -275,7 +295,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('is')">is</span>
     <span class="word" onclick="saySimpleWord('a')">a</span>
     <span class="word" onclick="saySimpleWord('tub')">tub.</span>
-    <button class="help-icon" onclick="playSentence('4.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help4')">💡</button>
     <div class="help-text" id="help4">Dans la cabane, il y a une baignoire.</div>
   </div>
@@ -288,7 +307,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('is')">is</span>
     <span class="word" onclick="saySimpleWord('a')">a</span>
     <span class="word" onclick="saySimpleWord('duck')">duck.</span>
-    <button class="help-icon" onclick="playSentence('5.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help5')">💡</button>
     <div class="help-text" id="help5">Dans la cabane, il y a un canard.</div>
   </div>
@@ -300,7 +318,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('in')">in</span>
     <span class="word" onclick="saySimpleWord('the')">the</span>
     <span class="word" onclick="saySimpleWord('tub')">tub.</span>
-    <button class="help-icon" onclick="playSentence('6.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help6')">💡</button>
     <div class="help-text" id="help6">Le canard est dans la baignoire.</div>
   </div>
@@ -310,7 +327,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('duck')">duck</span>
     <span class="word" onclick="saySimpleWord('has')">has</span>
     <span class="word" onclick="saySimpleWord('fun')">fun.</span>
-    <button class="help-icon" onclick="playSentence('7.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help7')">💡</button>
     <div class="help-text" id="help7">Le canard s&#x2019;amuse.</div>
   </div>
@@ -320,7 +336,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('hut')">hut</span>
     <span class="word" onclick="saySimpleWord('is')">is</span>
     <span class="word" onclick="saySimpleWord('wet')">wet.</span>
-    <button class="help-icon" onclick="playSentence('8.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help8')">💡</button>
     <div class="help-text" id="help8">La cabane est mouill&#xe9;e.</div>
   </div>
@@ -362,8 +377,8 @@ function saySimpleWord(word){
   window.speechSynthesis.speak(speech);
 }
 
-function playSentence(file){
-  new Audio("./story19/" + file).play();
+function playFullStory(){
+  new Audio("./story19/full.mp3").play();
 }
 
 </script>

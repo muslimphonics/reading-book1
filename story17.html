@@ -154,6 +154,26 @@ transform:scale(1.05);
 background:#21539c;
 }
 
+/* LISTEN ICON (discret, dans le top-bar) */
+.listen-icon{
+background:#ffd54f;
+color:#173f7a;
+border:none;
+padding:16px 26px;
+border-radius:24px;
+font-size:26px;
+font-weight:700;
+cursor:pointer;
+box-shadow:0 8px 20px rgba(224,168,0,0.45);
+transition:0.2s;
+margin-left:auto;
+}
+
+.listen-icon:hover{
+transform:scale(1.08);
+background:#ffc82c;
+}
+
 /* MOBILE */
 @media(max-width:700px){
 
@@ -164,6 +184,8 @@ body{ padding:12px; }
 .story-title{ font-size:20px; }
 
 .back-button{ font-size:22px; padding:10px 14px; }
+
+.listen-icon{ font-size:18px; padding:10px 12px; }
 
 .story-box{
 padding:18px 14px;
@@ -226,6 +248,7 @@ text-align:center;
 <div class="top-bar">
   <a href="index.html" class="back-button">⬅</a>
   <div class="story-title">Story 17 – The pup</div>
+  <button class="listen-icon" onclick="playFullStory()" title="Listen to full story">🔊 Listen</button>
 </div>
 
 <div class="story-box">
@@ -236,7 +259,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('pup')">pup</span>
     <span class="word" onclick="saySimpleWord('can')">can</span>
     <span class="word" onclick="saySimpleWord('run')">run.</span>
-    <button class="help-icon" onclick="playSentence('1.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help1')">💡</button>
     <div class="help-text" id="help1">Le chiot peut courir.</div>
   </div>
@@ -246,7 +268,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('sun')">sun</span>
     <span class="word" onclick="saySimpleWord('is')">is</span>
     <span class="word" onclick="saySimpleWord('up')">up.</span>
-    <button class="help-icon" onclick="playSentence('2.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help2')">💡</button>
     <div class="help-text" id="help2">Le soleil est lev&#xe9;.</div>
   </div>
@@ -258,7 +279,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('to')">to</span>
     <span class="word" onclick="saySimpleWord('the')">the</span>
     <span class="word" onclick="saySimpleWord('sun')">sun.</span>
-    <button class="help-icon" onclick="playSentence('3.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help3')">💡</button>
     <div class="help-text" id="help3">Le chiot court vers le soleil.</div>
   </div>
@@ -269,7 +289,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('runs')">runs</span>
     <span class="word" onclick="saySimpleWord('and')">and</span>
     <span class="word" onclick="saySimpleWord('jumps')">jumps.</span>
-    <button class="help-icon" onclick="playSentence('4.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help4')">💡</button>
     <div class="help-text" id="help4">Le chiot court et saute.</div>
   </div>
@@ -282,7 +301,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('in')">in</span>
     <span class="word" onclick="saySimpleWord('the')">the</span>
     <span class="word" onclick="saySimpleWord('grass')">grass.</span>
-    <button class="help-icon" onclick="playSentence('5.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help5')">💡</button>
     <div class="help-text" id="help5">Le chiot peut courir dans l&#x2019;herbe.</div>
   </div>
@@ -292,7 +310,6 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('pup')">pup</span>
     <span class="word" onclick="saySimpleWord('has')">has</span>
     <span class="word" onclick="saySimpleWord('fun')">fun.</span>
-    <button class="help-icon" onclick="playSentence('6.mp3')">🔊</button>
     <button class="help-icon" onclick="toggleHelp('help6')">💡</button>
     <div class="help-text" id="help6">Le chiot s&#x2019;amuse.</div>
   </div>
@@ -334,8 +351,8 @@ function saySimpleWord(word){
   window.speechSynthesis.speak(speech);
 }
 
-function playSentence(file){
-  new Audio("./story17/" + file).play();
+function playFullStory(){
+  new Audio("./story17/full.mp3").play();
 }
 
 </script>
