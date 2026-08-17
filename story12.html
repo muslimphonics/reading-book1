@@ -341,6 +341,7 @@ function toggleHelp(id){
 }
 
 function saySimpleWord(word){
+  stopFullStory();
   window.speechSynthesis.cancel();
   const speech = new SpeechSynthesisUtterance(word);
   speech.lang = "en-GB";
@@ -349,8 +350,35 @@ function saySimpleWord(word){
   window.speechSynthesis.speak(speech);
 }
 
+let storyAudio = null;
+
+function setListenLabel(text){
+  const btn = document.querySelector(".listen-icon");
+  if (btn) btn.textContent = text;
+}
+
+function stopFullStory(){
+  if (storyAudio){
+    storyAudio.pause();
+    storyAudio.currentTime = 0;
+  }
+  setListenLabel("🔊 Listen");
+}
+
 function playFullStory(){
-  new Audio("./story12/full.mp3").play();
+  /* a second tap stops the story instead of stacking another playback on top */
+  if (storyAudio && !storyAudio.paused){
+    stopFullStory();
+    return;
+  }
+  window.speechSynthesis.cancel();
+  if (!storyAudio){
+    storyAudio = new Audio("./story12/full.mp3");
+    storyAudio.addEventListener("ended", stopFullStory);
+  }
+  storyAudio.currentTime = 0;
+  storyAudio.play().catch(stopFullStory);
+  setListenLabel("⏹ Stop");
 }
 
 </script>
