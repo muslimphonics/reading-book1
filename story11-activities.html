@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" translate="no" class="notranslate">
+<head>
+<meta charset="UTF-8">
+<meta name="google" content="notranslate">
+<meta name="google" value="notranslate">
+<meta http-equiv="Content-Language" content="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Story 11 Activities</title>
+<style>
+*{ box-sizing:border-box; }
+body{ margin:0; padding:25px; font-family:Arial,sans-serif; background:#7ec8ff; }
+.top-bar{ max-width:1100px; margin:auto; margin-bottom:25px; display:flex; align-items:center; gap:18px; }
+.back-button{ background:#fffdf8; padding:14px 20px; border-radius:20px; text-decoration:none; font-size:28px; box-shadow:0 6px 18px rgba(0,0,0,0.12); }
+.title{ font-size:38px; font-weight:bold; color:white; }
+.activity-box{ max-width:1100px; margin:auto; margin-bottom:35px; background:#fffdf8; border-radius:35px; padding:40px; box-shadow:0 10px 30px rgba(0,0,0,0.12); }
+.activity-title{ font-size:42px; font-weight:bold; color:#173f7a; margin-bottom:45px; text-align:center; }
+.cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:28px; }
+.card{ background:white; border-radius:30px; padding:25px; text-align:center; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
+.card img,.image-box img{ width:100%; height:auto; object-fit:contain; }
+.match-row{ display:flex; align-items:center; justify-content:space-between; gap:30px; padding:25px 0; border-bottom:2px dashed #dfefff; flex-wrap:wrap; }
+.image-box{ flex:1; text-align:center; }
+.words{ flex:1; display:flex; flex-wrap:wrap; gap:15px; justify-content:center; }
+.word-button,.check-button,.choice-button{ border:none; background:#173f7a; color:white; font-size:28px; font-weight:bold; padding:16px 26px; border-radius:20px; cursor:pointer; transition:0.2s; }
+.word-button:hover,.check-button:hover,.choice-button:hover{ transform:scale(1.05); background:#21539c; }
+.type-label{ font-size:24px; font-weight:bold; color:#173f7a; margin-bottom:14px; }
+.word-input{ width:100%; max-width:220px; padding:16px; border-radius:18px; border:3px solid #dfefff; font-size:24px; text-align:center; font-weight:bold; outline:none; }
+.correct{ background:#38b94a !important; }
+.wrong{ background:#ff4d4d !important; }
+.correction{ margin-top:14px; font-size:22px; font-weight:bold; color:#ff4d4d; }
+.text-story{ font-size:38px; line-height:1.6; font-weight:bold; text-align:center; color:#173f7a; }
+.find-word{ cursor:pointer; padding:6px 10px; border-radius:14px; transition:0.2s; display:inline-block; }
+.find-word:hover{ background:#e8f7df; }
+.recording-status{ display:none; margin-top:25px; margin-bottom:40px; text-align:center; font-size:34px; font-weight:bold; color:#ff3b3b; animation:pulse 1s infinite; }
+@keyframes pulse{ 0%{transform:scale(1);} 50%{transform:scale(1.08);} 100%{transform:scale(1);} }
+
+/* THINK TOGETHER */
+.think-question-block{ margin-bottom:36px; }
+.think-question{ font-size:28px; font-weight:bold; color:#173f7a; margin-bottom:4px; }
+.think-q-row{ display:flex; align-items:center; gap:10px; margin-bottom:18px; flex-wrap:wrap; }
+.think-question-fr{ font-size:19px; font-weight:600; color:#5c6f8f; font-style:italic; display:none; }
+.think-option{ margin-bottom:12px; display:flex; align-items:center; gap:10px; }
+.think-btn{ border:none; background:#173f7a; color:white; font-size:22px; font-weight:bold; padding:14px 20px; border-radius:18px; cursor:pointer; transition:0.2s; flex:1; text-align:left; }
+.think-btn:hover{ transform:scale(1.01); background:#21539c; }
+.think-option-fr{ font-size:17px; font-weight:600; color:#5c6f8f; font-style:italic; display:none; }
+.hint-bulb{ width:38px; height:38px; border:none; border-radius:50%; background:#eef4ff; font-size:18px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; transition:0.2s; }
+.hint-bulb:hover{ background:#dfefff; transform:scale(1.1); }
+.think-separator{ border:none; border-top:2px dashed #dfefff; margin:30px 0; }
+.think-feedback{ margin-top:14px; font-size:20px; font-weight:700; color:#173f7a; background:#eef4ff; border-radius:16px; padding:14px 18px; display:none; line-height:1.6; }
+
+/* CHECKBOX */
+.checkbox-list{ display:flex; flex-direction:column; gap:14px; margin-bottom:20px; }
+.checkbox-item{ display:flex; align-items:center; gap:16px; background:white; border-radius:18px; padding:16px 20px; box-shadow:0 3px 10px rgba(0,0,0,0.07); cursor:pointer; transition:0.2s; border:3px solid #dfefff; font-size:26px; font-weight:bold; color:#173f7a; }
+.checkbox-item:hover{ border-color:#173f7a; }
+.checkbox-item.selected{ border-color:#173f7a; background:#eef4ff; }
+.checkbox-item.correct-checked{ border-color:#38b94a; background:#f0fff4; }
+.checkbox-item.wrong-checked{ border-color:#ff4d4d; background:#fff0f0; }
+.checkbox-item.missed{ border-color:#ffa500; background:#fff8ee; }
+.cb-box{ width:36px; height:36px; border:3px solid #c0d8ff; border-radius:8px; background:white; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; transition:0.2s; }
+.checkbox-item.selected .cb-box{ background:#173f7a; border-color:#173f7a; color:white; }
+
+/* CROSSWORD (unused on this page, kept for site-wide script consistency) */
+.crossword-wrap{ display:flex; flex-direction:column; align-items:center; gap:30px; }
+.crossword-grid{ display:inline-grid; gap:4px; }
+.cw-cell{ width:52px; height:52px; border:3px solid #173f7a; border-radius:8px; background:white; font-size:26px; font-weight:bold; text-align:center; text-transform:uppercase; outline:none; color:#173f7a; transition:0.2s; }
+.cw-cell:focus{ background:#eef4ff; border-color:#21539c; }
+.cw-cell.correct{ background:#38b94a; color:white; border-color:#38b94a; }
+.cw-cell.wrong{ background:#ff4d4d; color:white; border-color:#ff4d4d; }
+.cw-cell.empty{ border:none; background:transparent; pointer-events:none; }
+.cw-cell.numbered{ position:relative; }
+.cw-number{ position:absolute; top:2px; left:4px; font-size:11px; font-weight:bold; color:#173f7a; line-height:1; }
+.cw-clues{ display:grid; grid-template-columns:1fr 1fr; gap:20px; width:100%; max-width:700px; }
+.cw-clue-section{ background:white; border-radius:20px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.08); }
+.cw-clue-title{ font-size:22px; font-weight:bold; color:#173f7a; margin-bottom:12px; }
+.cw-clue{ font-size:20px; color:#173f7a; margin-bottom:8px; line-height:1.5; }
+
+@media(max-width:700px){
+body{ padding:10px; }
+.activity-box{ padding:18px 14px; border-radius:24px; margin-bottom:18px; }
+.title{ font-size:22px; }
+.activity-title{ font-size:22px; margin-bottom:22px; line-height:1.4; }
+.cards{ grid-template-columns:1fr; gap:16px; }
+.word-button,.check-button,.choice-button{ font-size:18px; padding:14px 12px; border-radius:16px; width:100%; }
+.card{ padding:16px; border-radius:22px; }
+.type-label{ font-size:18px; }
+.word-input{ font-size:18px; padding:12px; max-width:100%; width:100%; }
+.text-story{ font-size:20px; line-height:1.6; }
+.find-word{ padding:5px 7px; }
+.recording-status{ font-size:22px; }
+.think-question{ font-size:19px; }
+.think-btn{ font-size:17px; padding:12px 14px; }
+.match-row{ flex-direction:column; align-items:center; gap:16px; }
+.image-box{ width:100%; }
+.words{ width:100%; justify-content:center; }
+.checkbox-item{ font-size:20px; padding:12px 16px; }
+.cw-cell{ width:42px; height:42px; font-size:20px; }
+.cw-clues{ grid-template-columns:1fr; }
+.cw-clue-title{ font-size:18px; }
+.cw-clue{ font-size:16px; }
+}
+</style>
+</head>
+<body translate="no" class="notranslate">
+
+<div class="top-bar">
+  <a href="story11.html" class="back-button">&#x2B05;</a>
+  <div class="title">Story 11 Activities</div>
+</div>
+
+<!-- ACTIVITY 1 -->
+<div class="activity-box">
+  <div class="activity-title">&#x1F3AF; Activity 1 &#x2014; Look at the picture. Mark the correct word.</div>
+  <div class="match-row">
+    <div class="image-box"><img src="Assets/images/pig.png"></div>
+    <div class="words">
+      <button class="word-button" onclick="checkAnswer(this,false)">wig</button>
+      <button class="word-button" onclick="checkAnswer(this,true)">pig</button>
+      <button class="word-button" onclick="checkAnswer(this,false)">big</button>
+    </div>
+  </div>
+  <div class="match-row">
+    <div class="image-box"><img src="Assets/images/pink.png"></div>
+    <div class="words">
+      <button class="word-button" onclick="checkAnswer(this,false)">pick</button>
+      <button class="word-button" onclick="checkAnswer(this,true)">pink</button>
+      <button class="word-button" onclick="checkAnswer(this,false)">sink</button>
+    </div>
+  </div>
+  <div class="match-row">
+    <div class="image-box"><img src="Assets/images/dig.png"></div>
+    <div class="words">
+      <button class="word-button" onclick="checkAnswer(this,true)">dig</button>
+      <button class="word-button" onclick="checkAnswer(this,false)">big</button>
+      <button class="word-button" onclick="checkAnswer(this,false)">pig</button>
+    </div>
+  </div>
+  <div class="match-row">
+    <div class="image-box"><img src="Assets/images/mud.png"></div>
+    <div class="words">
+      <button class="word-button" onclick="checkAnswer(this,true)">mud</button>
+      <button class="word-button" onclick="checkAnswer(this,false)">mad</button>
+      <button class="word-button" onclick="checkAnswer(this,false)">mug</button>
+    </div>
+  </div>
+</div>
+
+<!-- ACTIVITY 2 -->
+<div class="activity-box">
+  <div class="activity-title">&#x270D;&#xFE0F; Activity 2 &#x2014; Type the word</div>
+  <div class="cards">
+    <div class="card">
+      <img src="Assets/images/pig.png">
+      <div class="type-label">Type the word:</div>
+      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" id="pig-input" class="word-input">
+      <br><br><button class="check-button" onclick="checkTyping('pig-input','pig',this)">Check</button>
+    </div>
+    <div class="card">
+      <img src="Assets/images/pink.png">
+      <div class="type-label">Type the word:</div>
+      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" id="pink-input" class="word-input">
+      <br><br><button class="check-button" onclick="checkTyping('pink-input','pink',this)">Check</button>
+    </div>
+    <div class="card">
+      <img src="Assets/images/dig.png">
+      <div class="type-label">Type the word:</div>
+      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" id="dig-input" class="word-input">
+      <br><br><button class="check-button" onclick="checkTyping('dig-input','dig',this)">Check</button>
+    </div>
+    <div class="card">
+      <img src="Assets/images/mud.png">
+      <div class="type-label">Type the word:</div>
+      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" id="mud-input" class="word-input">
+      <br><br><button class="check-button" onclick="checkTyping('mud-input','mud',this)">Check</button>
+    </div>
+  </div>
+</div>
+
+<!-- ACTIVITY 3 -->
+<div class="activity-box">
+  <div class="activity-title">&#x1F3AF; Activity 3 &#x2014; Choose the correct sentence</div>
+  <div class="cards">
+    <div class="card">
+      <img src="Assets/images/pink.png"><br><br>
+      <button class="choice-button" onclick="checkAnswer(this,false)">The pig is big.</button><br><br>
+      <button class="choice-button" onclick="checkAnswer(this,true)">The pig is pink.</button><br><br>
+      <button class="choice-button" onclick="checkAnswer(this,false)">The pig wants to dig.</button>
+    </div>
+    <div class="card">
+      <img src="Assets/images/not-big.png"><br><br>
+      <button class="choice-button" onclick="checkAnswer(this,false)">The pig is big.</button><br><br>
+      <button class="choice-button" onclick="checkAnswer(this,false)">The pig is red.</button><br><br>
+      <button class="choice-button" onclick="checkAnswer(this,true)">The pig is NOT big.</button>
+    </div>
+    <div class="card">
+      <img src="Assets/images/dig.png"><br><br>
+      <button class="choice-button" onclick="checkAnswer(this,true)">The pig wants to dig.</button><br><br>
+      <button class="choice-button" onclick="checkAnswer(this,false)">The pig is pink.</button><br><br>
+      <button class="choice-button" onclick="checkAnswer(this,false)">The pig is big.</button>
+    </div>
+  </div>
+</div>
+
+<!-- ACTIVITY 4 -->
+<div class="activity-box">
+  <div class="activity-title">&#x1F30D; Activity 4 &#x2014; Translation</div>
+  <div class="cards">
+    <div class="card">
+      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Le cochon est rose.</div><br>
+      <input type="text" id="translate1" class="word-input" placeholder="in English" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')"><br><br>
+      <button class="check-button" onclick="checkFlexibleAnswer('translate1',['The pig is pink.','the pig is pink','the pig is pink.'],this)">Check</button>
+    </div>
+    <div class="card">
+      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Le cochon veut creuser.</div><br>
+      <input type="text" id="translate2" class="word-input" placeholder="in English" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')"><br><br>
+      <button class="check-button" onclick="checkFlexibleAnswer('translate2',['The pig wants to dig.','the pig wants to dig','the pig wants to dig.'],this)">Check</button>
+    </div>
+    <div class="card">
+      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Le cochon se roule.</div><br>
+      <input type="text" id="translate3" class="word-input" placeholder="in English" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')"><br><br>
+      <button class="check-button" onclick="checkFlexibleAnswer('translate3',['The pig rolls.','the pig rolls','the pig rolls.'],this)">Check</button>
+    </div>
+    <div class="card">
+      <div style="font-size:30px;font-weight:bold;color:#173f7a;line-height:1.5;">Le cochon est content.</div><br>
+      <input type="text" id="translate4" class="word-input" placeholder="in English" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')"><br><br>
+      <button class="check-button" onclick="checkFlexibleAnswer('translate4',['The pig is happy.','the pig is happy','the pig is happy.','The pig is glad.','the pig is glad','the pig is glad.'],this)">Check</button>
+    </div>
+  </div>
+</div>
+
+<!-- ACTIVITY 5 -->
+<div class="activity-box">
+  <div class="activity-title">&#x1F50D; Activity 5 &#x2014; Find the word in the text</div>
+  <div style="text-align:center;margin-bottom:35px;">
+    <div style="font-size:22px;font-weight:600;color:#5c6f8f;text-transform:uppercase;margin-bottom:20px;">Look at the picture. Find it in the text.</div>
+    <img src="Assets/images/pink.png" style="width:min(420px,85vw);height:auto;object-fit:contain;display:block;margin:auto;">
+  </div>
+  <div class="text-story">
+    <span class="find-word" onclick="findWord(this,false)">The</span>
+    <span class="find-word" onclick="findWord(this,false)">pig</span>
+    <span class="find-word" onclick="findWord(this,false)">is</span>
+    <span class="find-word" onclick="findWord(this,true)">pink.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">The</span>
+    <span class="find-word" onclick="findWord(this,false)">pig</span>
+    <span class="find-word" onclick="findWord(this,false)">is</span>
+    <span class="find-word" onclick="findWord(this,false)">big.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">The</span>
+    <span class="find-word" onclick="findWord(this,false)">pig</span>
+    <span class="find-word" onclick="findWord(this,false)">wants</span>
+    <span class="find-word" onclick="findWord(this,false)">to</span>
+    <span class="find-word" onclick="findWord(this,false)">dig.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">The</span>
+    <span class="find-word" onclick="findWord(this,false)">pig</span>
+    <span class="find-word" onclick="findWord(this,false)">rolls.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">The</span>
+    <span class="find-word" onclick="findWord(this,false)">pig</span>
+    <span class="find-word" onclick="findWord(this,false)">digs</span>
+    <span class="find-word" onclick="findWord(this,false)">in</span>
+    <span class="find-word" onclick="findWord(this,false)">the</span>
+    <span class="find-word" onclick="findWord(this,false)">mud.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">He</span>
+    <span class="find-word" onclick="findWord(this,false)">did</span>
+    <span class="find-word" onclick="findWord(this,false)">it.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">The</span>
+    <span class="find-word" onclick="findWord(this,false)">pig</span>
+    <span class="find-word" onclick="findWord(this,false)">is</span>
+    <span class="find-word" onclick="findWord(this,false)">not</span>
+    <span class="find-word" onclick="findWord(this,true)">pink</span>
+    <span class="find-word" onclick="findWord(this,false)">now.</span><br>
+    <span class="find-word" onclick="findWord(this,false)">The</span>
+    <span class="find-word" onclick="findWord(this,false)">pig</span>
+    <span class="find-word" onclick="findWord(this,false)">is</span>
+    <span class="find-word" onclick="findWord(this,false)">happy.</span>
+  </div>
+</div>
+
+<!-- ACTIVITY 6 — Think Together -->
+<div class="activity-box">
+  <div class="activity-title">&#x1F9E0; Activity 6 &#x2014; Think Together</div>
+
+  <div style="background:#eef4ff;border-radius:20px;padding:16px 24px;margin-bottom:32px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <span style="font-size:28px;">&#x1F52C;</span>
+    <span style="font-size:18px;font-weight:700;color:#5c6f8f;line-height:1.6;">
+      These questions are linked to the <em>British Curriculum — KG1/KG2 Science</em> programme:<br>
+      animals and their habitats, what animals eat.<br>
+      <span style="font-size:16px;font-style:italic;font-weight:600;">
+        Ces questions sont li&#xe9;es au programme de <em>Sciences / cursus British KG1&#x2011;KG2</em>&#x00A0;&#x2014;
+        les animaux et leur habitat, ce que mangent les animaux.
+      </span>
+    </span>
+  </div>
+
+  <!-- Q1 -->
+  <div class="think-question-block">
+    <div class="think-q-row">
+      <div class="think-question">Is the pig a pet?</div>
+      <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
+    </div>
+    <div class="think-question-fr">Le cochon est-il un animal de compagnie&#xA0;?</div>
+    <div class="think-option">
+      <button class="think-btn" onclick="checkThink(this,false,'q1-feedback','')">A. Yes, it is.</button>
+      <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
+      <div class="think-option-fr">Oui, c&#x2019;en est un.</div>
+    </div>
+    <div class="think-option">
+      <button class="think-btn" onclick="checkThink(this,true,'q1-feedback','&#x1F43D; Yes! A pig is a farm animal, not a pet. / Oui&#x00A0;! Le cochon est un animal de ferme, pas un animal de compagnie&#x00A0;!')">B. No, it isn't. It is a farm animal.</button>
+      <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
+      <div class="think-option-fr">Non. C&#x2019;est un animal de ferme.</div>
+    </div>
+    <div class="think-option">
+      <button class="think-btn" onclick="checkThink(this,false,'q1-feedback','')">C. No, it isn't. It is a wild animal.</button>
+      <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
+      <div class="think-option-fr">Non. C&#x2019;est un animal sauvage.</div>
+    </div>
+    <div id="q1-feedback" class="think-feedback"></div>
+  </div>
+
+  <hr class="think-separator">
+
+  <!-- Q2 -->
+  <div class="think-question-block">
+    <div class="think-q-row">
+      <div class="think-question">What does the pig eat?</div>
+      <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
+    </div>
+    <div class="think-question-fr">Que mange le cochon&#xA0;?</div>
+    <div class="think-option">
+      <button class="think-btn" onclick="checkThink(this,false,'q2-feedback','')">A. Vegetables only.</button>
+      <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
+      <div class="think-option-fr">Des l&#xe9;gumes seulement.</div>
+    </div>
+    <div class="think-option">
+      <button class="think-btn" onclick="checkThink(this,false,'q2-feedback','')">B. Meat only.</button>
+      <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
+      <div class="think-option-fr">De la viande seulement.</div>
+    </div>
+    <div class="think-option">
+      <button class="think-btn" onclick="checkThink(this,true,'q2-feedback','&#x1F37D;&#xFE0F; Yes! Pigs eat everything — vegetables, fruit, and more. / Oui&#x00A0;! Les cochons mangent de tout &#x2014; l&#xe9;gumes, fruits, et plus encore&#x00A0;!')">C. Everything.</button>
+      <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
+      <div class="think-option-fr">De tout.</div>
+    </div>
+    <div id="q2-feedback" class="think-feedback"></div>
+  </div>
+
+  <hr class="think-separator">
+
+  <!-- Q3 fill-in-the-blank -->
+  <div class="think-question-block">
+    <div class="think-q-row">
+      <div class="think-question">An animal that eats everything is called an... ?</div>
+      <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
+    </div>
+    <div class="think-question-fr">Un animal qui mange de tout s&#x2019;appelle un&#x2026;&#xA0;?</div>
+    <div style="text-align:center;margin-top:10px;">
+      <input type="text" id="think-fillin1" class="word-input" placeholder="in English" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')">
+      <br><br>
+      <button class="check-button" onclick="checkFlexibleAnswer('think-fillin1',['omnivore'],this)">Check</button>
+    </div>
+  </div>
+</div>
+
+<!-- ACTIVITY 7 — Read and Listen -->
+<div class="activity-box">
+  <div class="activity-title">&#x1F3A4; Activity 7 &#x2014; Read and Listen to Yourself</div>
+  <div style="text-align:center;font-size:20px;font-weight:600;color:#5c6f8f;line-height:1.6;margin-bottom:30px;">
+    Read the story aloud.<br>Record your voice and listen to yourself.
+  </div>
+  <div style="max-width:700px;margin:auto;background:#eef4ff;padding:30px;border-radius:35px;margin-bottom:30px;">
+    <div class="text-story" style="font-size:32px;line-height:1.5;text-align:center;">
+      The pig is pink.<br>
+      The pig is big.<br>
+      The pig wants to dig.<br>
+      The pig rolls.<br>
+      The pig digs in the mud.<br>
+      He did it.<br>
+      The pig is not pink now.<br>
+      The pig is happy.
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:20px;">
+    <button class="choice-button" id="recordBtn" onclick="startRecording()">&#x1F399; Record</button>
+    <button class="choice-button" onclick="stopRecording()">&#x23F9; Stop</button>
+    <button class="choice-button" onclick="playRecording()">&#x1F50A; Play &amp; Listen</button>
+  </div>
+  <div id="recordingStatus" class="recording-status">&#x1F534; Recording...</div>
+  <div style="text-align:center;font-size:24px;font-weight:bold;color:#173f7a;margin-top:20px;margin-bottom:20px;">How was your reading?</div>
+  <div style="display:flex;justify-content:center;gap:18px;flex-wrap:wrap;">
+    <button class="choice-button" style="font-size:34px;padding:14px 22px;background:#ff6b6b;" onclick="rateReading(this,'Keep practicing! &#x1F331;')">&#x2B50;</button>
+    <button class="choice-button" style="font-size:34px;padding:14px 22px;background:#ff9500;" onclick="rateReading(this,'Good reading! &#x1F31F;')">&#x2B50;&#x2B50;</button>
+    <button class="choice-button" style="font-size:34px;padding:14px 22px;background:#38b94a;" onclick="rateReading(this,'Excellent reading! &#x1F3C6;')">&#x2B50;&#x2B50;&#x2B50;</button>
+  </div>
+  <div id="readingFeedback" style="margin-top:25px;text-align:center;font-size:26px;font-weight:bold;color:#173f7a;"></div>
+</div>
+
+<div style="text-align:center;margin-top:45px;margin-bottom:60px;">
+  <button class="choice-button" onclick="location.reload()">&#x1F504; Restart Activities</button>
+  <br><br>
+  <a href="index.html" style="text-decoration:none;"><button class="choice-button">&#x1F4DA; Back to Summary</button></a>
+</div>
+
+<script>
+function playGood(){ new Audio("Assets/word-audio/goodanswer.mp3").play(); }
+function playBad(){  new Audio("Assets/word-audio/badanswer.mp3").play(); }
+
+function checkAnswer(button,isCorrect){ button.classList.remove("correct","wrong"); if(isCorrect){button.classList.add("correct");playGood();}else{button.classList.add("wrong");playBad();} }
+
+function showCorrection(input,message){ let old=input.parentElement.querySelector(".correction"); if(old)old.remove(); const d=document.createElement("div"); d.className="correction"; d.innerHTML=message; input.parentElement.appendChild(d); }
+
+function checkTyping(inputId,correctWord,button){ const input=document.getElementById(inputId); const value=input.value.toLowerCase().trim(); button.classList.remove("correct","wrong"); let old=input.parentElement.querySelector(".correction"); if(old)old.remove(); if(value===correctWord){input.style.border="3px solid #38b94a";button.classList.add("correct");playGood();}else{input.style.border="3px solid #ff4d4d";button.classList.add("wrong");showCorrection(input,"Correct answer: "+correctWord);playBad();} }
+
+function normalizeText(t){ return t.toLowerCase().replace(/[.,!?]/g,"").trim(); }
+
+function checkFlexibleAnswer(inputId,answers,button){ const input=document.getElementById(inputId); const value=normalizeText(input.value); const normalized=answers.map(a=>normalizeText(a)); button.classList.remove("correct","wrong"); let old=input.parentElement.querySelector(".correction"); if(old)old.remove(); if(normalized.includes(value)){input.style.border="3px solid #38b94a";button.classList.add("correct");playGood();}else{input.style.border="3px solid #ff4d4d";button.classList.add("wrong");showCorrection(input,"Correct answer: "+answers[0]);playBad();} }
+
+function findWord(word,isCorrect){ if(isCorrect){word.style.background="#38b94a";word.style.color="white";playGood();}else{word.style.background="#ff4d4d";word.style.color="white";playBad();} }
+
+function checkThink(button,isCorrect,feedbackId,feedbackMsg){ if(isCorrect){button.classList.add("correct");playGood();if(feedbackId&&feedbackMsg){const el=document.getElementById(feedbackId);if(el){el.innerHTML=feedbackMsg;el.style.display="block";}}}else{button.classList.add("wrong");playBad();} }
+
+function toggleClue(id){ const el=document.getElementById(id); el.style.display=(el.style.display==="none"||el.style.display==="")?"inline":"none"; }
+
+function toggleTr(bulb){ const parent=bulb.parentElement; let frEl=parent.querySelector(".think-question-fr,.think-option-fr"); if(!frEl){const block=parent.closest(".think-question-block")||parent.parentElement;frEl=block.querySelector(".think-question-fr");} if(!frEl)return; frEl.style.display=(frEl.style.display==="none"||frEl.style.display==="")?"block":"none"; }
+
+/* CHECKBOX */
+function toggleCheckbox(item){ item.classList.toggle("selected"); }
+
+function toggleAllCbFr(){
+  document.querySelectorAll(".cb-fr").forEach(el=>{
+    el.style.display = (el.style.display==="none"||el.style.display==="") ? "inline" : "none";
+  });
+}
+
+function checkCheckbox(){
+  const correct = ["cb-wet","cb-soft","cb-sticky"];
+  const wrong   = ["cb-dry"];
+  let allOk = true;
+  correct.forEach(id=>{
+    const el=document.getElementById(id);
+    el.classList.remove("correct-checked","wrong-checked","missed");
+    if(el.classList.contains("selected")){ el.classList.add("correct-checked"); }
+    else{ el.classList.add("missed"); allOk=false; }
+  });
+  wrong.forEach(id=>{
+    const el=document.getElementById(id);
+    el.classList.remove("correct-checked","wrong-checked","missed");
+    if(el.classList.contains("selected")){ el.classList.add("wrong-checked"); allOk=false; }
+  });
+  const fb=document.getElementById("q2-feedback");
+  if(allOk){
+    fb.innerHTML="&#x2705; Yes! Mud is wet, soft and sticky. Not dry! / Oui&#x00A0;! La boue est mouill&#xe9;e, molle et collante. Pas s&#xe8;che&#x00A0;!";
+    fb.style.display="block"; playGood();
+  } else {
+    fb.innerHTML="Not quite! Tick: wet &#x2713;, soft &#x2713;, sticky &#x2713;. Not dry &#x2715; / Pas tout &#xe0; fait&#x00A0;! Coche&#x00A0;: mouill&#xe9;e, molle, collante. Pas s&#xe8;che&#x00A0;!";
+    fb.style.display="block"; playBad();
+  }
+}
+
+/* CROSSWORD */
+const CW_ANSWERS = {};
+
+function cwInput(input, row, col){
+  const val = input.value.toUpperCase();
+  input.value = val;
+  const correct = CW_ANSWERS[row+'-'+col];
+  if(val === correct){
+    input.style.color="#38b94a";
+    input.style.fontWeight="bold";
+  } else if(val !== ''){
+    input.style.color="#ff4d4d";
+  } else {
+    input.style.color="#173f7a";
+  }
+}
+
+function checkCrossword(){
+  let allCorrect = true;
+  for(const [key, letter] of Object.entries(CW_ANSWERS)){
+    const [row,col] = key.split('-');
+    const input = document.getElementById('cw-'+row+'-'+col);
+    if(!input) continue;
+    const val = (input.value||'').toUpperCase();
+    if(val === letter){
+      input.style.background="#38b94a";
+      input.style.color="white";
+    } else {
+      input.style.background="#ff4d4d";
+      input.style.color="white";
+      allCorrect = false;
+    }
+  }
+  const fb = document.getElementById("cw-feedback");
+  if(fb){
+    if(allCorrect){
+      fb.style.color="#38b94a";
+      playGood();
+    } else {
+      fb.style.color="#ff4d4d";
+      playBad();
+    }
+  }
+}
+
+let mediaRecorder,audioChunks=[],recordedAudio,isRecording=false;
+async function startRecording(){if(isRecording)return;try{isRecording=true;const btn=document.getElementById("recordBtn");if(btn){btn.style.opacity="0.5";btn.style.cursor="not-allowed";}document.getElementById("recordingStatus").style.display="block";const stream=await navigator.mediaDevices.getUserMedia({audio:true});mediaRecorder=new MediaRecorder(stream);audioChunks=[];mediaRecorder.ondataavailable=e=>audioChunks.push(e.data);mediaRecorder.onstop=()=>{const blob=new Blob(audioChunks,{type:'audio/webm'});recordedAudio=URL.createObjectURL(blob);};mediaRecorder.start();}catch(err){isRecording=false;document.getElementById("recordingStatus").style.display="none";const btn=document.getElementById("recordBtn");if(btn){btn.style.opacity="";btn.style.cursor="";}alert("Microphone not available.");}}
+function stopRecording(){if(mediaRecorder&&mediaRecorder.state!=="inactive"){mediaRecorder.stop();mediaRecorder.stream.getTracks().forEach(t=>t.stop());}isRecording=false;document.getElementById("recordingStatus").style.display="none";const btn=document.getElementById("recordBtn");if(btn){btn.style.opacity="";btn.style.cursor="";}}
+function playRecording(){if(recordedAudio){new Audio(recordedAudio).play();}else{alert("No recording yet. Press Record first!");}}
+function rateReading(button,message){button.parentElement.querySelectorAll("button").forEach(b=>b.classList.remove("correct"));button.classList.add("correct");new Audio("Assets/word-audio/star.mp3").play();document.getElementById("readingFeedback").innerHTML=message;}
+
+window.addEventListener('load',function(){ document.querySelectorAll('input[type="text"]').forEach(function(inp){ inp.value=''; inp.style.border='3px solid #dfefff'; }); });
+</script>
+</body>
+</html>
