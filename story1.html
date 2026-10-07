@@ -289,10 +289,10 @@ text-align:center;
 
 </head>
 
-<body translate="no" class="notranslate">
+<body translate="no" class="notranslate" data-mp-story="story1">
 
 <div class="top-bar">
-  <a href="index.html" class="back-button">⬅</a>
+  <a href="stories.html" class="back-button">⬅</a>
   <div class="story-title">Story 1 – Sam's cap</div>
   <button class="listen-icon" onclick="playFullStory()" title="Listen to full story">🔊 Listen</button>
 </div>
@@ -306,7 +306,7 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('a')">a</span>
     <span class="word" onclick="saySimpleWord('cap')">cap.</span>
     <button class="help-icon" onclick="toggleHelp('help1')">💡</button>
-    <div class="help-text" id="help1">Sam a une casquette.</div>
+    <div class="help-text" id="help1" data-tr="help1"></div>
   </div>
 
   <div class="sentence">
@@ -315,7 +315,7 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('is')">is</span>
     <span class="word" onclick="saySimpleWord('red')">red.</span>
     <button class="help-icon" onclick="toggleHelp('help2')">💡</button>
-    <div class="help-text" id="help2">La casquette est rouge.</div>
+    <div class="help-text" id="help2" data-tr="help2"></div>
   </div>
 
   <div class="sentence">
@@ -324,7 +324,7 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('a')">a</span>
     <span class="word" onclick="saySimpleWord('bag')">bag.</span>
     <button class="help-icon" onclick="toggleHelp('help3')">💡</button>
-    <div class="help-text" id="help3">Sam a un sac.</div>
+    <div class="help-text" id="help3" data-tr="help3"></div>
   </div>
 
   <div class="sentence">
@@ -334,7 +334,7 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('red')">red</span>
     <span class="word" onclick="saySimpleWord('too')">too.</span>
     <button class="help-icon" onclick="toggleHelp('help4')">💡</button>
-    <div class="help-text" id="help4">Le sac est rouge aussi.</div>
+    <div class="help-text" id="help4" data-tr="help4"></div>
   </div>
 
   <div class="sentence">
@@ -343,7 +343,7 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('to')">to</span>
     <span class="word" onclick="saySimpleWord('Dad')">Dad.</span>
     <button class="help-icon" onclick="toggleHelp('help5')">💡</button>
-    <div class="help-text" id="help5">Sam court vers Papa.</div>
+    <div class="help-text" id="help5" data-tr="help5"></div>
   </div>
 
   <div class="sentence">
@@ -352,7 +352,7 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('a')">a</span>
     <span class="word" onclick="saySimpleWord('cap')">cap.</span>
     <button class="help-icon" onclick="toggleHelp('help6')">💡</button>
-    <div class="help-text" id="help6">Papa a une casquette.</div>
+    <div class="help-text" id="help6" data-tr="help6"></div>
   </div>
 
   <div class="sentence">
@@ -360,7 +360,7 @@ text-align:center;
     <span class="word" onclick="saySimpleWord('is')">is</span>
     <span class="word" onclick="saySimpleWord('glad')">glad.</span>
     <button class="help-icon" onclick="toggleHelp('help7')">💡</button>
-    <div class="help-text" id="help7">Sam est content.</div>
+    <div class="help-text" id="help7" data-tr="help7"></div>
   </div>
 
 </div>
@@ -377,23 +377,10 @@ text-align:center;
     </video>
   </div>
   <br>
-  <a href="index.html" class="summary-button">📚 Back to Summary</a>
+  <a href="stories.html" class="summary-button">📚 Back to Summary</a>
 </div>
 
 <script>
-
-let selectedVoice = null;
-
-function loadVoice(){
-  const voices = window.speechSynthesis.getVoices();
-  /* FIX: try en-GB first, then en-US, then any English */
-  selectedVoice = voices.find(v => v.lang.includes("en-GB"))
-    || voices.find(v => v.lang.includes("en-US"))
-    || voices.find(v => v.lang.startsWith("en"));
-}
-
-speechSynthesis.onvoiceschanged = loadVoice;
-loadVoice();
 
 function toggleHelp(id){
   const el = document.getElementById(id);
@@ -405,14 +392,9 @@ function toggleVideo(){
   el.style.display = (el.style.display === "block") ? "none" : "block";
 }
 
+/* a tapped word shows its explanation bubble (no robot voice) */
 function saySimpleWord(word){
-  stopFullStory();
-  window.speechSynthesis.cancel();
-  const speech = new SpeechSynthesisUtterance(word);
-  speech.lang = "en-GB";
-  speech.rate = 0.7;
-  speech.voice = selectedVoice;
-  window.speechSynthesis.speak(speech);
+  if (window.MP) MP.showWord(word, window.event && window.event.currentTarget);
 }
 
 let storyAudio = null;
@@ -447,6 +429,9 @@ function playFullStory(){
 }
 
 </script>
+
+<script src="Assets/lang/translations.js"></script>
+<script src="Assets/lang/lang.js"></script>
 
 </body>
 </html>

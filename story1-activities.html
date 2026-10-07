@@ -68,7 +68,7 @@ body{ padding:10px; }
 .think-feedback{ margin-top:14px; font-size:20px; font-weight:700; color:#173f7a; background:#eef4ff; border-radius:16px; padding:14px 18px; display:none; line-height:1.6; }
 </style>
 </head>
-<body translate="no" class="notranslate">
+<body translate="no" class="notranslate" data-mp-story="story1">
 
 <div class="top-bar">
   <a href="story1.html" class="back-button">⬅</a>
@@ -158,23 +158,24 @@ body{ padding:10px; }
 
 <!-- ACTIVITY 4 -->
 <div class="activity-box">
-  <div class="activity-title">🎯 Activity 4 — Translation</div>
-  <div class="cards">
+  <div class="activity-title" data-mp-title-en="🎯 Activity 4 — Listen and choose the picture">🎯 Activity 4 — Translation</div>
+  <div class="cards" data-mp-hide="en">
     <div class="card">
-      <div style="font-size:34px;font-weight:bold;color:#173f7a;line-height:1.5;">Le sac est rouge.</div>
+      <div style="font-size:34px;font-weight:bold;color:#173f7a;line-height:1.5;" data-tr="tr1"></div>
       <br>
-      <input type="text" id="translate1" class="word-input" placeholder="Write in English">
+      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" id="translate1" class="word-input" placeholder="Write in English">
       <br><br>
       <button class="check-button" onclick="checkFlexibleAnswer('translate1',['The bag is red.','the bag is red','the bag is red.'],this)">Check</button>
     </div>
     <div class="card">
-      <div style="font-size:34px;font-weight:bold;color:#173f7a;line-height:1.5;">Papa a un sac.</div>
+      <div style="font-size:34px;font-weight:bold;color:#173f7a;line-height:1.5;" data-tr="tr2"></div>
       <br>
-      <input type="text" id="translate2" class="word-input" placeholder="Write in English">
+      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly')" id="translate2" class="word-input" placeholder="Write in English">
       <br><br>
       <button class="check-button" onclick="checkFlexibleAnswer('translate2',['Dad has a bag.','dad has a bag.','dad has a bag'],this)">Check</button>
     </div>
   </div>
+  <div class="cards" data-mp-only="en" data-mp-listen hidden></div>
 </div>
 
 <!-- ACTIVITY 5 -->
@@ -220,10 +221,7 @@ body{ padding:10px; }
     <span style="font-size:18px;font-weight:700;color:#5c6f8f;line-height:1.6;">
       These questions are linked to the <em>British Curriculum — KG1/KG2 Science</em> programme:<br>
       properties of materials (soft / hard) and uses of objects.<br>
-      <span style="font-size:16px;font-style:italic;font-weight:600;">
-        Ces questions sont li&#xe9;es au programme de <em>Sciences / cursus British KG1&#x2011;KG2</em>&#x00A0;&#x2014;
-        les propri&#xe9;t&#xe9;s des mat&#xe9;riaux et les fonctions des objets.
-      </span>
+      <span style="font-size:16px;font-style:italic;font-weight:600;" data-tr="thinkIntro" data-mp-hide="en"></span>
     </span>
   </div>
   <div class="think-question-block">
@@ -231,21 +229,21 @@ body{ padding:10px; }
       <div class="think-question">What is a cap for?</div>
       <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
     </div>
-    <div class="think-question-fr">&#xC0; quoi sert une casquette&#xA0;?</div>
+    <div class="think-question-fr" data-tr="q1"></div>
     <div class="think-option">
-      <button class="think-btn" onclick="checkThink(this,true,'q1-feedback','&#x2600;&#xFE0F; Yes! A cap protects your head from the sun. / Oui&#x00A0;! Une casquette prot&#xe8;ge la t&#xea;te du soleil.')">A. A cap is for the sun.</button>
+      <button class="think-btn" onclick="checkThink(this,true,'q1-feedback','&#x2600;&#xFE0F; Yes! A cap protects your head from the sun.')">A. A cap is for the sun.</button>
       <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
-      <div class="think-option-fr">Une casquette prot&#xe8;ge du soleil.</div>
+      <div class="think-option-fr" data-tr="q1a"></div>
     </div>
     <div class="think-option">
       <button class="think-btn" onclick="checkThink(this,false,'q1-feedback','')">B. A cap is for the feet.</button>
       <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
-      <div class="think-option-fr">Une casquette est pour les pieds.</div>
+      <div class="think-option-fr" data-tr="q1b"></div>
     </div>
     <div class="think-option">
       <button class="think-btn" onclick="checkThink(this,false,'q1-feedback','')">C. A cap is for the hand.</button>
       <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
-      <div class="think-option-fr">Une casquette est pour la main.</div>
+      <div class="think-option-fr" data-tr="q1c"></div>
     </div>
     <div id="q1-feedback" class="think-feedback"></div>
   </div>
@@ -255,16 +253,16 @@ body{ padding:10px; }
       <div class="think-question">Is a cap soft or hard?</div>
       <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
     </div>
-    <div class="think-question-fr">Est-ce qu&#x2019;une casquette est douce ou dure&#xA0;?</div>
+    <div class="think-question-fr" data-tr="q2"></div>
     <div class="think-option">
-      <button class="think-btn" onclick="checkThink(this,true,'q2-feedback','&#x1F44D; Correct! A cap is soft &#x2014; you can bend it. / Correct&#x00A0;! Une casquette est douce &#x2014; on peut la plier.')">A. Soft.</button>
+      <button class="think-btn" onclick="checkThink(this,true,'q2-feedback','&#x1F44D; Correct! A cap is soft &#x2014; you can bend it.')">A. Soft.</button>
       <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
-      <div class="think-option-fr">Douce / molle.</div>
+      <div class="think-option-fr" data-tr="q2a"></div>
     </div>
     <div class="think-option">
       <button class="think-btn" onclick="checkThink(this,false,'q2-feedback','')">B. Hard.</button>
       <button class="hint-bulb" onclick="toggleTr(this)">&#x1F4A1;</button>
-      <div class="think-option-fr">Dure.</div>
+      <div class="think-option-fr" data-tr="q2b"></div>
     </div>
     <div id="q2-feedback" class="think-feedback"></div>
   </div>
@@ -300,7 +298,7 @@ body{ padding:10px; }
 <div style="text-align:center;margin-top:45px;margin-bottom:60px;">
   <button class="choice-button" onclick="location.reload()">🔄 Restart Activities</button>
   <br><br>
-  <a href="index.html" style="text-decoration:none;">
+  <a href="stories.html" style="text-decoration:none;">
     <button class="choice-button">📚 Back to Summary</button>
   </a>
 </div>
@@ -415,7 +413,7 @@ function playRecording(){
 function checkThink(button, isCorrect, feedbackId, feedbackMsg){
   if(isCorrect){
     button.classList.add("correct"); playGood();
-    if(feedbackId && feedbackMsg){ const el=document.getElementById(feedbackId); if(el){el.innerHTML=feedbackMsg;el.style.display="block";} }
+    if(feedbackId && feedbackMsg){ const el=document.getElementById(feedbackId); if(el){el.innerHTML=window.MP?MP.feedback(feedbackId,feedbackMsg):feedbackMsg;el.style.display="block";} }
   } else { button.classList.add("wrong"); playBad(); }
 }
 
@@ -434,5 +432,7 @@ function rateReading(button, message){
   document.getElementById("readingFeedback").innerHTML = message;
 }
 </script>
+<script src="Assets/lang/translations.js"></script>
+<script src="Assets/lang/lang.js"></script>
 </body>
 </html>

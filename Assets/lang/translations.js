@@ -1,0 +1,118 @@
+/* MuslimPhonics – tableau unique des traductions.
+   Une clé = un emplacement dans la page (attribut data-tr="clé").
+   fr / ar : texte affiché comme aide. Pour ajouter une langue : ajouter un bloc
+   (ex. "ur": {...}) dans chaque histoire + une entrée dans MP_LANGS ; aucun code à toucher.
+   Si une clé manque dans une langue, le français est affiché.
+   en : pas de traduction ; images des 💡 et activité « Listen and choose the picture ».
+   clips : début et fin (en secondes) de chaque phrase dans <story>/full.mp3 (voix Beth),
+   repérés par les silences ; 👂 et « Listen » (activités) jouent ce passage.
+   wordTimes : début de chaque mot, pour le surlignage synchronisé.
+   MP_WORDS : sens des mots touchés dans l'histoire (glossaire commun au livre).
+   ⚠ Traductions arabes à faire relire par un humain avant la vente. */
+
+window.MP_LANGS = [
+  { code: "en", label: "English" },
+  { code: "fr", label: "Français" },
+  { code: "ar", label: "العربية", rtl: true, hidden: true }  /* masqué jusqu'à la relecture par une enseignante d'arabe */
+];
+
+/* Libellés des boutons, dans la langue choisie. */
+window.MP_UI = {
+  slow: { en: "Slow reading", fr: "Lecture lente", ar: "قِرَاءَةٌ بَطِيئَةٌ" }
+};
+
+/* Glossaire du livre : bulle affichée quand on touche un mot de l'histoire
+   (sens du mot, pas de grammaire). Une entrée par mot, en minuscules,
+   commune à toutes les histoires. img = image montrée dans toutes les langues. */
+window.MP_WORDS = {
+  sam:  { fr: "prénom d'un garçon", ar: "اِسْمُ وَلَدٍ", en: "a boy's name", img: "story1-boy" },
+  dad:  { fr: "papa", ar: "أَبٌ", en: "father", img: "dad" },
+  cap:  { fr: "casquette", ar: "قُبَّعَةٌ", en: "", img: "cap" },
+  bag:  { fr: "sac", ar: "حَقِيبَةٌ", en: "", img: "bag" },
+  has:  { fr: "a (avoir)", ar: "عِنْدَهُ", en: "<i>to have</i>" },
+  is:   { fr: "est (être)", ar: "يَكُونُ", en: "<i>to be</i>" },
+  runs: { fr: "court", ar: "يَرْكُضُ", en: "<i>to run</i>", img: "ran" },
+  red:  { fr: "rouge", ar: "أَحْمَرُ", en: "", img: "red" },
+  glad: { fr: "content", ar: "سَعِيدٌ", en: "happy", img: "story1-boy" },
+  a:    { fr: "un / une", ar: "وَاحِدٌ", en: "one" },
+  the:  { fr: "le / la", ar: "الْ", en: "" },
+  to:   { fr: "vers", ar: "إِلَى", en: "towards" },
+  too:  { fr: "aussi", ar: "أَيْضًا", en: "also" }
+};
+
+window.MP_TR = {
+
+  story1: {
+    fr: {
+      help1: "Sam a une casquette.",
+      help2: "La casquette est rouge.",
+      help3: "Sam a un sac.",
+      help4: "Le sac est rouge aussi.",
+      help5: "Sam court vers Papa.",
+      help6: "Papa a une casquette.",
+      help7: "Sam est content.",
+      tr1: "Le sac est rouge.",
+      tr2: "Papa a un sac.",
+      thinkIntro: "Ces questions sont liées au programme de <em>Sciences / cursus British KG1‑KG2</em> — les propriétés des matériaux et les fonctions des objets.",
+      q1: "À quoi sert une casquette ?",
+      q1a: "Une casquette protège du soleil.",
+      q1b: "Une casquette est pour les pieds.",
+      q1c: "Une casquette est pour la main.",
+      "q1-feedback": "Oui ! Une casquette protège la tête du soleil.",
+      q2: "Est-ce qu’une casquette est douce ou dure ?",
+      q2a: "Douce / molle.",
+      q2b: "Dure.",
+      "q2-feedback": "Correct ! Une casquette est douce — on peut la plier."
+    },
+    ar: {
+      help1: "عِنْدَ سَامٍ قُبَّعَةٌ.",
+      help2: "الْقُبَّعَةُ حَمْرَاءُ.",
+      help3: "عِنْدَ سَامٍ حَقِيبَةٌ.",
+      help4: "الْحَقِيبَةُ حَمْرَاءُ أَيْضًا.",
+      help5: "يَرْكُضُ سَامٌ إِلَى أَبِيهِ.",
+      help6: "عِنْدَ أَبِيهِ قُبَّعَةٌ.",
+      help7: "سَامٌ سَعِيدٌ.",
+      tr1: "الْحَقِيبَةُ حَمْرَاءُ.",
+      tr2: "عِنْدَ أَبِي حَقِيبَةٌ.",
+      thinkIntro: "هَذِهِ الْأَسْئِلَةُ مُرْتَبِطَةٌ بِبَرْنَامَجِ الْعُلُومِ فِي الْمَنْهَجِ الْبِرِيطَانِيِّ (⁦KG1‑KG2⁩): خَصَائِصُ الْمَوَادِّ وَوَظَائِفُ الْأَشْيَاءِ.",
+      q1: "مَا فَائِدَةُ الْقُبَّعَةِ؟",
+      q1a: "الْقُبَّعَةُ تَحْمِي مِنَ الشَّمْسِ.",
+      q1b: "الْقُبَّعَةُ لِلْقَدَمَيْنِ.",
+      q1c: "الْقُبَّعَةُ لِلْيَدِ.",
+      "q1-feedback": "نَعَمْ! الْقُبَّعَةُ تَحْمِي الرَّأْسَ مِنَ الشَّمْسِ.",
+      q2: "هَلِ الْقُبَّعَةُ لَيِّنَةٌ أَمْ صُلْبَةٌ؟",
+      q2a: "لَيِّنَةٌ.",
+      q2b: "صُلْبَةٌ.",
+      "q2-feedback": "صَحِيحٌ! الْقُبَّعَةُ لَيِّنَةٌ، يُمْكِنُنَا أَنْ نَطْوِيَهَا."
+    },
+    clips: {
+      help1: [2.96, 4.31], help2: [6.36, 7.55], help3: [9.80, 11.00], help4: [12.58, 14.07],
+      help5: [15.56, 17.13], help6: [19.10, 20.12], help7: [21.89, 23.22]
+    },
+    /* début (en secondes) de chaque mot de chaque phrase, pour le surlignage
+       pendant la lecture ; repéré par reconnaissance vocale (Whisper) */
+    wordTimes: {
+      help1: [2.96, 3.40, 3.84, 4.02],
+      help2: [6.36, 6.44, 6.74, 7.04],
+      help3: [9.80, 10.12, 10.38, 10.54],
+      help4: [12.58, 12.66, 12.98, 13.18, 13.48],
+      help5: [15.56, 15.90, 16.20, 16.56],
+      help6: [19.10, 19.32, 19.56, 19.72],
+      help7: [21.89, 22.31, 22.61]
+    },
+    en: {
+      /* image montrée par chaque 💡 de l'histoire (Assets/images/<nom>.png) */
+      helpImg: {
+        help1: "cap", help2: "red", help3: "bag", help4: "bag",
+        help5: "ran", help6: "dad", help7: "story1-boy"
+      },
+      /* remplace l'activité Translation ; clip = phrase de l'histoire jouée ;
+         correct = position (0, 1, 2) de la bonne image */
+      listen: [
+        { clip: "help4", say: "The bag is red too.", images: ["cap", "bag", "dad"], correct: 1 },
+        { clip: "help6", say: "Dad has a cap.",      images: ["dad", "story1-boy", "ran"], correct: 0 }
+      ]
+    }
+  }
+
+};
