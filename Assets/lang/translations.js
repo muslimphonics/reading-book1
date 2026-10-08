@@ -24,12 +24,14 @@ window.MP_UI = {
 
 /* Glossaire du livre : bulle affichée quand on touche un mot de l'histoire
    (sens du mot, pas de grammaire). Une entrée par mot, en minuscules,
-   commune à toutes les histoires. img = image montrée dans toutes les langues. */
+   commune à toutes les histoires. img = image montrée dans toutes les langues.
+   En arabe, « a » / « the » + nom se touchent ensemble : ar = nom avec tanwīn
+   (a cap), arAl = nom avec alif lām (the cap) ; à remplir pour chaque nom. */
 window.MP_WORDS = {
   sam:  { fr: "prénom d'un garçon", ar: "سَامْ", en: "a boy's name", img: "story1-boy" },
   dad:  { fr: "papa", ar: "الْأَبُ", en: "father", img: "dad" },
-  cap:  { fr: "casquette", ar: "قُبَّعَةٌ", en: "", img: "cap" },
-  bag:  { fr: "sac", ar: "حَقِيبَةٌ", en: "", img: "bag" },
+  cap:  { fr: "casquette", ar: "قُبَّعَةٌ", arAl: "الْقُبَّعَةُ", en: "", img: "cap" },
+  bag:  { fr: "sac", ar: "حَقِيبَةٌ", arAl: "الْحَقِيبَةُ", en: "", img: "bag" },
   has:  { fr: "a (avoir)", ar: "لَدَى / عِنْدَ", en: "<i>to have</i>" },
   is:   { fr: "est (être)", ar: "فِعْلُ ⁦to be⁩", en: "<i>to be</i>" },
   runs: { fr: "court", ar: "يَرْكُضُ", en: "<i>to run</i>", img: "ran" },

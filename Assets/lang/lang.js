@@ -84,6 +84,7 @@
     '.mp-slow .mp-ar{font-size:1.15em;line-height:1;}' +
     '@media(max-width:700px){.mp-slow{font-size:16px;padding:8px 12px;}.top-bar:has(.mp-slow){flex-wrap:wrap;gap:8px;}.top-bar:has(.mp-slow) .story-title{flex:1 1 calc(100% - 80px);}.mp-slow .mp-ar{font-size:1em;}}' +
     '.word.mp-hl{background:#ffd54f;}' +
+    '.word.mp-pair{background:#e8f7df;}' +
     '.mp-instr-bulb{vertical-align:middle;margin-left:10px;}' +
     '.mp-instr-text{display:none;font-size:20px;font-weight:600;font-style:italic;color:#5c6f8f;text-transform:none;letter-spacing:0;margin-top:10px;line-height:1.5;}' +
     '.mp-word-bubble{position:absolute;z-index:60;max-width:min(340px,90vw);background:#fffdf8;border:3px solid #173f7a;border-radius:20px;padding:14px 18px;box-shadow:0 10px 25px rgba(0,0,0,0.18);color:#173f7a;font-family:Arial,sans-serif;line-height:1.4;}' +
@@ -257,15 +258,40 @@
   }
 
   /* Bulle du sens d'un mot : image + sens dans la langue choisie (MP_WORDS). */
-  var bubble = null;
-  function closeWord() { if (bubble) { bubble.remove(); bubble = null; } }
+  var bubble = null, pairEls = [];
+  function closeWord() {
+    if (bubble) { bubble.remove(); bubble = null; }
+    pairEls.forEach(function (x) { x.classList.remove("mp-pair"); });
+    pairEls = [];
+  }
+  function wordKey(el) { return el ? el.textContent.toLowerCase().replace(/[^a-z']/g, "") : ""; }
+  function wordSib(el, dir) {
+    var s = el;
+    do { s = dir > 0 ? s.nextElementSibling : s.previousElementSibling; } while (s && !s.classList.contains("word"));
+    return s;
+  }
+  /* En arabe, « a » / « the » + nom forment un seul bloc :
+     a cap = قُبَّعَةٌ (tanwīn, champ ar) ; the cap = الْقُبَّعَةُ (alif lām, champ arAl). */
+  function arPair(el) {
+    var k = wordKey(el), art, noun;
+    if (k === "a" || k === "the") { art = el; noun = wordSib(el, 1); }
+    else { noun = el; art = wordSib(el, -1); }
+    if (!art || !noun) return null;
+    var ak = wordKey(art), w = (window.MP_WORDS || {})[wordKey(noun)];
+    if (!w || (ak !== "a" && ak !== "the")) return null;
+    var text = ak === "a" ? w.ar : w.arAl;
+    return text ? { els: [art, noun], w: w, text: text } : null;
+  }
   MP.showWord = function (word, el) {
     closeWord();
     var key = String(word).toLowerCase().replace(/[^a-z']/g, "");
     var w = (window.MP_WORDS || {})[key];
+    var pair = MP.lang === "ar" && el ? arPair(el) : null;
+    if (pair) { w = pair.w; pairEls = pair.els; el = pairEls[0]; pairEls.forEach(function (x) { x.classList.add("mp-pair"); }); }
     if (!w || !el) return;
-    var text = MP.lang === "en" ? w.en : (w[MP.lang] || w.fr);
-    var html = '<div class="mp-word-title">' + esc(el.textContent.replace(/[.,!?]/g, "").trim()) + '</div>';
+    var text = pair ? pair.text : MP.lang === "en" ? w.en : (w[MP.lang] || w.fr);
+    var title = pair ? pairEls.map(function (x) { return x.textContent; }).join(" ") : el.textContent;
+    var html = '<div class="mp-word-title">' + esc(title.replace(/[.,!?]/g, "").trim()) + '</div>';
     if (w.img) html += '<span class="mp-help-pic"><img src="Assets/images/' + w.img + '.png" alt=""></span>';
     if (text) html += '<div class="mp-word-text">' + (MP.lang === "ar" ? arHTML(text) : text) + '</div>';
     bubble = document.createElement("div");
