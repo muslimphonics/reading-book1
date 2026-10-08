@@ -9,7 +9,7 @@
    wordTimes : début de chaque mot, pour le surlignage synchronisé.
    MP_WORDS : sens des mots touchés dans l'histoire (glossaire commun au livre).
    Arabe Story 1 + glossaire : relus et validés par la collègue prof d'arabe (08/10/2026).
-   ⚠ Arabe à faire relire pour le reste (consignes MP_INSTR, « is », « a », « Slow reading »). */
+   ⚠ Arabe à faire relire pour le reste (consignes MP_INSTR, « a », « Slow reading »). */
 
 window.MP_LANGS = [
   { code: "en", label: "English" },
@@ -31,7 +31,7 @@ window.MP_WORDS = {
   cap:  { fr: "casquette", ar: "قُبَّعَةٌ", en: "", img: "cap" },
   bag:  { fr: "sac", ar: "حَقِيبَةٌ", en: "", img: "bag" },
   has:  { fr: "a (avoir)", ar: "لَدَى / عِنْدَ", en: "<i>to have</i>" },
-  is:   { fr: "est (être)", ar: "يَكُونُ", en: "<i>to be</i>" },
+  is:   { fr: "est (être)", ar: "فِعْلُ ⁦to be⁩", en: "<i>to be</i>" },
   runs: { fr: "court", ar: "يَرْكُضُ", en: "<i>to run</i>", img: "ran" },
   red:  { fr: "rouge", ar: "أَحْمَرُ", en: "", img: "red" },
   glad: { fr: "content", ar: "مَسْرُورٌ", en: "happy", img: "story1-boy" },
