@@ -8,7 +8,8 @@
    repérés par les silences ; 👂 et « Listen » (activités) jouent ce passage.
    wordTimes : début de chaque mot, pour le surlignage synchronisé.
    MP_WORDS : sens des mots touchés dans l'histoire (glossaire commun au livre).
-   ⚠ Traductions arabes à faire relire par un humain avant la vente. */
+   Arabe Story 1 + glossaire : relus et validés par la collègue prof d'arabe (08/10/2026).
+   ⚠ Arabe à faire relire pour le reste (consignes MP_INSTR, « is », « a », « Slow reading »). */
 
 window.MP_LANGS = [
   { code: "en", label: "English" },
@@ -25,17 +26,17 @@ window.MP_UI = {
    (sens du mot, pas de grammaire). Une entrée par mot, en minuscules,
    commune à toutes les histoires. img = image montrée dans toutes les langues. */
 window.MP_WORDS = {
-  sam:  { fr: "prénom d'un garçon", ar: "اِسْمُ وَلَدٍ", en: "a boy's name", img: "story1-boy" },
-  dad:  { fr: "papa", ar: "أَبٌ", en: "father", img: "dad" },
+  sam:  { fr: "prénom d'un garçon", ar: "سَامْ", en: "a boy's name", img: "story1-boy" },
+  dad:  { fr: "papa", ar: "الْأَبُ", en: "father", img: "dad" },
   cap:  { fr: "casquette", ar: "قُبَّعَةٌ", en: "", img: "cap" },
   bag:  { fr: "sac", ar: "حَقِيبَةٌ", en: "", img: "bag" },
-  has:  { fr: "a (avoir)", ar: "عِنْدَهُ", en: "<i>to have</i>" },
+  has:  { fr: "a (avoir)", ar: "لَدَى / عِنْدَ", en: "<i>to have</i>" },
   is:   { fr: "est (être)", ar: "يَكُونُ", en: "<i>to be</i>" },
   runs: { fr: "court", ar: "يَرْكُضُ", en: "<i>to run</i>", img: "ran" },
   red:  { fr: "rouge", ar: "أَحْمَرُ", en: "", img: "red" },
-  glad: { fr: "content", ar: "سَعِيدٌ", en: "happy", img: "story1-boy" },
+  glad: { fr: "content", ar: "مَسْرُورٌ", en: "happy", img: "story1-boy" },
   a:    { fr: "un / une", ar: "وَاحِدٌ", en: "one" },
-  the:  { fr: "le / la", ar: "الْ", en: "" },
+  the:  { fr: "le / la", ar: "الْـ", en: "" },
   to:   { fr: "vers", ar: "إِلَى", en: "towards" },
   too:  { fr: "aussi", ar: "أَيْضًا", en: "also" }
 };
@@ -97,25 +98,25 @@ window.MP_TR = {
       "q2-feedback": "Correct ! Une casquette est douce — on peut la plier."
     },
     ar: {
-      help1: "عِنْدَ سَامٍ قُبَّعَةٌ.",
+      help1: "لَدَى سَامْ قُبَّعَةٌ.",
       help2: "الْقُبَّعَةُ حَمْرَاءُ.",
-      help3: "عِنْدَ سَامٍ حَقِيبَةٌ.",
+      help3: "لَدَى سَامْ حَقِيبَةٌ.",
       help4: "الْحَقِيبَةُ حَمْرَاءُ أَيْضًا.",
-      help5: "يَرْكُضُ سَامٌ إِلَى أَبِيهِ.",
-      help6: "عِنْدَ أَبِيهِ قُبَّعَةٌ.",
-      help7: "سَامٌ سَعِيدٌ.",
+      help5: "يَرْكُضُ سَامْ إِلَى أَبِيهِ.",
+      help6: "لَدَى الْأَبِ قُبَّعَةٌ.",
+      help7: "سَامْ مَسْرُورٌ.",
       tr1: "الْحَقِيبَةُ حَمْرَاءُ.",
-      tr2: "عِنْدَ أَبِي حَقِيبَةٌ.",
-      thinkIntro: "هَذِهِ الْأَسْئِلَةُ مُرْتَبِطَةٌ بِبَرْنَامَجِ الْعُلُومِ فِي الْمَنْهَجِ الْبِرِيطَانِيِّ (⁦KG1‑KG2⁩): خَصَائِصُ الْمَوَادِّ وَوَظَائِفُ الْأَشْيَاءِ.",
+      tr2: "لَدَى الْأَبِ حَقِيبَةٌ.",
+      thinkIntro: "هَذِهِ الْأَسْئِلَةُ مُرْتَبِطَةٌ بِمَنْهَجِ الْعُلُومِ الْبِرِيطَانِيِّ (⁦KG1–KG2⁩): خَصَائِصُ الْمَوَادِّ وَاسْتِعْمَالَاتُ الْأَشْيَاءِ.",
       q1: "مَا فَائِدَةُ الْقُبَّعَةِ؟",
-      q1a: "الْقُبَّعَةُ تَحْمِي مِنَ الشَّمْسِ.",
+      q1a: "الْقُبَّعَةُ تَحْمِي الرَّأْسَ مِنَ الشَّمْسِ.",
       q1b: "الْقُبَّعَةُ لِلْقَدَمَيْنِ.",
       q1c: "الْقُبَّعَةُ لِلْيَدِ.",
       "q1-feedback": "نَعَمْ! الْقُبَّعَةُ تَحْمِي الرَّأْسَ مِنَ الشَّمْسِ.",
-      q2: "هَلِ الْقُبَّعَةُ لَيِّنَةٌ أَمْ صُلْبَةٌ؟",
+      q2: "هَلِ الْقُبَّعَةُ لَيِّنَةٌ أَمْ صَلْبَةٌ؟",
       q2a: "لَيِّنَةٌ.",
-      q2b: "صُلْبَةٌ.",
-      "q2-feedback": "صَحِيحٌ! الْقُبَّعَةُ لَيِّنَةٌ، يُمْكِنُنَا أَنْ نَطْوِيَهَا."
+      q2b: "صَلْبَةٌ.",
+      "q2-feedback": "صَحِيحٌ! الْقُبَّعَةُ لَيِّنَةٌ، يُمْكِنُكَ طَيُّهَا."
     },
     clips: {
       help1: [2.96, 4.31], help2: [6.36, 7.55], help3: [9.80, 11.00], help4: [12.58, 14.07],
