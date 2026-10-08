@@ -84,6 +84,8 @@
     '.mp-slow .mp-ar{font-size:1.15em;line-height:1;}' +
     '@media(max-width:700px){.mp-slow{font-size:16px;padding:8px 12px;}.top-bar:has(.mp-slow){flex-wrap:wrap;gap:8px;}.top-bar:has(.mp-slow) .story-title{flex:1 1 calc(100% - 80px);}.mp-slow .mp-ar{font-size:1em;}}' +
     '.word.mp-hl{background:#ffd54f;}' +
+    '.mp-instr-bulb{vertical-align:middle;margin-left:10px;}' +
+    '.mp-instr-text{display:none;font-size:20px;font-weight:600;font-style:italic;color:#5c6f8f;text-transform:none;letter-spacing:0;margin-top:10px;line-height:1.5;}' +
     '.mp-word-bubble{position:absolute;z-index:60;max-width:min(340px,90vw);background:#fffdf8;border:3px solid #173f7a;border-radius:20px;padding:14px 18px;box-shadow:0 10px 25px rgba(0,0,0,0.18);color:#173f7a;font-family:Arial,sans-serif;line-height:1.4;}' +
     '.mp-word-title{font-size:30px;font-weight:bold;margin-bottom:6px;}' +
     '.mp-word-text{font-size:22px;font-weight:bold;margin-top:6px;}' +
@@ -319,6 +321,39 @@
     });
   }
 
+  /* ---------- 💡 des consignes (MP_INSTR) ---------- */
+  function instrKey(el) {
+    var t = "";
+    for (var n = el.firstChild; n; n = n.nextSibling) {
+      if (n.nodeType === 1 && /mp-instr-/.test(n.className)) continue;
+      t += n.nodeType === 1 && n.tagName === "BR" ? " " : n.textContent;
+    }
+    return t.replace(/^.*?Activity\s*\d+\s*[—–-]\s*/i, "")
+      .replace(/[^A-Za-z]+$/, "").replace(/^[^A-Za-z]+/, "")
+      .replace(/\s+/g, " ").toLowerCase();
+  }
+  function addInstr(lang) {
+    var els = document.querySelectorAll(".activity-title,[data-mp-instr]");
+    for (var i = 0; i < els.length; i++) (function (el) {
+      var old = el.querySelectorAll(".mp-instr-bulb,.mp-instr-text");
+      for (var j = 0; j < old.length; j++) old[j].remove();
+      if (lang === "en") return;
+      var tr = (window.MP_INSTR || {})[instrKey(el)];
+      var txt = tr && (tr[lang] || tr.fr);
+      if (!txt) return;
+      var b = document.createElement("button");
+      b.className = "hint-bulb mp-instr-bulb";
+      b.textContent = "💡";
+      b.setAttribute("aria-label", "Translation");
+      var box = document.createElement("div");
+      box.className = "mp-instr-text";
+      box.innerHTML = lang === "ar" ? arHTML(txt) : esc(txt);
+      b.onclick = function () { box.style.display = box.style.display === "block" ? "none" : "block"; };
+      el.appendChild(b);
+      el.appendChild(box);
+    })(els[i]);
+  }
+
   /* ---------- application de la langue à la page ---------- */
   function apply() {
     var lang = MP.lang;
@@ -370,6 +405,7 @@
       els[i].innerHTML = lang === "ar" ? arHTML(lbl) : esc(lbl);
     }
 
+    addInstr(lang);
     linkLang();
 
     els = document.querySelectorAll(".mp-lang-btn");

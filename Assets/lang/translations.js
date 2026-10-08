@@ -40,6 +40,38 @@ window.MP_WORDS = {
   too:  { fr: "aussi", ar: "أَيْضًا", en: "also" }
 };
 
+/* Consignes des activités : 💡 à côté de chaque consigne en anglais
+   (titres d'activité + phrases marquées data-mp-instr), communes à tout le livre.
+   Clé = consigne anglaise en minuscules, sans emoji, sans « Activity N — »
+   ni ponctuation finale. Pas de 💡 en English. */
+window.MP_INSTR = {
+  "look at the picture. mark the correct word": { fr: "Regarde l'image. Choisis le bon mot." },
+  "match the word to the picture": { fr: "Relie le mot à la bonne image." },
+  "type the word": { fr: "Écris le mot." },
+  "choose the correct sentence": { fr: "Choisis la bonne phrase." },
+  "choose the correct word": { fr: "Choisis le bon mot." },
+  "translation": { fr: "Traduction : écris la phrase en anglais." },
+  "find the word in the text": { fr: "Trouve le mot dans le texte." },
+  "look at the picture. find it in the text": { fr: "Regarde l'image. Trouve ce mot dans le texte." },
+  "think together": { fr: "Réfléchissons ensemble." },
+  "read and listen to yourself": { fr: "Lis et écoute-toi." },
+  "read the story aloud. record your voice and listen to yourself": { fr: "Lis l'histoire à voix haute. Enregistre ta voix, puis écoute-toi." },
+  "how was your reading": { fr: "Comment était ta lecture ?" },
+  "find the rhyme": { fr: "Trouve le mot qui rime." },
+  "look at the picture and write a sentence": { fr: "Regarde l'image et écris une phrase." },
+  "put the sentences in order": { fr: "Remets les phrases dans l'ordre." },
+  "unscramble the letters": { fr: "Remets les lettres dans l'ordre." },
+  "memory": { fr: "Jeu de mémoire." },
+  "crossword": { fr: "Mots croisés." },
+  "match the picture to the sentence": { fr: "Relie l'image à la bonne phrase." },
+  "word search": { fr: "Mots cachés." },
+  "reveal the puzzle": { fr: "Découvre l'image cachée." },
+  "sort into the basket": { fr: "Range dans le panier." },
+  "true or false": { fr: "Vrai ou faux ?" },
+  "fill in the blank": { fr: "Complète avec le mot qui manque." },
+  "riddle": { fr: "Devinette." }
+};
+
 window.MP_TR = {
 
   story1: {
